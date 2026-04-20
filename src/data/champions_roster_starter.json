@@ -1,0 +1,1252 @@
+{
+  "source": "Starter roster file for Pok\u00e9mon Champions app",
+  "notes": [
+    "This is a starter file, not a complete scrape of the full Champions roster.",
+    "It is structured to be easy to expand into the full roster later.",
+    "spriteKey is a placeholder stable identifier for sprite mapping."
+  ],
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "dex": 658,
+      "name": "Greninja",
+      "form": null,
+      "types": [
+        "Water",
+        "Dark"
+      ],
+      "aliases": [
+        "greninja",
+        "ninja"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "greninja",
+      "spriteKey": "greninja"
+    },
+    {
+      "dex": 6,
+      "name": "Charizard",
+      "form": null,
+      "types": [
+        "Fire",
+        "Flying"
+      ],
+      "aliases": [
+        "charizard",
+        "zard"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "charizard",
+      "spriteKey": "charizard"
+    },
+    {
+      "dex": 445,
+      "name": "Garchomp",
+      "form": null,
+      "types": [
+        "Dragon",
+        "Ground"
+      ],
+      "aliases": [
+        "garchomp",
+        "chomp"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "garchomp",
+      "spriteKey": "garchomp"
+    },
+    {
+      "dex": 212,
+      "name": "Scizor",
+      "form": null,
+      "types": [
+        "Bug",
+        "Steel"
+      ],
+      "aliases": [
+        "scizor",
+        "sciz"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "scizor",
+      "spriteKey": "scizor"
+    },
+    {
+      "dex": 149,
+      "name": "Dragonite",
+      "form": null,
+      "types": [
+        "Dragon",
+        "Flying"
+      ],
+      "aliases": [
+        "dragonite",
+        "dnite"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "dragonite",
+      "spriteKey": "dragonite"
+    },
+    {
+      "dex": 94,
+      "name": "Gengar",
+      "form": null,
+      "types": [
+        "Ghost",
+        "Poison"
+      ],
+      "aliases": [
+        "gengar",
+        "gar"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "gengar",
+      "spriteKey": "gengar"
+    },
+    {
+      "dex": 227,
+      "name": "Skarmory",
+      "form": null,
+      "types": [
+        "Steel",
+        "Flying"
+      ],
+      "aliases": [
+        "skarmory",
+        "skarm"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "skarmory",
+      "spriteKey": "skarmory"
+    },
+    {
+      "dex": 248,
+      "name": "Tyranitar",
+      "form": null,
+      "types": [
+        "Rock",
+        "Dark"
+      ],
+      "aliases": [
+        "tyranitar",
+        "ttar",
+        "t-tar"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "tyranitar",
+      "spriteKey": "tyranitar"
+    },
+    {
+      "dex": 121,
+      "name": "Starmie",
+      "form": null,
+      "types": [
+        "Water",
+        "Psychic"
+      ],
+      "aliases": [
+        "starmie"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "starmie",
+      "spriteKey": "starmie"
+    },
+    {
+      "dex": 911,
+      "name": "Skeledirge",
+      "form": null,
+      "types": [
+        "Fire",
+        "Ghost"
+      ],
+      "aliases": [
+        "skeledirge",
+        "dirge",
+        "fire-croc",
+        "fire croc"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "skeledirge",
+      "spriteKey": "skeledirge"
+    },
+    {
+      "dex": 700,
+      "name": "Sylveon",
+      "form": null,
+      "types": [
+        "Fairy"
+      ],
+      "aliases": [
+        "sylveon",
+        "fairy-eevee",
+        "fairy eevee"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "sylveon",
+      "spriteKey": "sylveon"
+    },
+    {
+      "dex": 448,
+      "name": "Lucario",
+      "form": null,
+      "types": [
+        "Fighting",
+        "Steel"
+      ],
+      "aliases": [
+        "lucario"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "lucario",
+      "spriteKey": "lucario"
+    },
+    {
+      "dex": 778,
+      "name": "Mimikyu",
+      "form": null,
+      "types": [
+        "Ghost",
+        "Fairy"
+      ],
+      "aliases": [
+        "mimikyu",
+        "mimi",
+        "mimik"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "mimikyu",
+      "spriteKey": "mimikyu"
+    },
+    {
+      "dex": 132,
+      "name": "Ditto",
+      "form": null,
+      "types": [
+        "Normal"
+      ],
+      "aliases": [
+        "ditto"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "ditto",
+      "spriteKey": "ditto"
+    },
+    {
+      "dex": 428,
+      "name": "Lopunny",
+      "form": null,
+      "types": [
+        "Normal"
+      ],
+      "aliases": [
+        "lopunny"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "lopunny",
+      "spriteKey": "lopunny"
+    },
+    {
+      "dex": 115,
+      "name": "Kangaskhan",
+      "form": null,
+      "types": [
+        "Normal"
+      ],
+      "aliases": [
+        "kangaskhan",
+        "kanga"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "kangaskhan",
+      "spriteKey": "kangaskhan"
+    },
+    {
+      "dex": 478,
+      "name": "Froslass",
+      "form": null,
+      "types": [
+        "Ice",
+        "Ghost"
+      ],
+      "aliases": [
+        "froslass",
+        "fross"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "froslass",
+      "spriteKey": "froslass"
+    },
+    {
+      "dex": 197,
+      "name": "Umbreon",
+      "form": null,
+      "types": [
+        "Dark"
+      ],
+      "aliases": [
+        "umbreon"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "umbreon",
+      "spriteKey": "umbreon"
+    },
+    {
+      "dex": 130,
+      "name": "Gyarados",
+      "form": null,
+      "types": [
+        "Water",
+        "Flying"
+      ],
+      "aliases": [
+        "gyarados",
+        "gyara"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "gyarados",
+      "spriteKey": "gyarados"
+    },
+    {
+      "dex": 823,
+      "name": "Corviknight",
+      "form": null,
+      "types": [
+        "Flying",
+        "Steel"
+      ],
+      "aliases": [
+        "corviknight",
+        "corvi",
+        "corknight"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "corviknight",
+      "spriteKey": "corviknight"
+    },
+    {
+      "dex": 1018,
+      "name": "Archaludon",
+      "form": null,
+      "types": [
+        "Steel",
+        "Dragon"
+      ],
+      "aliases": [
+        "archaludon",
+        "arch"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "archaludon",
+      "spriteKey": "archaludon"
+    },
+    {
+      "dex": 748,
+      "name": "Toxapex",
+      "form": null,
+      "types": [
+        "Poison",
+        "Water"
+      ],
+      "aliases": [
+        "toxapex",
+        "pex",
+        "poison-water",
+        "poison water"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "toxapex",
+      "spriteKey": "toxapex"
+    },
+    {
+      "dex": 903,
+      "name": "Sneasler",
+      "form": null,
+      "types": [
+        "Fighting",
+        "Poison"
+      ],
+      "aliases": [
+        "sneasler"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "sneasler",
+      "spriteKey": "sneasler"
+    },
+    {
+      "dex": 727,
+      "name": "Incineroar",
+      "form": null,
+      "types": [
+        "Fire",
+        "Dark"
+      ],
+      "aliases": [
+        "incineroar",
+        "incin"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "incineroar",
+      "spriteKey": "incineroar"
+    },
+    {
+      "dex": 983,
+      "name": "Kingambit",
+      "form": null,
+      "types": [
+        "Dark",
+        "Steel"
+      ],
+      "aliases": [
+        "kingambit",
+        "gambit"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "kingambit",
+      "spriteKey": "kingambit"
+    },
+    {
+      "dex": 902,
+      "name": "Basculegion",
+      "form": null,
+      "types": [
+        "Water",
+        "Ghost"
+      ],
+      "aliases": [
+        "basculegion"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "basculegion",
+      "spriteKey": "basculegion"
+    },
+    {
+      "dex": 1013,
+      "name": "Sinistcha",
+      "form": null,
+      "types": [
+        "Grass",
+        "Ghost"
+      ],
+      "aliases": [
+        "sinistcha"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "sinistcha",
+      "spriteKey": "sinistcha"
+    },
+    {
+      "dex": 479,
+      "name": "Rotom",
+      "form": "Wash Rotom",
+      "types": [
+        "Electric",
+        "Water"
+      ],
+      "aliases": [
+        "wash-rotom",
+        "rotom-w",
+        "rotomw",
+        "wash rotom"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "rotom-wash-rotom",
+      "spriteKey": "rotom-wash-rotom"
+    },
+    {
+      "dex": 142,
+      "name": "Aerodactyl",
+      "form": null,
+      "types": [
+        "Rock",
+        "Flying"
+      ],
+      "aliases": [
+        "aerodactyl"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "aerodactyl",
+      "spriteKey": "aerodactyl"
+    },
+    {
+      "dex": 547,
+      "name": "Whimsicott",
+      "form": null,
+      "types": [
+        "Grass",
+        "Fairy"
+      ],
+      "aliases": [
+        "whimsicott"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "whimsicott",
+      "spriteKey": "whimsicott"
+    },
+    {
+      "dex": 279,
+      "name": "Pelipper",
+      "form": null,
+      "types": [
+        "Water",
+        "Flying"
+      ],
+      "aliases": [
+        "pelipper"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "pelipper",
+      "spriteKey": "pelipper"
+    },
+    {
+      "dex": 670,
+      "name": "Floette",
+      "form": "Eternal Flower",
+      "types": [
+        "Fairy"
+      ],
+      "aliases": [
+        "floette-eternal",
+        "eternal-floette",
+        "eternal flower floette",
+        "mega floette"
+      ],
+      "normallyAvailable": false,
+      "availabilityNote": "Transfer only",
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "floette-eternal-flower",
+      "spriteKey": "floette-eternal-flower"
+    },
+    {
+      "dex": 981,
+      "name": "Farigiraf",
+      "form": null,
+      "types": [
+        "Normal",
+        "Psychic"
+      ],
+      "aliases": [
+        "farigiraf"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "farigiraf",
+      "spriteKey": "farigiraf"
+    },
+    {
+      "dex": 350,
+      "name": "Milotic",
+      "form": null,
+      "types": [
+        "Water"
+      ],
+      "aliases": [
+        "milotic"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "milotic",
+      "spriteKey": "milotic"
+    },
+    {
+      "dex": 681,
+      "name": "Aegislash",
+      "form": null,
+      "types": [
+        "Steel",
+        "Ghost"
+      ],
+      "aliases": [
+        "aegislash"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "aegislash",
+      "spriteKey": "aegislash"
+    },
+    {
+      "dex": 784,
+      "name": "Kommo-o",
+      "form": null,
+      "types": [
+        "Dragon",
+        "Fighting"
+      ],
+      "aliases": [
+        "kommo-o",
+        "kommoo"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "kommo-o",
+      "spriteKey": "kommo-o"
+    },
+    {
+      "dex": 655,
+      "name": "Delphox",
+      "form": null,
+      "types": [
+        "Fire",
+        "Psychic"
+      ],
+      "aliases": [
+        "delphox"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "delphox",
+      "spriteKey": "delphox"
+    },
+    {
+      "dex": 663,
+      "name": "Talonflame",
+      "form": null,
+      "types": [
+        "Fire",
+        "Flying"
+      ],
+      "aliases": [
+        "talonflame",
+        "talon"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "talonflame",
+      "spriteKey": "talonflame"
+    },
+    {
+      "dex": 282,
+      "name": "Gardevoir",
+      "form": null,
+      "types": [
+        "Psychic",
+        "Fairy"
+      ],
+      "aliases": [
+        "gardevoir"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "gardevoir",
+      "spriteKey": "gardevoir"
+    },
+    {
+      "dex": 530,
+      "name": "Excadrill",
+      "form": null,
+      "types": [
+        "Ground",
+        "Steel"
+      ],
+      "aliases": [
+        "excadrill",
+        "exca"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "excadrill",
+      "spriteKey": "excadrill"
+    },
+    {
+      "dex": 324,
+      "name": "Torkoal",
+      "form": null,
+      "types": [
+        "Fire"
+      ],
+      "aliases": [
+        "torkoal"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "torkoal",
+      "spriteKey": "torkoal"
+    },
+    {
+      "dex": 964,
+      "name": "Palafin",
+      "form": null,
+      "types": [
+        "Water"
+      ],
+      "aliases": [
+        "palafin"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "palafin",
+      "spriteKey": "palafin"
+    },
+    {
+      "dex": 59,
+      "name": "Arcanine",
+      "form": null,
+      "types": [
+        "Fire"
+      ],
+      "aliases": [
+        "arcanine"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "arcanine",
+      "spriteKey": "arcanine"
+    },
+    {
+      "dex": 59,
+      "name": "Arcanine",
+      "form": "Hisuian Form",
+      "types": [
+        "Fire",
+        "Rock"
+      ],
+      "aliases": [
+        "hisuian-arcanine",
+        "hisuian arcanine",
+        "h-arcanine"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "arcanine-hisuian-form",
+      "spriteKey": "arcanine-hisuian-form"
+    },
+    {
+      "dex": 858,
+      "name": "Hatterene",
+      "form": null,
+      "types": [
+        "Psychic",
+        "Fairy"
+      ],
+      "aliases": [
+        "hatterene"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "hatterene",
+      "spriteKey": "hatterene"
+    },
+    {
+      "dex": 184,
+      "name": "Azumarill",
+      "form": null,
+      "types": [
+        "Water",
+        "Fairy"
+      ],
+      "aliases": [
+        "azumarill",
+        "azu"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "azumarill",
+      "spriteKey": "azumarill"
+    },
+    {
+      "dex": 208,
+      "name": "Steelix",
+      "form": null,
+      "types": [
+        "Steel",
+        "Ground"
+      ],
+      "aliases": [
+        "steelix"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "steelix",
+      "spriteKey": "steelix"
+    },
+    {
+      "dex": 362,
+      "name": "Glalie",
+      "form": null,
+      "types": [
+        "Ice"
+      ],
+      "aliases": [
+        "glalie"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "glalie",
+      "spriteKey": "glalie"
+    },
+    {
+      "dex": 923,
+      "name": "Pawmot",
+      "form": null,
+      "types": [
+        "Electric",
+        "Fighting"
+      ],
+      "aliases": [
+        "pawmot"
+      ],
+      "normallyAvailable": false,
+      "availabilityNote": "In game data but currently untransferable",
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "pawmot",
+      "spriteKey": "pawmot"
+    },
+    {
+      "dex": 26,
+      "name": "Raichu",
+      "form": null,
+      "types": [
+        "Electric"
+      ],
+      "aliases": [
+        "raichu"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "raichu",
+      "spriteKey": "raichu"
+    },
+    {
+      "dex": 26,
+      "name": "Raichu",
+      "form": "Alolan Form",
+      "types": [
+        "Electric",
+        "Psychic"
+      ],
+      "aliases": [
+        "alolan-raichu",
+        "alolan raichu",
+        "a-raichu"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "raichu-alolan-form",
+      "spriteKey": "raichu-alolan-form"
+    },
+    {
+      "dex": 38,
+      "name": "Ninetales",
+      "form": null,
+      "types": [
+        "Fire"
+      ],
+      "aliases": [
+        "ninetales"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "ninetales",
+      "spriteKey": "ninetales"
+    },
+    {
+      "dex": 38,
+      "name": "Ninetales",
+      "form": "Alolan Form",
+      "types": [
+        "Ice",
+        "Fairy"
+      ],
+      "aliases": [
+        "alolan-ninetales",
+        "alolan ninetales",
+        "a-tales",
+        "atales"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "ninetales-alolan-form",
+      "spriteKey": "ninetales-alolan-form"
+    },
+    {
+      "dex": 479,
+      "name": "Rotom",
+      "form": "Heat Rotom",
+      "types": [
+        "Electric",
+        "Fire"
+      ],
+      "aliases": [
+        "heat-rotom",
+        "rotom-h",
+        "rotomh",
+        "heat rotom"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "rotom-heat-rotom",
+      "spriteKey": "rotom-heat-rotom"
+    },
+    {
+      "dex": 479,
+      "name": "Rotom",
+      "form": "Mow Rotom",
+      "types": [
+        "Electric",
+        "Grass"
+      ],
+      "aliases": [
+        "mow-rotom",
+        "rotom-m",
+        "rotomm",
+        "mow rotom"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "rotom-mow-rotom",
+      "spriteKey": "rotom-mow-rotom"
+    },
+    {
+      "dex": 212,
+      "name": "Scizor",
+      "form": "Mega",
+      "types": [
+        "Bug",
+        "Steel"
+      ],
+      "aliases": [
+        "mega-scizor",
+        "m-scizor"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": true,
+      "slug": "scizor-mega",
+      "spriteKey": "scizor-mega"
+    },
+    {
+      "dex": 94,
+      "name": "Gengar",
+      "form": "Mega",
+      "types": [
+        "Ghost",
+        "Poison"
+      ],
+      "aliases": [
+        "mega-gengar",
+        "m-gengar"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": true,
+      "slug": "gengar-mega",
+      "spriteKey": "gengar-mega"
+    },
+    {
+      "dex": 130,
+      "name": "Gyarados",
+      "form": "Mega",
+      "types": [
+        "Water",
+        "Dark"
+      ],
+      "aliases": [
+        "mega-gyarados",
+        "m-gyarados"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": true,
+      "slug": "gyarados-mega",
+      "spriteKey": "gyarados-mega"
+    },
+    {
+      "dex": 115,
+      "name": "Kangaskhan",
+      "form": "Mega",
+      "types": [
+        "Normal"
+      ],
+      "aliases": [
+        "mega-kangaskhan",
+        "m-kangaskhan"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": true,
+      "slug": "kangaskhan-mega",
+      "spriteKey": "kangaskhan-mega"
+    },
+    {
+      "dex": 428,
+      "name": "Lopunny",
+      "form": "Mega",
+      "types": [
+        "Normal",
+        "Fighting"
+      ],
+      "aliases": [
+        "mega-lopunny",
+        "m-lopunny"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": true,
+      "slug": "lopunny-mega",
+      "spriteKey": "lopunny-mega"
+    },
+    {
+      "dex": 121,
+      "name": "Starmie",
+      "form": "Mega",
+      "types": [
+        "Water",
+        "Psychic"
+      ],
+      "aliases": [
+        "mega-starmie",
+        "m-starmie"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": true,
+      "slug": "starmie-mega",
+      "spriteKey": "starmie-mega"
+    },
+    {
+      "dex": 478,
+      "name": "Froslass",
+      "form": "Mega",
+      "types": [
+        "Ice",
+        "Ghost"
+      ],
+      "aliases": [
+        "mega-froslass",
+        "m-froslass"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": true,
+      "slug": "froslass-mega",
+      "spriteKey": "froslass-mega"
+    },
+    {
+      "dex": 445,
+      "name": "Garchomp",
+      "form": "Mega",
+      "types": [
+        "Dragon",
+        "Ground"
+      ],
+      "aliases": [
+        "mega-garchomp",
+        "m-garchomp"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": true,
+      "slug": "garchomp-mega",
+      "spriteKey": "garchomp-mega"
+    },
+    {
+      "dex": 149,
+      "name": "Dragonite",
+      "form": "Mega",
+      "types": [
+        "Dragon",
+        "Flying"
+      ],
+      "aliases": [
+        "mega-dragonite",
+        "m-dragonite"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": true,
+      "slug": "dragonite-mega",
+      "spriteKey": "dragonite-mega"
+    },
+    {
+      "dex": 6,
+      "name": "Charizard",
+      "form": "Mega Y",
+      "types": [
+        "Fire",
+        "Flying"
+      ],
+      "aliases": [
+        "mega-charizard-y",
+        "m-charizard-y",
+        "zardy"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": true,
+      "slug": "charizard-mega-y",
+      "spriteKey": "charizard-mega-y"
+    },
+    {
+      "dex": 6,
+      "name": "Charizard",
+      "form": "Mega X",
+      "types": [
+        "Fire",
+        "Dragon"
+      ],
+      "aliases": [
+        "mega-charizard-x",
+        "m-charizard-x",
+        "zardx"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": true,
+      "slug": "charizard-mega-x",
+      "spriteKey": "charizard-mega-x"
+    },
+    {
+      "dex": 3,
+      "name": "Venusaur",
+      "form": null,
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "aliases": [
+        "venusaur"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "venusaur",
+      "spriteKey": "venusaur"
+    },
+    {
+      "dex": 3,
+      "name": "Venusaur",
+      "form": "Mega",
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "aliases": [
+        "mega-venusaur",
+        "m-venusaur"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": true,
+      "slug": "venusaur-mega",
+      "spriteKey": "venusaur-mega"
+    },
+    {
+      "dex": 9,
+      "name": "Blastoise",
+      "form": null,
+      "types": [
+        "Water"
+      ],
+      "aliases": [
+        "blastoise"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": false,
+      "slug": "blastoise",
+      "spriteKey": "blastoise"
+    },
+    {
+      "dex": 9,
+      "name": "Blastoise",
+      "form": "Mega",
+      "types": [
+        "Water"
+      ],
+      "aliases": [
+        "mega-blastoise",
+        "m-blastoise"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "isMega": true,
+      "slug": "blastoise-mega",
+      "spriteKey": "blastoise-mega"
+    }
+  ]
+}
