@@ -1,0 +1,3909 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "dex": 3,
+      "name": "Venusaur",
+      "form": null,
+      "displayName": "Venusaur",
+      "slug": "venusaur",
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "aliases": [
+        "venusaur"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 6,
+      "name": "Charizard",
+      "form": null,
+      "displayName": "Charizard",
+      "slug": "charizard",
+      "types": [
+        "Fire",
+        "Flying"
+      ],
+      "aliases": [
+        "charizard",
+        "zard"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 9,
+      "name": "Blastoise",
+      "form": null,
+      "displayName": "Blastoise",
+      "slug": "blastoise",
+      "types": [
+        "Water"
+      ],
+      "aliases": [
+        "blastoise"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 15,
+      "name": "Beedrill",
+      "form": null,
+      "displayName": "Beedrill",
+      "slug": "beedrill",
+      "types": [
+        "Bug",
+        "Poison"
+      ],
+      "aliases": [
+        "beedrill"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 18,
+      "name": "Pidgeot",
+      "form": null,
+      "displayName": "Pidgeot",
+      "slug": "pidgeot",
+      "types": [
+        "Normal",
+        "Flying"
+      ],
+      "aliases": [
+        "pidgeot"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 24,
+      "name": "Arbok",
+      "form": null,
+      "displayName": "Arbok",
+      "slug": "arbok",
+      "types": [
+        "Poison"
+      ],
+      "aliases": [
+        "arbok"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 25,
+      "name": "Pikachu",
+      "form": null,
+      "displayName": "Pikachu",
+      "slug": "pikachu",
+      "types": [
+        "Electric"
+      ],
+      "aliases": [
+        "pikachu",
+        "pika"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 26,
+      "name": "Raichu",
+      "form": null,
+      "displayName": "Raichu",
+      "slug": "raichu",
+      "types": [
+        "Electric"
+      ],
+      "aliases": [
+        "raichu"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 26,
+      "name": "Raichu",
+      "form": "Alolan Form",
+      "displayName": "Raichu (Alolan Form)",
+      "slug": "raichu-alolan-form",
+      "types": [
+        "Electric",
+        "Psychic"
+      ],
+      "aliases": [
+        "alolan raichu",
+        "raichu alola",
+        "a-raichu"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 36,
+      "name": "Clefable",
+      "form": null,
+      "displayName": "Clefable",
+      "slug": "clefable",
+      "types": [
+        "Fairy"
+      ],
+      "aliases": [
+        "clefable"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 38,
+      "name": "Ninetales",
+      "form": null,
+      "displayName": "Ninetales",
+      "slug": "ninetales",
+      "types": [
+        "Fire"
+      ],
+      "aliases": [
+        "ninetales"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 38,
+      "name": "Ninetales",
+      "form": "Alolan Form",
+      "displayName": "Ninetales (Alolan Form)",
+      "slug": "ninetales-alolan-form",
+      "types": [
+        "Ice",
+        "Fairy"
+      ],
+      "aliases": [
+        "alolan ninetales",
+        "ninetales alola",
+        "a-tales"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 59,
+      "name": "Arcanine",
+      "form": null,
+      "displayName": "Arcanine",
+      "slug": "arcanine",
+      "types": [
+        "Fire"
+      ],
+      "aliases": [
+        "arcanine"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 59,
+      "name": "Arcanine",
+      "form": "Hisuian Form",
+      "displayName": "Arcanine (Hisuian Form)",
+      "slug": "arcanine-hisuian-form",
+      "types": [
+        "Fire",
+        "Rock"
+      ],
+      "aliases": [
+        "hisuian arcanine",
+        "arcanine hisui",
+        "h-arcanine"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 65,
+      "name": "Alakazam",
+      "form": null,
+      "displayName": "Alakazam",
+      "slug": "alakazam",
+      "types": [
+        "Psychic"
+      ],
+      "aliases": [
+        "alakazam",
+        "zam"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 68,
+      "name": "Machamp",
+      "form": null,
+      "displayName": "Machamp",
+      "slug": "machamp",
+      "types": [
+        "Fighting"
+      ],
+      "aliases": [
+        "machamp"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 71,
+      "name": "Victreebel",
+      "form": null,
+      "displayName": "Victreebel",
+      "slug": "victreebel",
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "aliases": [
+        "victreebel"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 80,
+      "name": "Slowbro",
+      "form": null,
+      "displayName": "Slowbro",
+      "slug": "slowbro",
+      "types": [
+        "Water",
+        "Psychic"
+      ],
+      "aliases": [
+        "slowbro"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 80,
+      "name": "Slowbro",
+      "form": "Galarian Form",
+      "displayName": "Slowbro (Galarian Form)",
+      "slug": "slowbro-galarian-form",
+      "types": [
+        "Poison",
+        "Psychic"
+      ],
+      "aliases": [
+        "galarian slowbro",
+        "slowbro galar",
+        "g-slowbro"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 94,
+      "name": "Gengar",
+      "form": null,
+      "displayName": "Gengar",
+      "slug": "gengar",
+      "types": [
+        "Ghost",
+        "Poison"
+      ],
+      "aliases": [
+        "gengar",
+        "gar"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 115,
+      "name": "Kangaskhan",
+      "form": null,
+      "displayName": "Kangaskhan",
+      "slug": "kangaskhan",
+      "types": [
+        "Normal"
+      ],
+      "aliases": [
+        "kangaskhan",
+        "kanga"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 121,
+      "name": "Starmie",
+      "form": null,
+      "displayName": "Starmie",
+      "slug": "starmie",
+      "types": [
+        "Water",
+        "Psychic"
+      ],
+      "aliases": [
+        "starmie"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 127,
+      "name": "Pinsir",
+      "form": null,
+      "displayName": "Pinsir",
+      "slug": "pinsir",
+      "types": [
+        "Bug"
+      ],
+      "aliases": [
+        "pinsir"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 128,
+      "name": "Tauros",
+      "form": null,
+      "displayName": "Tauros",
+      "slug": "tauros",
+      "types": [
+        "Normal"
+      ],
+      "aliases": [
+        "tauros"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 128,
+      "name": "Tauros",
+      "form": "Paldean Form (Combat Breed)",
+      "displayName": "Tauros (Paldean Form (Combat Breed))",
+      "slug": "tauros-paldean-form-combat-breed",
+      "types": [
+        "Fighting"
+      ],
+      "aliases": [
+        "paldean tauros combat",
+        "combat tauros",
+        "tauros combat"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 128,
+      "name": "Tauros",
+      "form": "Paldean Form (Blaze Breed)",
+      "displayName": "Tauros (Paldean Form (Blaze Breed))",
+      "slug": "tauros-paldean-form-blaze-breed",
+      "types": [
+        "Fighting",
+        "Fire"
+      ],
+      "aliases": [
+        "paldean tauros blaze",
+        "blaze tauros",
+        "tauros blaze"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 128,
+      "name": "Tauros",
+      "form": "Paldean Form (Aqua Breed)",
+      "displayName": "Tauros (Paldean Form (Aqua Breed))",
+      "slug": "tauros-paldean-form-aqua-breed",
+      "types": [
+        "Fighting",
+        "Water"
+      ],
+      "aliases": [
+        "paldean tauros aqua",
+        "aqua tauros",
+        "tauros aqua"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 130,
+      "name": "Gyarados",
+      "form": null,
+      "displayName": "Gyarados",
+      "slug": "gyarados",
+      "types": [
+        "Water",
+        "Flying"
+      ],
+      "aliases": [
+        "gyarados",
+        "gyara"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 132,
+      "name": "Ditto",
+      "form": null,
+      "displayName": "Ditto",
+      "slug": "ditto",
+      "types": [
+        "Normal"
+      ],
+      "aliases": [
+        "ditto"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 134,
+      "name": "Vaporeon",
+      "form": null,
+      "displayName": "Vaporeon",
+      "slug": "vaporeon",
+      "types": [
+        "Water"
+      ],
+      "aliases": [
+        "vaporeon"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 135,
+      "name": "Jolteon",
+      "form": null,
+      "displayName": "Jolteon",
+      "slug": "jolteon",
+      "types": [
+        "Electric"
+      ],
+      "aliases": [
+        "jolteon"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 136,
+      "name": "Flareon",
+      "form": null,
+      "displayName": "Flareon",
+      "slug": "flareon",
+      "types": [
+        "Fire"
+      ],
+      "aliases": [
+        "flareon"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 142,
+      "name": "Aerodactyl",
+      "form": null,
+      "displayName": "Aerodactyl",
+      "slug": "aerodactyl",
+      "types": [
+        "Rock",
+        "Flying"
+      ],
+      "aliases": [
+        "aerodactyl"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 143,
+      "name": "Snorlax",
+      "form": null,
+      "displayName": "Snorlax",
+      "slug": "snorlax",
+      "types": [
+        "Normal"
+      ],
+      "aliases": [
+        "snorlax"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 149,
+      "name": "Dragonite",
+      "form": null,
+      "displayName": "Dragonite",
+      "slug": "dragonite",
+      "types": [
+        "Dragon",
+        "Flying"
+      ],
+      "aliases": [
+        "dragonite",
+        "dnite"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 154,
+      "name": "Meganium",
+      "form": null,
+      "displayName": "Meganium",
+      "slug": "meganium",
+      "types": [
+        "Grass"
+      ],
+      "aliases": [
+        "meganium"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 157,
+      "name": "Typhlosion",
+      "form": null,
+      "displayName": "Typhlosion",
+      "slug": "typhlosion",
+      "types": [
+        "Fire"
+      ],
+      "aliases": [
+        "typhlosion"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 157,
+      "name": "Typhlosion",
+      "form": "Hisuian Form",
+      "displayName": "Typhlosion (Hisuian Form)",
+      "slug": "typhlosion-hisuian-form",
+      "types": [
+        "Fire",
+        "Ghost"
+      ],
+      "aliases": [
+        "hisuian typhlosion",
+        "typhlosion hisui",
+        "h-typhlosion"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 160,
+      "name": "Feraligatr",
+      "form": null,
+      "displayName": "Feraligatr",
+      "slug": "feraligatr",
+      "types": [
+        "Water"
+      ],
+      "aliases": [
+        "feraligatr"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 168,
+      "name": "Ariados",
+      "form": null,
+      "displayName": "Ariados",
+      "slug": "ariados",
+      "types": [
+        "Bug",
+        "Poison"
+      ],
+      "aliases": [
+        "ariados"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 181,
+      "name": "Ampharos",
+      "form": null,
+      "displayName": "Ampharos",
+      "slug": "ampharos",
+      "types": [
+        "Electric"
+      ],
+      "aliases": [
+        "ampharos"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 184,
+      "name": "Azumarill",
+      "form": null,
+      "displayName": "Azumarill",
+      "slug": "azumarill",
+      "types": [
+        "Water",
+        "Fairy"
+      ],
+      "aliases": [
+        "azumarill",
+        "azu"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 186,
+      "name": "Politoed",
+      "form": null,
+      "displayName": "Politoed",
+      "slug": "politoed",
+      "types": [
+        "Water"
+      ],
+      "aliases": [
+        "politoed"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 196,
+      "name": "Espeon",
+      "form": null,
+      "displayName": "Espeon",
+      "slug": "espeon",
+      "types": [
+        "Psychic"
+      ],
+      "aliases": [
+        "espeon"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 197,
+      "name": "Umbreon",
+      "form": null,
+      "displayName": "Umbreon",
+      "slug": "umbreon",
+      "types": [
+        "Dark"
+      ],
+      "aliases": [
+        "umbreon"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 199,
+      "name": "Slowking",
+      "form": null,
+      "displayName": "Slowking",
+      "slug": "slowking",
+      "types": [
+        "Water",
+        "Psychic"
+      ],
+      "aliases": [
+        "slowking"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 199,
+      "name": "Slowking",
+      "form": "Galarian Form",
+      "displayName": "Slowking (Galarian Form)",
+      "slug": "slowking-galarian-form",
+      "types": [
+        "Poison",
+        "Psychic"
+      ],
+      "aliases": [
+        "galarian slowking",
+        "slowking galar",
+        "g-slowking"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 205,
+      "name": "Forretress",
+      "form": null,
+      "displayName": "Forretress",
+      "slug": "forretress",
+      "types": [
+        "Bug",
+        "Steel"
+      ],
+      "aliases": [
+        "forretress"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 208,
+      "name": "Steelix",
+      "form": null,
+      "displayName": "Steelix",
+      "slug": "steelix",
+      "types": [
+        "Steel",
+        "Ground"
+      ],
+      "aliases": [
+        "steelix"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 212,
+      "name": "Scizor",
+      "form": null,
+      "displayName": "Scizor",
+      "slug": "scizor",
+      "types": [
+        "Bug",
+        "Steel"
+      ],
+      "aliases": [
+        "scizor",
+        "sciz"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 214,
+      "name": "Heracross",
+      "form": null,
+      "displayName": "Heracross",
+      "slug": "heracross",
+      "types": [
+        "Bug",
+        "Fighting"
+      ],
+      "aliases": [
+        "heracross"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 227,
+      "name": "Skarmory",
+      "form": null,
+      "displayName": "Skarmory",
+      "slug": "skarmory",
+      "types": [
+        "Steel",
+        "Flying"
+      ],
+      "aliases": [
+        "skarmory",
+        "skarm"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 229,
+      "name": "Houndoom",
+      "form": null,
+      "displayName": "Houndoom",
+      "slug": "houndoom",
+      "types": [
+        "Dark",
+        "Fire"
+      ],
+      "aliases": [
+        "houndoom"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 248,
+      "name": "Tyranitar",
+      "form": null,
+      "displayName": "Tyranitar",
+      "slug": "tyranitar",
+      "types": [
+        "Rock",
+        "Dark"
+      ],
+      "aliases": [
+        "tyranitar",
+        "ttar",
+        "t-tar"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 279,
+      "name": "Pelipper",
+      "form": null,
+      "displayName": "Pelipper",
+      "slug": "pelipper",
+      "types": [
+        "Water",
+        "Flying"
+      ],
+      "aliases": [
+        "pelipper"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 282,
+      "name": "Gardevoir",
+      "form": null,
+      "displayName": "Gardevoir",
+      "slug": "gardevoir",
+      "types": [
+        "Psychic",
+        "Fairy"
+      ],
+      "aliases": [
+        "gardevoir"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 302,
+      "name": "Sableye",
+      "form": null,
+      "displayName": "Sableye",
+      "slug": "sableye",
+      "types": [
+        "Dark",
+        "Ghost"
+      ],
+      "aliases": [
+        "sableye"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 306,
+      "name": "Aggron",
+      "form": null,
+      "displayName": "Aggron",
+      "slug": "aggron",
+      "types": [
+        "Steel",
+        "Rock"
+      ],
+      "aliases": [
+        "aggron"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 308,
+      "name": "Medicham",
+      "form": null,
+      "displayName": "Medicham",
+      "slug": "medicham",
+      "types": [
+        "Fighting",
+        "Psychic"
+      ],
+      "aliases": [
+        "medicham"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 310,
+      "name": "Manectric",
+      "form": null,
+      "displayName": "Manectric",
+      "slug": "manectric",
+      "types": [
+        "Electric"
+      ],
+      "aliases": [
+        "manectric"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 319,
+      "name": "Sharpedo",
+      "form": null,
+      "displayName": "Sharpedo",
+      "slug": "sharpedo",
+      "types": [
+        "Water",
+        "Dark"
+      ],
+      "aliases": [
+        "sharpedo"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 323,
+      "name": "Camerupt",
+      "form": null,
+      "displayName": "Camerupt",
+      "slug": "camerupt",
+      "types": [
+        "Fire",
+        "Ground"
+      ],
+      "aliases": [
+        "camerupt"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 324,
+      "name": "Torkoal",
+      "form": null,
+      "displayName": "Torkoal",
+      "slug": "torkoal",
+      "types": [
+        "Fire"
+      ],
+      "aliases": [
+        "torkoal"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 334,
+      "name": "Altaria",
+      "form": null,
+      "displayName": "Altaria",
+      "slug": "altaria",
+      "types": [
+        "Dragon",
+        "Flying"
+      ],
+      "aliases": [
+        "altaria"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 350,
+      "name": "Milotic",
+      "form": null,
+      "displayName": "Milotic",
+      "slug": "milotic",
+      "types": [
+        "Water"
+      ],
+      "aliases": [
+        "milotic"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 351,
+      "name": "Castform",
+      "form": null,
+      "displayName": "Castform",
+      "slug": "castform",
+      "types": [
+        "Normal"
+      ],
+      "aliases": [
+        "castform"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 354,
+      "name": "Banette",
+      "form": null,
+      "displayName": "Banette",
+      "slug": "banette",
+      "types": [
+        "Ghost"
+      ],
+      "aliases": [
+        "banette"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 358,
+      "name": "Chimecho",
+      "form": null,
+      "displayName": "Chimecho",
+      "slug": "chimecho",
+      "types": [
+        "Psychic"
+      ],
+      "aliases": [
+        "chimecho"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 359,
+      "name": "Absol",
+      "form": null,
+      "displayName": "Absol",
+      "slug": "absol",
+      "types": [
+        "Dark"
+      ],
+      "aliases": [
+        "absol"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 362,
+      "name": "Glalie",
+      "form": null,
+      "displayName": "Glalie",
+      "slug": "glalie",
+      "types": [
+        "Ice"
+      ],
+      "aliases": [
+        "glalie"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 389,
+      "name": "Torterra",
+      "form": null,
+      "displayName": "Torterra",
+      "slug": "torterra",
+      "types": [
+        "Grass",
+        "Ground"
+      ],
+      "aliases": [
+        "torterra"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 392,
+      "name": "Infernape",
+      "form": null,
+      "displayName": "Infernape",
+      "slug": "infernape",
+      "types": [
+        "Fire",
+        "Fighting"
+      ],
+      "aliases": [
+        "infernape"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 395,
+      "name": "Empoleon",
+      "form": null,
+      "displayName": "Empoleon",
+      "slug": "empoleon",
+      "types": [
+        "Water",
+        "Steel"
+      ],
+      "aliases": [
+        "empoleon"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 405,
+      "name": "Luxray",
+      "form": null,
+      "displayName": "Luxray",
+      "slug": "luxray",
+      "types": [
+        "Electric"
+      ],
+      "aliases": [
+        "luxray"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 407,
+      "name": "Roserade",
+      "form": null,
+      "displayName": "Roserade",
+      "slug": "roserade",
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "aliases": [
+        "roserade"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 409,
+      "name": "Rampardos",
+      "form": null,
+      "displayName": "Rampardos",
+      "slug": "rampardos",
+      "types": [
+        "Rock"
+      ],
+      "aliases": [
+        "rampardos"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 411,
+      "name": "Bastiodon",
+      "form": null,
+      "displayName": "Bastiodon",
+      "slug": "bastiodon",
+      "types": [
+        "Rock",
+        "Steel"
+      ],
+      "aliases": [
+        "bastiodon"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 428,
+      "name": "Lopunny",
+      "form": null,
+      "displayName": "Lopunny",
+      "slug": "lopunny",
+      "types": [
+        "Normal"
+      ],
+      "aliases": [
+        "lopunny"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 442,
+      "name": "Spiritomb",
+      "form": null,
+      "displayName": "Spiritomb",
+      "slug": "spiritomb",
+      "types": [
+        "Ghost",
+        "Dark"
+      ],
+      "aliases": [
+        "spiritomb"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 445,
+      "name": "Garchomp",
+      "form": null,
+      "displayName": "Garchomp",
+      "slug": "garchomp",
+      "types": [
+        "Dragon",
+        "Ground"
+      ],
+      "aliases": [
+        "garchomp",
+        "chomp"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 448,
+      "name": "Lucario",
+      "form": null,
+      "displayName": "Lucario",
+      "slug": "lucario",
+      "types": [
+        "Fighting",
+        "Steel"
+      ],
+      "aliases": [
+        "lucario"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 450,
+      "name": "Hippowdon",
+      "form": null,
+      "displayName": "Hippowdon",
+      "slug": "hippowdon",
+      "types": [
+        "Ground"
+      ],
+      "aliases": [
+        "hippowdon"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 454,
+      "name": "Toxicroak",
+      "form": null,
+      "displayName": "Toxicroak",
+      "slug": "toxicroak",
+      "types": [
+        "Poison",
+        "Fighting"
+      ],
+      "aliases": [
+        "toxicroak"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 460,
+      "name": "Abomasnow",
+      "form": null,
+      "displayName": "Abomasnow",
+      "slug": "abomasnow",
+      "types": [
+        "Grass",
+        "Ice"
+      ],
+      "aliases": [
+        "abomasnow"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 461,
+      "name": "Weavile",
+      "form": null,
+      "displayName": "Weavile",
+      "slug": "weavile",
+      "types": [
+        "Dark",
+        "Ice"
+      ],
+      "aliases": [
+        "weavile"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 464,
+      "name": "Rhyperior",
+      "form": null,
+      "displayName": "Rhyperior",
+      "slug": "rhyperior",
+      "types": [
+        "Ground",
+        "Rock"
+      ],
+      "aliases": [
+        "rhyperior"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 470,
+      "name": "Leafeon",
+      "form": null,
+      "displayName": "Leafeon",
+      "slug": "leafeon",
+      "types": [
+        "Grass"
+      ],
+      "aliases": [
+        "leafeon"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 471,
+      "name": "Glaceon",
+      "form": null,
+      "displayName": "Glaceon",
+      "slug": "glaceon",
+      "types": [
+        "Ice"
+      ],
+      "aliases": [
+        "glaceon"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 472,
+      "name": "Gliscor",
+      "form": null,
+      "displayName": "Gliscor",
+      "slug": "gliscor",
+      "types": [
+        "Ground",
+        "Flying"
+      ],
+      "aliases": [
+        "gliscor"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 473,
+      "name": "Mamoswine",
+      "form": null,
+      "displayName": "Mamoswine",
+      "slug": "mamoswine",
+      "types": [
+        "Ice",
+        "Ground"
+      ],
+      "aliases": [
+        "mamoswine",
+        "mamo"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 475,
+      "name": "Gallade",
+      "form": null,
+      "displayName": "Gallade",
+      "slug": "gallade",
+      "types": [
+        "Psychic",
+        "Fighting"
+      ],
+      "aliases": [
+        "gallade"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 478,
+      "name": "Froslass",
+      "form": null,
+      "displayName": "Froslass",
+      "slug": "froslass",
+      "types": [
+        "Ice",
+        "Ghost"
+      ],
+      "aliases": [
+        "froslass",
+        "fross"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 479,
+      "name": "Rotom",
+      "form": null,
+      "displayName": "Rotom",
+      "slug": "rotom",
+      "types": [
+        "Electric",
+        "Ghost"
+      ],
+      "aliases": [
+        "rotom"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 479,
+      "name": "Rotom",
+      "form": "Heat Rotom",
+      "displayName": "Rotom (Heat Rotom)",
+      "slug": "rotom-heat-rotom",
+      "types": [
+        "Electric",
+        "Fire"
+      ],
+      "aliases": [
+        "heat rotom",
+        "rotom-h",
+        "rotomh"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 479,
+      "name": "Rotom",
+      "form": "Wash Rotom",
+      "displayName": "Rotom (Wash Rotom)",
+      "slug": "rotom-wash-rotom",
+      "types": [
+        "Electric",
+        "Water"
+      ],
+      "aliases": [
+        "wash rotom",
+        "rotom-w",
+        "rotomw"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 479,
+      "name": "Rotom",
+      "form": "Frost Rotom",
+      "displayName": "Rotom (Frost Rotom)",
+      "slug": "rotom-frost-rotom",
+      "types": [
+        "Electric",
+        "Ice"
+      ],
+      "aliases": [
+        "frost rotom",
+        "rotom-f",
+        "rotomf"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 479,
+      "name": "Rotom",
+      "form": "Fan Rotom",
+      "displayName": "Rotom (Fan Rotom)",
+      "slug": "rotom-fan-rotom",
+      "types": [
+        "Electric",
+        "Flying"
+      ],
+      "aliases": [
+        "fan rotom",
+        "rotom-s",
+        "rotoms"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 479,
+      "name": "Rotom",
+      "form": "Mow Rotom",
+      "displayName": "Rotom (Mow Rotom)",
+      "slug": "rotom-mow-rotom",
+      "types": [
+        "Electric",
+        "Grass"
+      ],
+      "aliases": [
+        "mow rotom",
+        "rotom-c",
+        "rotomc"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 497,
+      "name": "Serperior",
+      "form": null,
+      "displayName": "Serperior",
+      "slug": "serperior",
+      "types": [
+        "Grass"
+      ],
+      "aliases": [
+        "serperior"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 500,
+      "name": "Emboar",
+      "form": null,
+      "displayName": "Emboar",
+      "slug": "emboar",
+      "types": [
+        "Fire",
+        "Fighting"
+      ],
+      "aliases": [
+        "emboar"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 503,
+      "name": "Samurott",
+      "form": null,
+      "displayName": "Samurott",
+      "slug": "samurott",
+      "types": [
+        "Water"
+      ],
+      "aliases": [
+        "samurott"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 503,
+      "name": "Samurott",
+      "form": "Hisuian Form",
+      "displayName": "Samurott (Hisuian Form)",
+      "slug": "samurott-hisuian-form",
+      "types": [
+        "Water",
+        "Dark"
+      ],
+      "aliases": [
+        "hisuian samurott",
+        "samurott hisui",
+        "h-samurott"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 505,
+      "name": "Watchog",
+      "form": null,
+      "displayName": "Watchog",
+      "slug": "watchog",
+      "types": [
+        "Normal"
+      ],
+      "aliases": [
+        "watchog"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 510,
+      "name": "Liepard",
+      "form": null,
+      "displayName": "Liepard",
+      "slug": "liepard",
+      "types": [
+        "Dark"
+      ],
+      "aliases": [
+        "liepard"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 512,
+      "name": "Simisage",
+      "form": null,
+      "displayName": "Simisage",
+      "slug": "simisage",
+      "types": [
+        "Grass"
+      ],
+      "aliases": [
+        "simisage"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 514,
+      "name": "Simisear",
+      "form": null,
+      "displayName": "Simisear",
+      "slug": "simisear",
+      "types": [
+        "Fire"
+      ],
+      "aliases": [
+        "simisear"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 516,
+      "name": "Simipour",
+      "form": null,
+      "displayName": "Simipour",
+      "slug": "simipour",
+      "types": [
+        "Water"
+      ],
+      "aliases": [
+        "simipour"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 530,
+      "name": "Excadrill",
+      "form": null,
+      "displayName": "Excadrill",
+      "slug": "excadrill",
+      "types": [
+        "Ground",
+        "Steel"
+      ],
+      "aliases": [
+        "excadrill",
+        "exca"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 531,
+      "name": "Audino",
+      "form": null,
+      "displayName": "Audino",
+      "slug": "audino",
+      "types": [
+        "Normal"
+      ],
+      "aliases": [
+        "audino"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 534,
+      "name": "Conkeldurr",
+      "form": null,
+      "displayName": "Conkeldurr",
+      "slug": "conkeldurr",
+      "types": [
+        "Fighting"
+      ],
+      "aliases": [
+        "conkeldurr"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 547,
+      "name": "Whimsicott",
+      "form": null,
+      "displayName": "Whimsicott",
+      "slug": "whimsicott",
+      "types": [
+        "Grass",
+        "Fairy"
+      ],
+      "aliases": [
+        "whimsicott"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 553,
+      "name": "Krookodile",
+      "form": null,
+      "displayName": "Krookodile",
+      "slug": "krookodile",
+      "types": [
+        "Ground",
+        "Dark"
+      ],
+      "aliases": [
+        "krookodile",
+        "krook"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 563,
+      "name": "Cofagrigus",
+      "form": null,
+      "displayName": "Cofagrigus",
+      "slug": "cofagrigus",
+      "types": [
+        "Ghost"
+      ],
+      "aliases": [
+        "cofagrigus"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 569,
+      "name": "Garbodor",
+      "form": null,
+      "displayName": "Garbodor",
+      "slug": "garbodor",
+      "types": [
+        "Poison"
+      ],
+      "aliases": [
+        "garbodor"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 571,
+      "name": "Zoroark",
+      "form": null,
+      "displayName": "Zoroark",
+      "slug": "zoroark",
+      "types": [
+        "Dark"
+      ],
+      "aliases": [
+        "zoroark"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 571,
+      "name": "Zoroark",
+      "form": "Hisuian Form",
+      "displayName": "Zoroark (Hisuian Form)",
+      "slug": "zoroark-hisuian-form",
+      "types": [
+        "Normal",
+        "Ghost"
+      ],
+      "aliases": [
+        "hisuian zoroark",
+        "zoroark hisui",
+        "h-zoroark"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 579,
+      "name": "Reuniclus",
+      "form": null,
+      "displayName": "Reuniclus",
+      "slug": "reuniclus",
+      "types": [
+        "Psychic"
+      ],
+      "aliases": [
+        "reuniclus"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 584,
+      "name": "Vanilluxe",
+      "form": null,
+      "displayName": "Vanilluxe",
+      "slug": "vanilluxe",
+      "types": [
+        "Ice"
+      ],
+      "aliases": [
+        "vanilluxe"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 587,
+      "name": "Emolga",
+      "form": null,
+      "displayName": "Emolga",
+      "slug": "emolga",
+      "types": [
+        "Electric",
+        "Flying"
+      ],
+      "aliases": [
+        "emolga"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 609,
+      "name": "Chandelure",
+      "form": null,
+      "displayName": "Chandelure",
+      "slug": "chandelure",
+      "types": [
+        "Ghost",
+        "Fire"
+      ],
+      "aliases": [
+        "chandelure"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 614,
+      "name": "Beartic",
+      "form": null,
+      "displayName": "Beartic",
+      "slug": "beartic",
+      "types": [
+        "Ice"
+      ],
+      "aliases": [
+        "beartic"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 618,
+      "name": "Stunfisk",
+      "form": null,
+      "displayName": "Stunfisk",
+      "slug": "stunfisk",
+      "types": [
+        "Ground",
+        "Electric"
+      ],
+      "aliases": [
+        "stunfisk"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 618,
+      "name": "Stunfisk",
+      "form": "Galarian Form",
+      "displayName": "Stunfisk (Galarian Form)",
+      "slug": "stunfisk-galarian-form",
+      "types": [
+        "Ground",
+        "Steel"
+      ],
+      "aliases": [
+        "galarian stunfisk",
+        "stunfisk galar",
+        "g-stunfisk"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 623,
+      "name": "Golurk",
+      "form": null,
+      "displayName": "Golurk",
+      "slug": "golurk",
+      "types": [
+        "Ground",
+        "Ghost"
+      ],
+      "aliases": [
+        "golurk"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 635,
+      "name": "Hydreigon",
+      "form": null,
+      "displayName": "Hydreigon",
+      "slug": "hydreigon",
+      "types": [
+        "Dark",
+        "Dragon"
+      ],
+      "aliases": [
+        "hydreigon"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 637,
+      "name": "Volcarona",
+      "form": null,
+      "displayName": "Volcarona",
+      "slug": "volcarona",
+      "types": [
+        "Bug",
+        "Fire"
+      ],
+      "aliases": [
+        "volcarona"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 652,
+      "name": "Chesnaught",
+      "form": null,
+      "displayName": "Chesnaught",
+      "slug": "chesnaught",
+      "types": [
+        "Grass",
+        "Fighting"
+      ],
+      "aliases": [
+        "chesnaught"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 655,
+      "name": "Delphox",
+      "form": null,
+      "displayName": "Delphox",
+      "slug": "delphox",
+      "types": [
+        "Fire",
+        "Psychic"
+      ],
+      "aliases": [
+        "delphox"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 658,
+      "name": "Greninja",
+      "form": null,
+      "displayName": "Greninja",
+      "slug": "greninja",
+      "types": [
+        "Water",
+        "Dark"
+      ],
+      "aliases": [
+        "greninja",
+        "ninja"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 660,
+      "name": "Diggersby",
+      "form": null,
+      "displayName": "Diggersby",
+      "slug": "diggersby",
+      "types": [
+        "Normal",
+        "Ground"
+      ],
+      "aliases": [
+        "diggersby"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 663,
+      "name": "Talonflame",
+      "form": null,
+      "displayName": "Talonflame",
+      "slug": "talonflame",
+      "types": [
+        "Fire",
+        "Flying"
+      ],
+      "aliases": [
+        "talonflame",
+        "talon"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 666,
+      "name": "Vivillon",
+      "form": "High Plains Pattern",
+      "displayName": "Vivillon (High Plains Pattern)",
+      "slug": "vivillon-high-plains-pattern",
+      "types": [
+        "Bug",
+        "Flying"
+      ],
+      "aliases": [
+        "vivillon high plains",
+        "high plains vivillon"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 671,
+      "name": "Florges",
+      "form": "Red Flower",
+      "displayName": "Florges (Red Flower)",
+      "slug": "florges-red-flower",
+      "types": [
+        "Fairy"
+      ],
+      "aliases": [
+        "florges red",
+        "red florges"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 671,
+      "name": "Florges",
+      "form": "Yellow Flower",
+      "displayName": "Florges (Yellow Flower)",
+      "slug": "florges-yellow-flower",
+      "types": [
+        "Fairy"
+      ],
+      "aliases": [
+        "florges yellow",
+        "yellow florges"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 671,
+      "name": "Florges",
+      "form": "Orange Flower",
+      "displayName": "Florges (Orange Flower)",
+      "slug": "florges-orange-flower",
+      "types": [
+        "Fairy"
+      ],
+      "aliases": [
+        "florges orange",
+        "orange florges"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 671,
+      "name": "Florges",
+      "form": "Blue Flower",
+      "displayName": "Florges (Blue Flower)",
+      "slug": "florges-blue-flower",
+      "types": [
+        "Fairy"
+      ],
+      "aliases": [
+        "florges blue",
+        "blue florges"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 671,
+      "name": "Florges",
+      "form": "White Flower",
+      "displayName": "Florges (White Flower)",
+      "slug": "florges-white-flower",
+      "types": [
+        "Fairy"
+      ],
+      "aliases": [
+        "florges white",
+        "white florges"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 675,
+      "name": "Pangoro",
+      "form": null,
+      "displayName": "Pangoro",
+      "slug": "pangoro",
+      "types": [
+        "Fighting",
+        "Dark"
+      ],
+      "aliases": [
+        "pangoro"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 676,
+      "name": "Furfrou",
+      "form": null,
+      "displayName": "Furfrou",
+      "slug": "furfrou",
+      "types": [
+        "Normal"
+      ],
+      "aliases": [
+        "furfrou"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 676,
+      "name": "Furfrou",
+      "form": "Matron Trim",
+      "displayName": "Furfrou (Matron Trim)",
+      "slug": "furfrou-matron-trim",
+      "types": [
+        "Normal"
+      ],
+      "aliases": [
+        "furfrou matron",
+        "matron trim"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 676,
+      "name": "Furfrou",
+      "form": "Dandy Trim",
+      "displayName": "Furfrou (Dandy Trim)",
+      "slug": "furfrou-dandy-trim",
+      "types": [
+        "Normal"
+      ],
+      "aliases": [
+        "furfrou dandy",
+        "dandy trim"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 678,
+      "name": "Meowstic",
+      "form": "Male",
+      "displayName": "Meowstic (Male)",
+      "slug": "meowstic-male",
+      "types": [
+        "Psychic"
+      ],
+      "aliases": [
+        "meowstic male",
+        "male meowstic"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 678,
+      "name": "Meowstic",
+      "form": "Female",
+      "displayName": "Meowstic (Female)",
+      "slug": "meowstic-female",
+      "types": [
+        "Psychic"
+      ],
+      "aliases": [
+        "meowstic female",
+        "female meowstic"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 681,
+      "name": "Aegislash",
+      "form": null,
+      "displayName": "Aegislash",
+      "slug": "aegislash",
+      "types": [
+        "Steel",
+        "Ghost"
+      ],
+      "aliases": [
+        "aegislash"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 683,
+      "name": "Aromatisse",
+      "form": null,
+      "displayName": "Aromatisse",
+      "slug": "aromatisse",
+      "types": [
+        "Fairy"
+      ],
+      "aliases": [
+        "aromatisse"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 685,
+      "name": "Slurpuff",
+      "form": null,
+      "displayName": "Slurpuff",
+      "slug": "slurpuff",
+      "types": [
+        "Fairy"
+      ],
+      "aliases": [
+        "slurpuff"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 693,
+      "name": "Clawitzer",
+      "form": null,
+      "displayName": "Clawitzer",
+      "slug": "clawitzer",
+      "types": [
+        "Water"
+      ],
+      "aliases": [
+        "clawitzer"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 695,
+      "name": "Heliolisk",
+      "form": null,
+      "displayName": "Heliolisk",
+      "slug": "heliolisk",
+      "types": [
+        "Electric",
+        "Normal"
+      ],
+      "aliases": [
+        "heliolisk"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 697,
+      "name": "Tyrantrum",
+      "form": null,
+      "displayName": "Tyrantrum",
+      "slug": "tyrantrum",
+      "types": [
+        "Rock",
+        "Dragon"
+      ],
+      "aliases": [
+        "tyrantrum"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 699,
+      "name": "Aurorus",
+      "form": null,
+      "displayName": "Aurorus",
+      "slug": "aurorus",
+      "types": [
+        "Rock",
+        "Ice"
+      ],
+      "aliases": [
+        "aurorus"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 700,
+      "name": "Sylveon",
+      "form": null,
+      "displayName": "Sylveon",
+      "slug": "sylveon",
+      "types": [
+        "Fairy"
+      ],
+      "aliases": [
+        "sylveon"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 701,
+      "name": "Hawlucha",
+      "form": null,
+      "displayName": "Hawlucha",
+      "slug": "hawlucha",
+      "types": [
+        "Fighting",
+        "Flying"
+      ],
+      "aliases": [
+        "hawlucha"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 702,
+      "name": "Dedenne",
+      "form": null,
+      "displayName": "Dedenne",
+      "slug": "dedenne",
+      "types": [
+        "Electric",
+        "Fairy"
+      ],
+      "aliases": [
+        "dedenne"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 706,
+      "name": "Goodra",
+      "form": null,
+      "displayName": "Goodra",
+      "slug": "goodra",
+      "types": [
+        "Dragon"
+      ],
+      "aliases": [
+        "goodra"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 706,
+      "name": "Goodra",
+      "form": "Hisuian Form",
+      "displayName": "Goodra (Hisuian Form)",
+      "slug": "goodra-hisuian-form",
+      "types": [
+        "Steel",
+        "Dragon"
+      ],
+      "aliases": [
+        "hisuian goodra",
+        "goodra hisui",
+        "h-goodra"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 707,
+      "name": "Klefki",
+      "form": null,
+      "displayName": "Klefki",
+      "slug": "klefki",
+      "types": [
+        "Steel",
+        "Fairy"
+      ],
+      "aliases": [
+        "klefki"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 709,
+      "name": "Trevenant",
+      "form": null,
+      "displayName": "Trevenant",
+      "slug": "trevenant",
+      "types": [
+        "Ghost",
+        "Grass"
+      ],
+      "aliases": [
+        "trevenant"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 711,
+      "name": "Gourgeist",
+      "form": "Medium Variety",
+      "displayName": "Gourgeist (Medium Variety)",
+      "slug": "gourgeist-medium-variety",
+      "types": [
+        "Ghost",
+        "Grass"
+      ],
+      "aliases": [
+        "gourgeist medium",
+        "medium gourgeist"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 711,
+      "name": "Gourgeist",
+      "form": "Small Variety",
+      "displayName": "Gourgeist (Small Variety)",
+      "slug": "gourgeist-small-variety",
+      "types": [
+        "Ghost",
+        "Grass"
+      ],
+      "aliases": [
+        "gourgeist small",
+        "small gourgeist"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 711,
+      "name": "Gourgeist",
+      "form": "Large Variety",
+      "displayName": "Gourgeist (Large Variety)",
+      "slug": "gourgeist-large-variety",
+      "types": [
+        "Ghost",
+        "Grass"
+      ],
+      "aliases": [
+        "gourgeist large",
+        "large gourgeist"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 711,
+      "name": "Gourgeist",
+      "form": "Jumbo Variety",
+      "displayName": "Gourgeist (Jumbo Variety)",
+      "slug": "gourgeist-jumbo-variety",
+      "types": [
+        "Ghost",
+        "Grass"
+      ],
+      "aliases": [
+        "gourgeist jumbo",
+        "jumbo gourgeist"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 713,
+      "name": "Avalugg",
+      "form": null,
+      "displayName": "Avalugg",
+      "slug": "avalugg",
+      "types": [
+        "Ice"
+      ],
+      "aliases": [
+        "avalugg"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 713,
+      "name": "Avalugg",
+      "form": "Hisuian Form",
+      "displayName": "Avalugg (Hisuian Form)",
+      "slug": "avalugg-hisuian-form",
+      "types": [
+        "Ice",
+        "Rock"
+      ],
+      "aliases": [
+        "hisuian avalugg",
+        "avalugg hisui",
+        "h-avalugg"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 715,
+      "name": "Noivern",
+      "form": null,
+      "displayName": "Noivern",
+      "slug": "noivern",
+      "types": [
+        "Flying",
+        "Dragon"
+      ],
+      "aliases": [
+        "noivern"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 724,
+      "name": "Decidueye",
+      "form": null,
+      "displayName": "Decidueye",
+      "slug": "decidueye",
+      "types": [
+        "Grass",
+        "Ghost"
+      ],
+      "aliases": [
+        "decidueye"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 724,
+      "name": "Decidueye",
+      "form": "Hisuian Form",
+      "displayName": "Decidueye (Hisuian Form)",
+      "slug": "decidueye-hisuian-form",
+      "types": [
+        "Grass",
+        "Fighting"
+      ],
+      "aliases": [
+        "hisuian decidueye",
+        "decidueye hisui",
+        "h-decidueye"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 727,
+      "name": "Incineroar",
+      "form": null,
+      "displayName": "Incineroar",
+      "slug": "incineroar",
+      "types": [
+        "Fire",
+        "Dark"
+      ],
+      "aliases": [
+        "incineroar",
+        "incin"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 730,
+      "name": "Primarina",
+      "form": null,
+      "displayName": "Primarina",
+      "slug": "primarina",
+      "types": [
+        "Water",
+        "Fairy"
+      ],
+      "aliases": [
+        "primarina"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 733,
+      "name": "Toucannon",
+      "form": null,
+      "displayName": "Toucannon",
+      "slug": "toucannon",
+      "types": [
+        "Normal",
+        "Flying"
+      ],
+      "aliases": [
+        "toucannon"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 740,
+      "name": "Crabominable",
+      "form": null,
+      "displayName": "Crabominable",
+      "slug": "crabominable",
+      "types": [
+        "Fighting",
+        "Ice"
+      ],
+      "aliases": [
+        "crabominable"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 745,
+      "name": "Lycanroc",
+      "form": "Midday Form",
+      "displayName": "Lycanroc (Midday Form)",
+      "slug": "lycanroc-midday-form",
+      "types": [
+        "Rock"
+      ],
+      "aliases": [
+        "lycanroc midday",
+        "midday lycanroc"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 745,
+      "name": "Lycanroc",
+      "form": "Midnight Form",
+      "displayName": "Lycanroc (Midnight Form)",
+      "slug": "lycanroc-midnight-form",
+      "types": [
+        "Rock"
+      ],
+      "aliases": [
+        "lycanroc midnight",
+        "midnight lycanroc"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 745,
+      "name": "Lycanroc",
+      "form": "Dusk Form",
+      "displayName": "Lycanroc (Dusk Form)",
+      "slug": "lycanroc-dusk-form",
+      "types": [
+        "Rock"
+      ],
+      "aliases": [
+        "lycanroc dusk",
+        "dusk lycanroc"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 748,
+      "name": "Toxapex",
+      "form": null,
+      "displayName": "Toxapex",
+      "slug": "toxapex",
+      "types": [
+        "Poison",
+        "Water"
+      ],
+      "aliases": [
+        "toxapex",
+        "pex"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 750,
+      "name": "Mudsdale",
+      "form": null,
+      "displayName": "Mudsdale",
+      "slug": "mudsdale",
+      "types": [
+        "Ground"
+      ],
+      "aliases": [
+        "mudsdale"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 752,
+      "name": "Araquanid",
+      "form": null,
+      "displayName": "Araquanid",
+      "slug": "araquanid",
+      "types": [
+        "Water",
+        "Bug"
+      ],
+      "aliases": [
+        "araquanid"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 758,
+      "name": "Salazzle",
+      "form": null,
+      "displayName": "Salazzle",
+      "slug": "salazzle",
+      "types": [
+        "Poison",
+        "Fire"
+      ],
+      "aliases": [
+        "salazzle"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 763,
+      "name": "Tsareena",
+      "form": null,
+      "displayName": "Tsareena",
+      "slug": "tsareena",
+      "types": [
+        "Grass"
+      ],
+      "aliases": [
+        "tsareena"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 765,
+      "name": "Oranguru",
+      "form": null,
+      "displayName": "Oranguru",
+      "slug": "oranguru",
+      "types": [
+        "Normal",
+        "Psychic"
+      ],
+      "aliases": [
+        "oranguru"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 766,
+      "name": "Passimian",
+      "form": null,
+      "displayName": "Passimian",
+      "slug": "passimian",
+      "types": [
+        "Fighting"
+      ],
+      "aliases": [
+        "passimian"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 778,
+      "name": "Mimikyu",
+      "form": null,
+      "displayName": "Mimikyu",
+      "slug": "mimikyu",
+      "types": [
+        "Ghost",
+        "Fairy"
+      ],
+      "aliases": [
+        "mimikyu",
+        "mimi",
+        "mimik"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 780,
+      "name": "Drampa",
+      "form": null,
+      "displayName": "Drampa",
+      "slug": "drampa",
+      "types": [
+        "Normal",
+        "Dragon"
+      ],
+      "aliases": [
+        "drampa"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 784,
+      "name": "Kommo-o",
+      "form": null,
+      "displayName": "Kommo-o",
+      "slug": "kommo-o",
+      "types": [
+        "Dragon",
+        "Fighting"
+      ],
+      "aliases": [
+        "kommo-o",
+        "kommoo"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 823,
+      "name": "Corviknight",
+      "form": null,
+      "displayName": "Corviknight",
+      "slug": "corviknight",
+      "types": [
+        "Flying",
+        "Steel"
+      ],
+      "aliases": [
+        "corviknight",
+        "corvi",
+        "corknight"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 841,
+      "name": "Flapple",
+      "form": null,
+      "displayName": "Flapple",
+      "slug": "flapple",
+      "types": [
+        "Grass",
+        "Dragon"
+      ],
+      "aliases": [
+        "flapple"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 842,
+      "name": "Appletun",
+      "form": null,
+      "displayName": "Appletun",
+      "slug": "appletun",
+      "types": [
+        "Grass",
+        "Dragon"
+      ],
+      "aliases": [
+        "appletun"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 844,
+      "name": "Sandaconda",
+      "form": null,
+      "displayName": "Sandaconda",
+      "slug": "sandaconda",
+      "types": [
+        "Ground"
+      ],
+      "aliases": [
+        "sandaconda"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 855,
+      "name": "Polteageist",
+      "form": "Phony Form",
+      "displayName": "Polteageist (Phony Form)",
+      "slug": "polteageist-phony-form",
+      "types": [
+        "Ghost"
+      ],
+      "aliases": [
+        "polteageist phony",
+        "phony polteageist"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 855,
+      "name": "Polteageist",
+      "form": "Antique Form",
+      "displayName": "Polteageist (Antique Form)",
+      "slug": "polteageist-antique-form",
+      "types": [
+        "Ghost"
+      ],
+      "aliases": [
+        "polteageist antique",
+        "antique polteageist"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 858,
+      "name": "Hatterene",
+      "form": null,
+      "displayName": "Hatterene",
+      "slug": "hatterene",
+      "types": [
+        "Psychic",
+        "Fairy"
+      ],
+      "aliases": [
+        "hatterene"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 866,
+      "name": "Mr. Rime",
+      "form": null,
+      "displayName": "Mr. Rime",
+      "slug": "mr-rime",
+      "types": [
+        "Ice",
+        "Psychic"
+      ],
+      "aliases": [
+        "mr rime",
+        "mrrime"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 867,
+      "name": "Runerigus",
+      "form": null,
+      "displayName": "Runerigus",
+      "slug": "runerigus",
+      "types": [
+        "Ground",
+        "Ghost"
+      ],
+      "aliases": [
+        "runerigus"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 869,
+      "name": "Alcremie",
+      "form": "Vanilla Cream",
+      "displayName": "Alcremie (Vanilla Cream)",
+      "slug": "alcremie-vanilla-cream",
+      "types": [
+        "Fairy"
+      ],
+      "aliases": [
+        "alcremie vanilla",
+        "vanilla cream"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 869,
+      "name": "Alcremie",
+      "form": "Ruby Cream",
+      "displayName": "Alcremie (Ruby Cream)",
+      "slug": "alcremie-ruby-cream",
+      "types": [
+        "Fairy"
+      ],
+      "aliases": [
+        "alcremie ruby cream",
+        "ruby cream"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 869,
+      "name": "Alcremie",
+      "form": "Matcha Cream",
+      "displayName": "Alcremie (Matcha Cream)",
+      "slug": "alcremie-matcha-cream",
+      "types": [
+        "Fairy"
+      ],
+      "aliases": [
+        "alcremie matcha cream",
+        "matcha cream"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 869,
+      "name": "Alcremie",
+      "form": "Mint Cream",
+      "displayName": "Alcremie (Mint Cream)",
+      "slug": "alcremie-mint-cream",
+      "types": [
+        "Fairy"
+      ],
+      "aliases": [
+        "alcremie mint cream",
+        "mint cream"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 869,
+      "name": "Alcremie",
+      "form": "Lemon Cream",
+      "displayName": "Alcremie (Lemon Cream)",
+      "slug": "alcremie-lemon-cream",
+      "types": [
+        "Fairy"
+      ],
+      "aliases": [
+        "alcremie lemon cream",
+        "lemon cream"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 869,
+      "name": "Alcremie",
+      "form": "Salted Cream",
+      "displayName": "Alcremie (Salted Cream)",
+      "slug": "alcremie-salted-cream",
+      "types": [
+        "Fairy"
+      ],
+      "aliases": [
+        "alcremie salted cream",
+        "salted cream"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 869,
+      "name": "Alcremie",
+      "form": "Ruby Swirl",
+      "displayName": "Alcremie (Ruby Swirl)",
+      "slug": "alcremie-ruby-swirl",
+      "types": [
+        "Fairy"
+      ],
+      "aliases": [
+        "alcremie ruby swirl",
+        "ruby swirl"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 869,
+      "name": "Alcremie",
+      "form": "Caramel Swirl",
+      "displayName": "Alcremie (Caramel Swirl)",
+      "slug": "alcremie-caramel-swirl",
+      "types": [
+        "Fairy"
+      ],
+      "aliases": [
+        "alcremie caramel swirl",
+        "caramel swirl"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 869,
+      "name": "Alcremie",
+      "form": "Rainbow Swirl",
+      "displayName": "Alcremie (Rainbow Swirl)",
+      "slug": "alcremie-rainbow-swirl",
+      "types": [
+        "Fairy"
+      ],
+      "aliases": [
+        "alcremie rainbow swirl",
+        "rainbow swirl"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 877,
+      "name": "Morpeko",
+      "form": null,
+      "displayName": "Morpeko",
+      "slug": "morpeko",
+      "types": [
+        "Electric",
+        "Dark"
+      ],
+      "aliases": [
+        "morpeko"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 887,
+      "name": "Dragapult",
+      "form": null,
+      "displayName": "Dragapult",
+      "slug": "dragapult",
+      "types": [
+        "Dragon",
+        "Ghost"
+      ],
+      "aliases": [
+        "dragapult"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 899,
+      "name": "Wyrdeer",
+      "form": null,
+      "displayName": "Wyrdeer",
+      "slug": "wyrdeer",
+      "types": [
+        "Normal",
+        "Psychic"
+      ],
+      "aliases": [
+        "wyrdeer"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 900,
+      "name": "Kleavor",
+      "form": null,
+      "displayName": "Kleavor",
+      "slug": "kleavor",
+      "types": [
+        "Bug",
+        "Rock"
+      ],
+      "aliases": [
+        "kleavor"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 902,
+      "name": "Basculegion",
+      "form": "Male",
+      "displayName": "Basculegion (Male)",
+      "slug": "basculegion-male",
+      "types": [
+        "Water",
+        "Ghost"
+      ],
+      "aliases": [
+        "basculegion male",
+        "male basculegion"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 902,
+      "name": "Basculegion",
+      "form": "Female",
+      "displayName": "Basculegion (Female)",
+      "slug": "basculegion-female",
+      "types": [
+        "Water",
+        "Ghost"
+      ],
+      "aliases": [
+        "basculegion female",
+        "female basculegion"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 903,
+      "name": "Sneasler",
+      "form": null,
+      "displayName": "Sneasler",
+      "slug": "sneasler",
+      "types": [
+        "Fighting",
+        "Poison"
+      ],
+      "aliases": [
+        "sneasler"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 908,
+      "name": "Meowscarada",
+      "form": null,
+      "displayName": "Meowscarada",
+      "slug": "meowscarada",
+      "types": [
+        "Grass",
+        "Dark"
+      ],
+      "aliases": [
+        "meowscarada"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 911,
+      "name": "Skeledirge",
+      "form": null,
+      "displayName": "Skeledirge",
+      "slug": "skeledirge",
+      "types": [
+        "Fire",
+        "Ghost"
+      ],
+      "aliases": [
+        "skeledirge",
+        "dirge",
+        "fire croc",
+        "fire-croc"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 914,
+      "name": "Quaquaval",
+      "form": null,
+      "displayName": "Quaquaval",
+      "slug": "quaquaval",
+      "types": [
+        "Water",
+        "Fighting"
+      ],
+      "aliases": [
+        "quaquaval"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 925,
+      "name": "Maushold",
+      "form": "Family of Three",
+      "displayName": "Maushold (Family of Three)",
+      "slug": "maushold-family-of-three",
+      "types": [
+        "Normal"
+      ],
+      "aliases": [
+        "maushold family of three",
+        "maushold three"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 925,
+      "name": "Maushold",
+      "form": "Family of Four",
+      "displayName": "Maushold (Family of Four)",
+      "slug": "maushold-family-of-four",
+      "types": [
+        "Normal"
+      ],
+      "aliases": [
+        "maushold family of four",
+        "maushold four"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 934,
+      "name": "Garganacl",
+      "form": null,
+      "displayName": "Garganacl",
+      "slug": "garganacl",
+      "types": [
+        "Rock"
+      ],
+      "aliases": [
+        "garganacl"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 936,
+      "name": "Armarouge",
+      "form": null,
+      "displayName": "Armarouge",
+      "slug": "armarouge",
+      "types": [
+        "Fire",
+        "Psychic"
+      ],
+      "aliases": [
+        "armarouge"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 937,
+      "name": "Ceruledge",
+      "form": null,
+      "displayName": "Ceruledge",
+      "slug": "ceruledge",
+      "types": [
+        "Fire",
+        "Ghost"
+      ],
+      "aliases": [
+        "ceruledge"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 939,
+      "name": "Bellibolt",
+      "form": null,
+      "displayName": "Bellibolt",
+      "slug": "bellibolt",
+      "types": [
+        "Electric"
+      ],
+      "aliases": [
+        "bellibolt"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 952,
+      "name": "Scovillain",
+      "form": null,
+      "displayName": "Scovillain",
+      "slug": "scovillain",
+      "types": [
+        "Grass",
+        "Fire"
+      ],
+      "aliases": [
+        "scovillain"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 956,
+      "name": "Espathra",
+      "form": null,
+      "displayName": "Espathra",
+      "slug": "espathra",
+      "types": [
+        "Psychic"
+      ],
+      "aliases": [
+        "espathra"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 959,
+      "name": "Tinkaton",
+      "form": null,
+      "displayName": "Tinkaton",
+      "slug": "tinkaton",
+      "types": [
+        "Fairy",
+        "Steel"
+      ],
+      "aliases": [
+        "tinkaton"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 964,
+      "name": "Palafin",
+      "form": null,
+      "displayName": "Palafin",
+      "slug": "palafin",
+      "types": [
+        "Water"
+      ],
+      "aliases": [
+        "palafin"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 968,
+      "name": "Orthworm",
+      "form": null,
+      "displayName": "Orthworm",
+      "slug": "orthworm",
+      "types": [
+        "Steel"
+      ],
+      "aliases": [
+        "orthworm"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 970,
+      "name": "Glimmora",
+      "form": null,
+      "displayName": "Glimmora",
+      "slug": "glimmora",
+      "types": [
+        "Rock",
+        "Poison"
+      ],
+      "aliases": [
+        "glimmora"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 981,
+      "name": "Farigiraf",
+      "form": null,
+      "displayName": "Farigiraf",
+      "slug": "farigiraf",
+      "types": [
+        "Normal",
+        "Psychic"
+      ],
+      "aliases": [
+        "farigiraf"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 983,
+      "name": "Kingambit",
+      "form": null,
+      "displayName": "Kingambit",
+      "slug": "kingambit",
+      "types": [
+        "Dark",
+        "Steel"
+      ],
+      "aliases": [
+        "kingambit",
+        "gambit"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 1013,
+      "name": "Sinistcha",
+      "form": "Unremarkable Form",
+      "displayName": "Sinistcha (Unremarkable Form)",
+      "slug": "sinistcha-unremarkable-form",
+      "types": [
+        "Grass",
+        "Ghost"
+      ],
+      "aliases": [
+        "sinistcha unremarkable",
+        "unremarkable sinistcha"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 1013,
+      "name": "Sinistcha",
+      "form": "Masterpiece Form",
+      "displayName": "Sinistcha (Masterpiece Form)",
+      "slug": "sinistcha-masterpiece-form",
+      "types": [
+        "Grass",
+        "Ghost"
+      ],
+      "aliases": [
+        "sinistcha masterpiece",
+        "masterpiece sinistcha"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 1018,
+      "name": "Archaludon",
+      "form": null,
+      "displayName": "Archaludon",
+      "slug": "archaludon",
+      "types": [
+        "Steel",
+        "Dragon"
+      ],
+      "aliases": [
+        "archaludon",
+        "arch"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    },
+    {
+      "dex": 1019,
+      "name": "Hydrapple",
+      "form": null,
+      "displayName": "Hydrapple",
+      "slug": "hydrapple",
+      "types": [
+        "Grass",
+        "Dragon"
+      ],
+      "aliases": [
+        "hydrapple"
+      ],
+      "normallyAvailable": true,
+      "versionAdded": "1.0.2",
+      "roster": "Regular Roster M-A"
+    }
+  ]
+}

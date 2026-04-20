@@ -1,0 +1,158 @@
+{
+  "Dragonite": {
+    "tags": [
+      "setup_sweeper",
+      "dragon_pressure"
+    ],
+    "threatLevel": "high",
+    "fieldRisks": [
+      "Dragonite is a major setup threat if given a free turn"
+    ],
+    "turnOne": {
+      "Greninja": "Ice Beam immediately and deny setup",
+      "Scizor": "Chip safely and preserve Scizor for priority later",
+      "Garchomp": "Play safe and scout set before committing"
+    },
+    "winNotes": [
+      "Pressure Dragonite early so it never gets a free setup turn"
+    ]
+  },
+  "Mimikyu": {
+    "tags": [
+      "disguise",
+      "trade_forcer"
+    ],
+    "threatLevel": "high",
+    "fieldRisks": [
+      "Mimikyu can create awkward trades with Disguise"
+    ],
+    "turnOne": {
+      "Greninja": "Break Disguise safely",
+      "Scizor": "Click Bullet Punch to break Disguise",
+      "Garchomp": "Avoid giving free value into Disguise"
+    },
+    "winNotes": [
+      "Break Disguise cleanly before committing your win condition"
+    ]
+  },
+  "Gengar": {
+    "tags": [
+      "fast_special",
+      "ghost_pressure",
+      "fragile"
+    ],
+    "threatLevel": "medium",
+    "turnOne": {
+      "Greninja": "Stay in and click Dark Pulse",
+      "Scizor": "Bullet Punch or pivot out",
+      "Garchomp": "Do not overcommit early, scout pressure first"
+    },
+    "winNotes": [
+      "Greninja pressures Gengar with Dark Pulse, Scizor can finish with priority"
+    ]
+  },
+  "Greninja": {
+    "tags": [
+      "fast_special",
+      "dark_pressure",
+      "ice_coverage"
+    ],
+    "threatLevel": "medium",
+    "turnOne": {
+      "Greninja": "Expect a neutral trade, play safe or pivot",
+      "Scizor": "Respect its speed and avoid unnecessary chip",
+      "Garchomp": "Respect Ice coverage and scout first"
+    },
+    "winNotes": [
+      "Avoid unnecessary neutral trades into opposing Greninja"
+    ]
+  },
+  "Raichu": {
+    "tags": [
+      "fast_special",
+      "electric_pressure"
+    ],
+    "threatLevel": "medium",
+    "turnOne": {
+      "Greninja": "Respect speed and scout before committing",
+      "Scizor": "Respect speed and scout before committing",
+      "Garchomp": "Respect speed and avoid a reckless early trade"
+    },
+    "winNotes": [
+      "Do not give Raichu free chip and tempo"
+    ]
+  },
+  "Blastoise": {
+    "tags": [
+      "bulky_water",
+      "neutral_trade"
+    ],
+    "threatLevel": "medium",
+    "turnOne": {
+      "Greninja": "Neutral lead, scout or pivot",
+      "Scizor": "Pivot out or chip first",
+      "Garchomp": "Switch out"
+    },
+    "winNotes": [
+      "Do not let bulky Water types force repeated neutral trades"
+    ]
+  },
+  "Garchomp": {
+    "tags": [
+      "physical_pressure",
+      "ground_pressure",
+      "dragon_pressure"
+    ],
+    "threatLevel": "high",
+    "turnOne": {
+      "Greninja": "Pressure with Ice Beam or scout for set",
+      "Scizor": "Scout first and avoid giving free momentum",
+      "Garchomp": "Scout the mirror carefully"
+    },
+    "winNotes": [
+      "Do not give Garchomp free turns"
+    ]
+  },
+  "Scizor": {
+    "tags": [
+      "priority",
+      "steel_pivot",
+      "late_game_cleaner"
+    ],
+    "threatLevel": "medium",
+    "turnOne": {
+      "Greninja": "Chip safely and respect priority"
+    },
+    "winNotes": [
+      "Keep Scizor healthy if you need priority to clean later"
+    ]
+  },
+  "Venusaur": {
+    "tags": [
+      "grass_pressure",
+      "bulky_special"
+    ],
+    "threatLevel": "medium",
+    "turnOne": {
+      "Greninja": "Pressure with Ice Beam"
+    },
+    "winNotes": [
+      "Greninja can pressure Grass matchups with Ice coverage"
+    ]
+  },
+  "Charizard": {
+    "tags": [
+      "fire_pressure",
+      "flying_pressure"
+    ],
+    "threatLevel": "high",
+    "turnOne": {
+      "Greninja": "Stay in and click Water move",
+      "Scizor": "Switch immediately",
+      "Garchomp": "Be careful and scout first"
+    },
+    "winNotes": [
+      "Respect Fire pressure and punish Charizard immediately if possible"
+    ]
+  }
+}
