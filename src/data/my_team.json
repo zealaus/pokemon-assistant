@@ -1,0 +1,231 @@
+{
+  "schemaVersion": 1,
+  "format": "singles_3v3",
+  "owner": "James",
+  "notes": "Initial personal team file for Pokemon Champions assistant. Designed so future versions can support user-defined teams.",
+  "team": [
+    {
+      "slot": 1,
+      "name": "Greninja",
+      "form": null,
+      "mega": false,
+      "megaItem": null,
+      "item": "Mystic Water",
+      "ability": {
+        "base": "Protean",
+        "mega": null,
+        "confidence": "likely"
+      },
+      "statAlignment": {
+        "name": "Timid",
+        "source": "user_provided",
+        "confidence": "likely"
+      },
+      "statPoints": {
+        "hp": 2,
+        "attack": 0,
+        "defense": 0,
+        "spAttack": 32,
+        "spDefense": 0,
+        "speed": 32
+      },
+      "moves": [
+        "Hydro Pump",
+        "Ice Beam",
+        "Dark Pulse",
+        "U-turn"
+      ],
+      "strategyTags": [
+        "fast_attacker",
+        "ice_coverage",
+        "dark_pressure",
+        "momentum"
+      ]
+    },
+    {
+      "slot": 2,
+      "name": "Charizard",
+      "form": null,
+      "mega": true,
+      "megaItem": "Charizardite Y",
+      "item": "Charizardite Y",
+      "ability": {
+        "base": "Blaze",
+        "mega": "Drought",
+        "confidence": "user_provided"
+      },
+      "statAlignment": {
+        "name": "Timid",
+        "source": "user_provided",
+        "confidence": "likely"
+      },
+      "statPoints": {
+        "hp": 2,
+        "attack": 0,
+        "defense": 0,
+        "spAttack": 32,
+        "spDefense": 0,
+        "speed": 32
+      },
+      "moves": [
+        "Fire Blast",
+        "Focus Blast",
+        "Air Slash",
+        "Roost"
+      ],
+      "strategyTags": [
+        "mega_breaker",
+        "fire_pressure",
+        "special_attacker"
+      ]
+    },
+    {
+      "slot": 3,
+      "name": "Garchomp",
+      "form": null,
+      "mega": false,
+      "megaItem": null,
+      "item": "Yache Berry",
+      "ability": {
+        "base": "Rough Skin",
+        "mega": null,
+        "confidence": "likely"
+      },
+      "statAlignment": {
+        "name": null,
+        "source": "not_set_yet",
+        "confidence": "unknown"
+      },
+      "statPoints": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "spAttack": null,
+        "spDefense": null,
+        "speed": null
+      },
+      "moves": [
+        "Earthquake",
+        "Dragon Claw",
+        "Swords Dance",
+        "Stone Edge"
+      ],
+      "strategyTags": [
+        "physical_pressure",
+        "setup_sweeper",
+        "ground_pressure"
+      ]
+    },
+    {
+      "slot": 4,
+      "name": "Scizor",
+      "form": null,
+      "mega": true,
+      "megaItem": "Scizorite",
+      "item": "Scizorite",
+      "ability": {
+        "base": "Technician",
+        "mega": null,
+        "confidence": "user_provided"
+      },
+      "statAlignment": {
+        "name": null,
+        "source": "not_set_yet",
+        "confidence": "unknown"
+      },
+      "statPoints": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "spAttack": null,
+        "spDefense": null,
+        "speed": null
+      },
+      "moves": [
+        "Bullet Punch",
+        "Swords Dance",
+        "U-turn",
+        "Close Combat"
+      ],
+      "strategyTags": [
+        "priority_user",
+        "mega_cleaner",
+        "pivot"
+      ]
+    },
+    {
+      "slot": 5,
+      "name": "Dragonite",
+      "form": null,
+      "mega": false,
+      "megaItem": null,
+      "item": "Dragon Fang",
+      "ability": {
+        "base": "Multiscale",
+        "mega": null,
+        "confidence": "user_provided"
+      },
+      "statAlignment": {
+        "name": "Adamant",
+        "source": "user_provided",
+        "confidence": "user_provided"
+      },
+      "statPoints": {
+        "hp": 2,
+        "attack": 32,
+        "defense": 0,
+        "spAttack": 0,
+        "spDefense": 0,
+        "speed": 32
+      },
+      "moves": [
+        "Dragon Dance",
+        "Dragon Claw",
+        "Earthquake",
+        "Extreme Speed"
+      ],
+      "strategyTags": [
+        "setup_sweeper",
+        "priority_user",
+        "dragon_pressure"
+      ]
+    },
+    {
+      "slot": 6,
+      "name": "Gengar",
+      "form": null,
+      "mega": true,
+      "megaItem": "Gengarite",
+      "item": "Gengarite",
+      "ability": {
+        "base": "Cursed Body",
+        "mega": null,
+        "confidence": "user_provided"
+      },
+      "statAlignment": {
+        "name": "Timid",
+        "source": "user_provided",
+        "confidence": "user_provided"
+      },
+      "statPoints": {
+        "hp": 2,
+        "attack": 0,
+        "defense": 0,
+        "spAttack": 32,
+        "spDefense": 0,
+        "speed": 32
+      },
+      "moves": [
+        "Shadow Ball",
+        "Thunderbolt",
+        "Sludge Wave",
+        "Nasty Plot"
+      ],
+      "strategyTags": [
+        "mega_breaker",
+        "fast_special",
+        "ghost_pressure"
+      ]
+    }
+  ]
+}

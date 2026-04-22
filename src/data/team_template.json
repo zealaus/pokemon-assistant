@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "format": "singles_3v3",
+  "team": [
+    {
+      "slot": 1,
+      "name": "",
+      "form": null,
+      "mega": false,
+      "megaItem": null,
+      "item": "",
+      "ability": {
+        "base": "",
+        "mega": null,
+        "confidence": "user_provided"
+      },
+      "statAlignment": {
+        "name": "",
+        "source": "user_provided",
+        "confidence": "user_provided"
+      },
+      "statPoints": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "spAttack": 0,
+        "spDefense": 0,
+        "speed": 0
+      },
+      "moves": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "strategyTags": []
+    }
+  ]
+}
