@@ -2,6 +2,8 @@ import { useState } from "react";
 import rosterData from "./data/champions_roster_full.json";
 import metaStrategies from "./data/meta_strategies.json";
 import myTeamData from "./data/my_team.json";
+import spriteData from "./data/champions_sprites.json";
+import PokemonSearchPicker from "./components/PokemonSearchPicker";
 
 function normalizeText(value) {
   return value.toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -507,7 +509,7 @@ function buildWinConditions(chosenThree, opponentTeam, lead) {
     winConditions.push(`${lead} is your main piece for establishing early momentum`);
   }
 
-  return [...new Set(winConditions)].slice(0, 4);
+  return [...new Set(winConditions)].slice(0, 3);
 }
 
 const styles = {
@@ -539,6 +541,15 @@ const styles = {
     fontSize: "15px",
     boxSizing: "border-box",
   },
+  textareaWrap: {
+    marginBottom: "6px",
+  },
+  fallbackNote: {
+    textAlign: "center",
+    opacity: 0.7,
+    fontSize: "12px",
+    marginBottom: "10px",
+  },
   buttonWrap: {
     textAlign: "center",
     marginBottom: "24px",
@@ -564,7 +575,7 @@ const styles = {
   cardGrid: {
     display: "flex",
     flexWrap: "wrap",
-    gap: "8px",
+    gap: "6px",
     justifyContent: "center",
   },
   smallCard: {
@@ -575,43 +586,64 @@ const styles = {
     textAlign: "center",
     boxSizing: "border-box",
   },
+  topDecisionRow: {
+    display: "flex",
+    gap: "14px",
+    alignItems: "flex-start",
+    justifyContent: "center",
+    flexWrap: "wrap",
+  },
+  bestThreeBlock: {
+    flex: "0 1 auto",
+  },
+  leadBlock: {
+    flex: "0 1 auto",
+    minWidth: "180px",
+  },
+  bestThreeGrid: {
+    display: "flex",
+    gap: "8px",
+    justifyContent: "center",
+    flexWrap: "nowrap",
+  },
   bestCard: {
     border: "1px solid #ccc",
     borderRadius: "10px",
-    padding: "8px 10px",
-    minWidth: "120px",
+    padding: "6px 8px",
+    minWidth: "104px",
     textAlign: "center",
     boxSizing: "border-box",
   },
   bestName: {
     fontWeight: 700,
-    marginBottom: "3px",
-    fontSize: "15px",
+    marginBottom: "2px",
+    fontSize: "14px",
   },
   bestMeta: {
-    fontSize: "13px",
+    fontSize: "12px",
     opacity: 0.9,
-    marginBottom: "3px",
+    marginBottom: "2px",
   },
   bestRole: {
-    fontSize: "12px",
+    fontSize: "11px",
     opacity: 0.72,
   },
   leadCard: {
     border: "1px solid #ccc",
     borderRadius: "12px",
-    padding: "12px 14px",
+    padding: "8px 10px",
     textAlign: "center",
-    maxWidth: "240px",
+    minWidth: "150px",
+    maxWidth: "150px",
     margin: "0 auto",
   },
   leadName: {
-    fontSize: "22px",
+    fontSize: "16px",
     fontWeight: 700,
-    marginBottom: "4px",
+    marginBottom: "3px",
   },
   leadSub: {
-    fontSize: "12px",
+    fontSize: "11px",
     opacity: 0.72,
   },
   turnGrid: {
@@ -656,6 +688,7 @@ const styles = {
 
 export default function App() {
   const [input, setInput] = useState("");
+  const [selectedOpponentPokemon, setSelectedOpponentPokemon] = useState([]);
   const [opponentTeam, setOpponentTeam] = useState([]);
   const [bestThree, setBestThree] = useState([]);
   const [lead, setLead] = useState("");
@@ -665,17 +698,24 @@ export default function App() {
   const [winConditions, setWinConditions] = useState([]);
 
   const myTeam = buildMyTeam(myTeamData, rosterData.entries);
+  const showFallbackTextarea = selectedOpponentPokemon.length < 6;
 
   const handleAnalyze = () => {
-    const names = input
-      .split(/[,\n]+/)
-      .map((name) => name.trim())
+    const selectedFromPicker = selectedOpponentPokemon
+      .map((pokemon) => findPokemon(pokemon.name, rosterData.entries))
       .filter(Boolean)
       .slice(0, 6);
 
-    const foundTeam = names
+    const parsedFromText = input
+      .split(/[,\n]+/)
+      .map((name) => name.trim())
+      .filter(Boolean)
+      .slice(0, 6)
       .map((name) => findPokemon(name, rosterData.entries))
       .filter(Boolean);
+
+    const foundTeam =
+      selectedFromPicker.length > 0 ? selectedFromPicker : parsedFromText;
 
     const ranked = myTeam
       .map((pokemon) => scoreMatchup(pokemon, foundTeam))
@@ -707,16 +747,31 @@ export default function App() {
     <div style={styles.page}>
       <h1 style={styles.title}>Pokémon Champions Assistant</h1>
       <p style={styles.subtitle}>
-        Enter the opponent&apos;s 6 Pokémon separated by commas or new lines.
+        Search and click the opponent&apos;s Pokémon. Use the fallback text box only if needed.
       </p>
 
-      <textarea
-        rows="7"
-        style={styles.textarea}
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        placeholder="Example: Gengar, Mimikyu, Garchomp, Dragonite, Gyarados, Umbreon"
+      <PokemonSearchPicker
+        spriteData={spriteData}
+        selectedPokemon={selectedOpponentPokemon}
+        setSelectedPokemon={setSelectedOpponentPokemon}
+        normalizeText={normalizeText}
       />
+
+      {showFallbackTextarea && (
+        <div style={styles.textareaWrap}>
+          <div style={styles.fallbackNote}>
+            Optional fallback input if you want to paste names manually.
+          </div>
+
+          <textarea
+            rows="4"
+            style={styles.textarea}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Optional fallback: Gengar, Mimikyu, Garchomp, Dragonite, Gyarados, Umbreon"
+          />
+        </div>
+      )}
 
       <div style={styles.buttonWrap}>
         <button onClick={handleAnalyze} style={styles.button}>
@@ -745,28 +800,32 @@ export default function App() {
       </div>
 
       <div style={styles.section}>
-        <h2 style={styles.sectionTitle}>Best 3</h2>
-        {bestThree.length === 0 ? (
-          <p style={styles.emptyText}>No recommendations yet.</p>
-        ) : (
-          <div style={styles.cardGrid}>
-            {bestThree.map((pokemon, index) => (
-              <div key={index} style={styles.bestCard}>
-                <div style={styles.bestName}>{pokemon.name}</div>
-                <div style={styles.bestMeta}>{pokemon.types.join(", ")}</div>
-                <div style={styles.bestMeta}>Score: {pokemon.score}</div>
-                <div style={styles.bestRole}>{pokemon.role}</div>
+        <div style={styles.topDecisionRow}>
+          <div style={styles.bestThreeBlock}>
+            <h2 style={styles.sectionTitle}>Best 3</h2>
+            {bestThree.length === 0 ? (
+              <p style={styles.emptyText}>No recommendations yet.</p>
+            ) : (
+              <div style={styles.bestThreeGrid}>
+                {bestThree.map((pokemon, index) => (
+                  <div key={index} style={styles.bestCard}>
+                    <div style={styles.bestName}>{pokemon.name}</div>
+                    <div style={styles.bestMeta}>{pokemon.types.join(", ")}</div>
+                    <div style={styles.bestMeta}>Score: {pokemon.score}</div>
+                    <div style={styles.bestRole}>{pokemon.role}</div>
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
           </div>
-        )}
-      </div>
 
-      <div style={styles.section}>
-        <h2 style={styles.sectionTitle}>Lead</h2>
-        <div style={styles.leadCard}>
-          <div style={styles.leadName}>{lead || "No lead yet."}</div>
-          <div style={styles.leadSub}>Best opening option</div>
+          <div style={styles.leadBlock}>
+            <h2 style={styles.sectionTitle}>Lead</h2>
+            <div style={styles.leadCard}>
+              <div style={styles.leadName}>{lead || "No lead yet."}</div>
+              <div style={styles.leadSub}>Best opening option</div>
+            </div>
+          </div>
         </div>
       </div>
 

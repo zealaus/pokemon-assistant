@@ -1,0 +1,2222 @@
+[
+  {
+    "name": "Venusaur",
+    "form": null,
+    "slug": "venusaur",
+    "aliases": [
+      "venusaur"
+    ],
+    "sprite": "/sprites/venusaur.png"
+  },
+  {
+    "name": "Charizard",
+    "form": null,
+    "slug": "charizard",
+    "aliases": [
+      "charizard",
+      "zard"
+    ],
+    "sprite": "/sprites/charizard.png"
+  },
+  {
+    "name": "Blastoise",
+    "form": null,
+    "slug": "blastoise",
+    "aliases": [
+      "blastoise"
+    ],
+    "sprite": "/sprites/blastoise.png"
+  },
+  {
+    "name": "Beedrill",
+    "form": null,
+    "slug": "beedrill",
+    "aliases": [
+      "beedrill"
+    ],
+    "sprite": "/sprites/beedrill.png"
+  },
+  {
+    "name": "Pidgeot",
+    "form": null,
+    "slug": "pidgeot",
+    "aliases": [
+      "pidgeot"
+    ],
+    "sprite": "/sprites/pidgeot.png"
+  },
+  {
+    "name": "Arbok",
+    "form": null,
+    "slug": "arbok",
+    "aliases": [
+      "arbok"
+    ],
+    "sprite": "/sprites/arbok.png"
+  },
+  {
+    "name": "Pikachu",
+    "form": null,
+    "slug": "pikachu",
+    "aliases": [
+      "pikachu",
+      "pika"
+    ],
+    "sprite": "/sprites/pikachu.png"
+  },
+  {
+    "name": "Raichu",
+    "form": null,
+    "slug": "raichu",
+    "aliases": [
+      "raichu"
+    ],
+    "sprite": "/sprites/raichu.png"
+  },
+  {
+    "name": "Raichu",
+    "form": "Alolan Form",
+    "slug": "raichu-alolan-form",
+    "aliases": [
+      "alolan raichu",
+      "raichu alola",
+      "a raichu",
+      "raichu"
+    ],
+    "sprite": "/sprites/raichu-alolan-form.png"
+  },
+  {
+    "name": "Clefable",
+    "form": null,
+    "slug": "clefable",
+    "aliases": [
+      "clefable"
+    ],
+    "sprite": "/sprites/clefable.png"
+  },
+  {
+    "name": "Ninetales",
+    "form": null,
+    "slug": "ninetales",
+    "aliases": [
+      "ninetales"
+    ],
+    "sprite": "/sprites/ninetales.png"
+  },
+  {
+    "name": "Ninetales",
+    "form": "Alolan Form",
+    "slug": "ninetales-alolan-form",
+    "aliases": [
+      "alolan ninetales",
+      "ninetales alola",
+      "a tales",
+      "ninetales"
+    ],
+    "sprite": "/sprites/ninetales-alolan-form.png"
+  },
+  {
+    "name": "Arcanine",
+    "form": null,
+    "slug": "arcanine",
+    "aliases": [
+      "arcanine"
+    ],
+    "sprite": "/sprites/arcanine.png"
+  },
+  {
+    "name": "Arcanine",
+    "form": "Hisuian Form",
+    "slug": "arcanine-hisuian-form",
+    "aliases": [
+      "hisuian arcanine",
+      "arcanine hisui",
+      "h arcanine",
+      "arcanine"
+    ],
+    "sprite": "/sprites/arcanine-hisuian-form.png"
+  },
+  {
+    "name": "Alakazam",
+    "form": null,
+    "slug": "alakazam",
+    "aliases": [
+      "alakazam",
+      "zam"
+    ],
+    "sprite": "/sprites/alakazam.png"
+  },
+  {
+    "name": "Machamp",
+    "form": null,
+    "slug": "machamp",
+    "aliases": [
+      "machamp"
+    ],
+    "sprite": "/sprites/machamp.png"
+  },
+  {
+    "name": "Victreebel",
+    "form": null,
+    "slug": "victreebel",
+    "aliases": [
+      "victreebel"
+    ],
+    "sprite": "/sprites/victreebel.png"
+  },
+  {
+    "name": "Slowbro",
+    "form": null,
+    "slug": "slowbro",
+    "aliases": [
+      "slowbro"
+    ],
+    "sprite": "/sprites/slowbro.png"
+  },
+  {
+    "name": "Slowbro",
+    "form": "Galarian Form",
+    "slug": "slowbro-galarian-form",
+    "aliases": [
+      "galarian slowbro",
+      "slowbro galar",
+      "g slowbro",
+      "slowbro"
+    ],
+    "sprite": "/sprites/slowbro-galarian-form.png"
+  },
+  {
+    "name": "Gengar",
+    "form": null,
+    "slug": "gengar",
+    "aliases": [
+      "gengar",
+      "gar"
+    ],
+    "sprite": "/sprites/gengar.png"
+  },
+  {
+    "name": "Kangaskhan",
+    "form": null,
+    "slug": "kangaskhan",
+    "aliases": [
+      "kangaskhan",
+      "kanga"
+    ],
+    "sprite": "/sprites/kangaskhan.png"
+  },
+  {
+    "name": "Starmie",
+    "form": null,
+    "slug": "starmie",
+    "aliases": [
+      "starmie"
+    ],
+    "sprite": "/sprites/starmie.png"
+  },
+  {
+    "name": "Pinsir",
+    "form": null,
+    "slug": "pinsir",
+    "aliases": [
+      "pinsir"
+    ],
+    "sprite": "/sprites/pinsir.png"
+  },
+  {
+    "name": "Tauros",
+    "form": null,
+    "slug": "tauros",
+    "aliases": [
+      "tauros"
+    ],
+    "sprite": "/sprites/tauros.png"
+  },
+  {
+    "name": "Tauros",
+    "form": "Paldean Form (Combat Breed)",
+    "slug": "tauros-paldean-form-combat-breed",
+    "aliases": [
+      "paldean tauros combat",
+      "combat tauros",
+      "tauros combat",
+      "tauros"
+    ],
+    "sprite": "/sprites/tauros-paldean-form-combat-breed.png"
+  },
+  {
+    "name": "Tauros",
+    "form": "Paldean Form (Blaze Breed)",
+    "slug": "tauros-paldean-form-blaze-breed",
+    "aliases": [
+      "paldean tauros blaze",
+      "blaze tauros",
+      "tauros blaze",
+      "tauros"
+    ],
+    "sprite": "/sprites/tauros-paldean-form-blaze-breed.png"
+  },
+  {
+    "name": "Tauros",
+    "form": "Paldean Form (Aqua Breed)",
+    "slug": "tauros-paldean-form-aqua-breed",
+    "aliases": [
+      "paldean tauros aqua",
+      "aqua tauros",
+      "tauros aqua",
+      "tauros"
+    ],
+    "sprite": "/sprites/tauros-paldean-form-aqua-breed.png"
+  },
+  {
+    "name": "Gyarados",
+    "form": null,
+    "slug": "gyarados",
+    "aliases": [
+      "gyarados",
+      "gyara"
+    ],
+    "sprite": "/sprites/gyarados.png"
+  },
+  {
+    "name": "Ditto",
+    "form": null,
+    "slug": "ditto",
+    "aliases": [
+      "ditto"
+    ],
+    "sprite": "/sprites/ditto.png"
+  },
+  {
+    "name": "Vaporeon",
+    "form": null,
+    "slug": "vaporeon",
+    "aliases": [
+      "vaporeon"
+    ],
+    "sprite": "/sprites/vaporeon.png"
+  },
+  {
+    "name": "Jolteon",
+    "form": null,
+    "slug": "jolteon",
+    "aliases": [
+      "jolteon"
+    ],
+    "sprite": "/sprites/jolteon.png"
+  },
+  {
+    "name": "Flareon",
+    "form": null,
+    "slug": "flareon",
+    "aliases": [
+      "flareon"
+    ],
+    "sprite": "/sprites/flareon.png"
+  },
+  {
+    "name": "Aerodactyl",
+    "form": null,
+    "slug": "aerodactyl",
+    "aliases": [
+      "aerodactyl"
+    ],
+    "sprite": "/sprites/aerodactyl.png"
+  },
+  {
+    "name": "Snorlax",
+    "form": null,
+    "slug": "snorlax",
+    "aliases": [
+      "snorlax"
+    ],
+    "sprite": "/sprites/snorlax.png"
+  },
+  {
+    "name": "Dragonite",
+    "form": null,
+    "slug": "dragonite",
+    "aliases": [
+      "dragonite",
+      "dnite"
+    ],
+    "sprite": "/sprites/dragonite.png"
+  },
+  {
+    "name": "Meganium",
+    "form": null,
+    "slug": "meganium",
+    "aliases": [
+      "meganium"
+    ],
+    "sprite": "/sprites/meganium.png"
+  },
+  {
+    "name": "Typhlosion",
+    "form": null,
+    "slug": "typhlosion",
+    "aliases": [
+      "typhlosion"
+    ],
+    "sprite": "/sprites/typhlosion.png"
+  },
+  {
+    "name": "Typhlosion",
+    "form": "Hisuian Form",
+    "slug": "typhlosion-hisuian-form",
+    "aliases": [
+      "hisuian typhlosion",
+      "typhlosion hisui",
+      "h typhlosion",
+      "typhlosion"
+    ],
+    "sprite": "/sprites/typhlosion-hisuian-form.png"
+  },
+  {
+    "name": "Feraligatr",
+    "form": null,
+    "slug": "feraligatr",
+    "aliases": [
+      "feraligatr"
+    ],
+    "sprite": "/sprites/feraligatr.png"
+  },
+  {
+    "name": "Ariados",
+    "form": null,
+    "slug": "ariados",
+    "aliases": [
+      "ariados"
+    ],
+    "sprite": "/sprites/ariados.png"
+  },
+  {
+    "name": "Ampharos",
+    "form": null,
+    "slug": "ampharos",
+    "aliases": [
+      "ampharos"
+    ],
+    "sprite": "/sprites/ampharos.png"
+  },
+  {
+    "name": "Azumarill",
+    "form": null,
+    "slug": "azumarill",
+    "aliases": [
+      "azumarill",
+      "azu"
+    ],
+    "sprite": "/sprites/azumarill.png"
+  },
+  {
+    "name": "Politoed",
+    "form": null,
+    "slug": "politoed",
+    "aliases": [
+      "politoed"
+    ],
+    "sprite": "/sprites/politoed.png"
+  },
+  {
+    "name": "Espeon",
+    "form": null,
+    "slug": "espeon",
+    "aliases": [
+      "espeon"
+    ],
+    "sprite": "/sprites/espeon.png"
+  },
+  {
+    "name": "Umbreon",
+    "form": null,
+    "slug": "umbreon",
+    "aliases": [
+      "umbreon"
+    ],
+    "sprite": "/sprites/umbreon.png"
+  },
+  {
+    "name": "Slowking",
+    "form": null,
+    "slug": "slowking",
+    "aliases": [
+      "slowking"
+    ],
+    "sprite": "/sprites/slowking.png"
+  },
+  {
+    "name": "Slowking",
+    "form": "Galarian Form",
+    "slug": "slowking-galarian-form",
+    "aliases": [
+      "galarian slowking",
+      "slowking galar",
+      "g slowking",
+      "slowking"
+    ],
+    "sprite": "/sprites/slowking-galarian-form.png"
+  },
+  {
+    "name": "Forretress",
+    "form": null,
+    "slug": "forretress",
+    "aliases": [
+      "forretress"
+    ],
+    "sprite": "/sprites/forretress.png"
+  },
+  {
+    "name": "Steelix",
+    "form": null,
+    "slug": "steelix",
+    "aliases": [
+      "steelix"
+    ],
+    "sprite": "/sprites/steelix.png"
+  },
+  {
+    "name": "Scizor",
+    "form": null,
+    "slug": "scizor",
+    "aliases": [
+      "scizor",
+      "sciz"
+    ],
+    "sprite": "/sprites/scizor.png"
+  },
+  {
+    "name": "Heracross",
+    "form": null,
+    "slug": "heracross",
+    "aliases": [
+      "heracross"
+    ],
+    "sprite": "/sprites/heracross.png"
+  },
+  {
+    "name": "Skarmory",
+    "form": null,
+    "slug": "skarmory",
+    "aliases": [
+      "skarmory",
+      "skarm"
+    ],
+    "sprite": "/sprites/skarmory.png"
+  },
+  {
+    "name": "Houndoom",
+    "form": null,
+    "slug": "houndoom",
+    "aliases": [
+      "houndoom"
+    ],
+    "sprite": "/sprites/houndoom.png"
+  },
+  {
+    "name": "Tyranitar",
+    "form": null,
+    "slug": "tyranitar",
+    "aliases": [
+      "tyranitar",
+      "ttar",
+      "t tar"
+    ],
+    "sprite": "/sprites/tyranitar.png"
+  },
+  {
+    "name": "Pelipper",
+    "form": null,
+    "slug": "pelipper",
+    "aliases": [
+      "pelipper"
+    ],
+    "sprite": "/sprites/pelipper.png"
+  },
+  {
+    "name": "Gardevoir",
+    "form": null,
+    "slug": "gardevoir",
+    "aliases": [
+      "gardevoir"
+    ],
+    "sprite": "/sprites/gardevoir.png"
+  },
+  {
+    "name": "Sableye",
+    "form": null,
+    "slug": "sableye",
+    "aliases": [
+      "sableye"
+    ],
+    "sprite": "/sprites/sableye.png"
+  },
+  {
+    "name": "Aggron",
+    "form": null,
+    "slug": "aggron",
+    "aliases": [
+      "aggron"
+    ],
+    "sprite": "/sprites/aggron.png"
+  },
+  {
+    "name": "Medicham",
+    "form": null,
+    "slug": "medicham",
+    "aliases": [
+      "medicham"
+    ],
+    "sprite": "/sprites/medicham.png"
+  },
+  {
+    "name": "Manectric",
+    "form": null,
+    "slug": "manectric",
+    "aliases": [
+      "manectric"
+    ],
+    "sprite": "/sprites/manectric.png"
+  },
+  {
+    "name": "Sharpedo",
+    "form": null,
+    "slug": "sharpedo",
+    "aliases": [
+      "sharpedo"
+    ],
+    "sprite": "/sprites/sharpedo.png"
+  },
+  {
+    "name": "Camerupt",
+    "form": null,
+    "slug": "camerupt",
+    "aliases": [
+      "camerupt"
+    ],
+    "sprite": "/sprites/camerupt.png"
+  },
+  {
+    "name": "Torkoal",
+    "form": null,
+    "slug": "torkoal",
+    "aliases": [
+      "torkoal"
+    ],
+    "sprite": "/sprites/torkoal.png"
+  },
+  {
+    "name": "Altaria",
+    "form": null,
+    "slug": "altaria",
+    "aliases": [
+      "altaria"
+    ],
+    "sprite": "/sprites/altaria.png"
+  },
+  {
+    "name": "Milotic",
+    "form": null,
+    "slug": "milotic",
+    "aliases": [
+      "milotic"
+    ],
+    "sprite": "/sprites/milotic.png"
+  },
+  {
+    "name": "Castform",
+    "form": null,
+    "slug": "castform",
+    "aliases": [
+      "castform"
+    ],
+    "sprite": "/sprites/castform.png"
+  },
+  {
+    "name": "Banette",
+    "form": null,
+    "slug": "banette",
+    "aliases": [
+      "banette"
+    ],
+    "sprite": "/sprites/banette.png"
+  },
+  {
+    "name": "Chimecho",
+    "form": null,
+    "slug": "chimecho",
+    "aliases": [
+      "chimecho"
+    ],
+    "sprite": "/sprites/chimecho.png"
+  },
+  {
+    "name": "Absol",
+    "form": null,
+    "slug": "absol",
+    "aliases": [
+      "absol"
+    ],
+    "sprite": "/sprites/absol.png"
+  },
+  {
+    "name": "Glalie",
+    "form": null,
+    "slug": "glalie",
+    "aliases": [
+      "glalie"
+    ],
+    "sprite": "/sprites/glalie.png"
+  },
+  {
+    "name": "Torterra",
+    "form": null,
+    "slug": "torterra",
+    "aliases": [
+      "torterra"
+    ],
+    "sprite": "/sprites/torterra.png"
+  },
+  {
+    "name": "Infernape",
+    "form": null,
+    "slug": "infernape",
+    "aliases": [
+      "infernape"
+    ],
+    "sprite": "/sprites/infernape.png"
+  },
+  {
+    "name": "Empoleon",
+    "form": null,
+    "slug": "empoleon",
+    "aliases": [
+      "empoleon"
+    ],
+    "sprite": "/sprites/empoleon.png"
+  },
+  {
+    "name": "Luxray",
+    "form": null,
+    "slug": "luxray",
+    "aliases": [
+      "luxray"
+    ],
+    "sprite": "/sprites/luxray.png"
+  },
+  {
+    "name": "Roserade",
+    "form": null,
+    "slug": "roserade",
+    "aliases": [
+      "roserade"
+    ],
+    "sprite": "/sprites/roserade.png"
+  },
+  {
+    "name": "Rampardos",
+    "form": null,
+    "slug": "rampardos",
+    "aliases": [
+      "rampardos"
+    ],
+    "sprite": "/sprites/rampardos.png"
+  },
+  {
+    "name": "Bastiodon",
+    "form": null,
+    "slug": "bastiodon",
+    "aliases": [
+      "bastiodon"
+    ],
+    "sprite": "/sprites/bastiodon.png"
+  },
+  {
+    "name": "Lopunny",
+    "form": null,
+    "slug": "lopunny",
+    "aliases": [
+      "lopunny"
+    ],
+    "sprite": "/sprites/lopunny.png"
+  },
+  {
+    "name": "Spiritomb",
+    "form": null,
+    "slug": "spiritomb",
+    "aliases": [
+      "spiritomb"
+    ],
+    "sprite": "/sprites/spiritomb.png"
+  },
+  {
+    "name": "Garchomp",
+    "form": null,
+    "slug": "garchomp",
+    "aliases": [
+      "garchomp",
+      "chomp"
+    ],
+    "sprite": "/sprites/garchomp.png"
+  },
+  {
+    "name": "Lucario",
+    "form": null,
+    "slug": "lucario",
+    "aliases": [
+      "lucario"
+    ],
+    "sprite": "/sprites/lucario.png"
+  },
+  {
+    "name": "Hippowdon",
+    "form": null,
+    "slug": "hippowdon",
+    "aliases": [
+      "hippowdon"
+    ],
+    "sprite": "/sprites/hippowdon.png"
+  },
+  {
+    "name": "Toxicroak",
+    "form": null,
+    "slug": "toxicroak",
+    "aliases": [
+      "toxicroak"
+    ],
+    "sprite": "/sprites/toxicroak.png"
+  },
+  {
+    "name": "Abomasnow",
+    "form": null,
+    "slug": "abomasnow",
+    "aliases": [
+      "abomasnow"
+    ],
+    "sprite": "/sprites/abomasnow.png"
+  },
+  {
+    "name": "Weavile",
+    "form": null,
+    "slug": "weavile",
+    "aliases": [
+      "weavile"
+    ],
+    "sprite": "/sprites/weavile.png"
+  },
+  {
+    "name": "Rhyperior",
+    "form": null,
+    "slug": "rhyperior",
+    "aliases": [
+      "rhyperior"
+    ],
+    "sprite": "/sprites/rhyperior.png"
+  },
+  {
+    "name": "Leafeon",
+    "form": null,
+    "slug": "leafeon",
+    "aliases": [
+      "leafeon"
+    ],
+    "sprite": "/sprites/leafeon.png"
+  },
+  {
+    "name": "Glaceon",
+    "form": null,
+    "slug": "glaceon",
+    "aliases": [
+      "glaceon"
+    ],
+    "sprite": "/sprites/glaceon.png"
+  },
+  {
+    "name": "Gliscor",
+    "form": null,
+    "slug": "gliscor",
+    "aliases": [
+      "gliscor"
+    ],
+    "sprite": "/sprites/gliscor.png"
+  },
+  {
+    "name": "Mamoswine",
+    "form": null,
+    "slug": "mamoswine",
+    "aliases": [
+      "mamoswine",
+      "mamo"
+    ],
+    "sprite": "/sprites/mamoswine.png"
+  },
+  {
+    "name": "Gallade",
+    "form": null,
+    "slug": "gallade",
+    "aliases": [
+      "gallade"
+    ],
+    "sprite": "/sprites/gallade.png"
+  },
+  {
+    "name": "Froslass",
+    "form": null,
+    "slug": "froslass",
+    "aliases": [
+      "froslass",
+      "fross"
+    ],
+    "sprite": "/sprites/froslass.png"
+  },
+  {
+    "name": "Rotom",
+    "form": null,
+    "slug": "rotom",
+    "aliases": [
+      "rotom"
+    ],
+    "sprite": "/sprites/rotom.png"
+  },
+  {
+    "name": "Rotom",
+    "form": "Heat Rotom",
+    "slug": "rotom-heat-rotom",
+    "aliases": [
+      "heat rotom",
+      "rotom h",
+      "rotomh",
+      "rotom"
+    ],
+    "sprite": "/sprites/rotom-heat-rotom.png"
+  },
+  {
+    "name": "Rotom",
+    "form": "Wash Rotom",
+    "slug": "rotom-wash-rotom",
+    "aliases": [
+      "wash rotom",
+      "rotom w",
+      "rotomw",
+      "rotom"
+    ],
+    "sprite": "/sprites/rotom-wash-rotom.png"
+  },
+  {
+    "name": "Rotom",
+    "form": "Frost Rotom",
+    "slug": "rotom-frost-rotom",
+    "aliases": [
+      "frost rotom",
+      "rotom f",
+      "rotomf",
+      "rotom"
+    ],
+    "sprite": "/sprites/rotom-frost-rotom.png"
+  },
+  {
+    "name": "Rotom",
+    "form": "Fan Rotom",
+    "slug": "rotom-fan-rotom",
+    "aliases": [
+      "fan rotom",
+      "rotom s",
+      "rotoms",
+      "rotom"
+    ],
+    "sprite": "/sprites/rotom-fan-rotom.png"
+  },
+  {
+    "name": "Rotom",
+    "form": "Mow Rotom",
+    "slug": "rotom-mow-rotom",
+    "aliases": [
+      "mow rotom",
+      "rotom c",
+      "rotomc",
+      "rotom"
+    ],
+    "sprite": "/sprites/rotom-mow-rotom.png"
+  },
+  {
+    "name": "Serperior",
+    "form": null,
+    "slug": "serperior",
+    "aliases": [
+      "serperior"
+    ],
+    "sprite": "/sprites/serperior.png"
+  },
+  {
+    "name": "Emboar",
+    "form": null,
+    "slug": "emboar",
+    "aliases": [
+      "emboar"
+    ],
+    "sprite": "/sprites/emboar.png"
+  },
+  {
+    "name": "Samurott",
+    "form": null,
+    "slug": "samurott",
+    "aliases": [
+      "samurott"
+    ],
+    "sprite": "/sprites/samurott.png"
+  },
+  {
+    "name": "Samurott",
+    "form": "Hisuian Form",
+    "slug": "samurott-hisuian-form",
+    "aliases": [
+      "hisuian samurott",
+      "samurott hisui",
+      "h samurott",
+      "samurott"
+    ],
+    "sprite": "/sprites/samurott-hisuian-form.png"
+  },
+  {
+    "name": "Watchog",
+    "form": null,
+    "slug": "watchog",
+    "aliases": [
+      "watchog"
+    ],
+    "sprite": "/sprites/watchog.png"
+  },
+  {
+    "name": "Liepard",
+    "form": null,
+    "slug": "liepard",
+    "aliases": [
+      "liepard"
+    ],
+    "sprite": "/sprites/liepard.png"
+  },
+  {
+    "name": "Simisage",
+    "form": null,
+    "slug": "simisage",
+    "aliases": [
+      "simisage"
+    ],
+    "sprite": "/sprites/simisage.png"
+  },
+  {
+    "name": "Simisear",
+    "form": null,
+    "slug": "simisear",
+    "aliases": [
+      "simisear"
+    ],
+    "sprite": "/sprites/simisear.png"
+  },
+  {
+    "name": "Simipour",
+    "form": null,
+    "slug": "simipour",
+    "aliases": [
+      "simipour"
+    ],
+    "sprite": "/sprites/simipour.png"
+  },
+  {
+    "name": "Excadrill",
+    "form": null,
+    "slug": "excadrill",
+    "aliases": [
+      "excadrill",
+      "exca"
+    ],
+    "sprite": "/sprites/excadrill.png"
+  },
+  {
+    "name": "Audino",
+    "form": null,
+    "slug": "audino",
+    "aliases": [
+      "audino"
+    ],
+    "sprite": "/sprites/audino.png"
+  },
+  {
+    "name": "Conkeldurr",
+    "form": null,
+    "slug": "conkeldurr",
+    "aliases": [
+      "conkeldurr"
+    ],
+    "sprite": "/sprites/conkeldurr.png"
+  },
+  {
+    "name": "Whimsicott",
+    "form": null,
+    "slug": "whimsicott",
+    "aliases": [
+      "whimsicott"
+    ],
+    "sprite": "/sprites/whimsicott.png"
+  },
+  {
+    "name": "Krookodile",
+    "form": null,
+    "slug": "krookodile",
+    "aliases": [
+      "krookodile",
+      "krook"
+    ],
+    "sprite": "/sprites/krookodile.png"
+  },
+  {
+    "name": "Cofagrigus",
+    "form": null,
+    "slug": "cofagrigus",
+    "aliases": [
+      "cofagrigus"
+    ],
+    "sprite": "/sprites/cofagrigus.png"
+  },
+  {
+    "name": "Garbodor",
+    "form": null,
+    "slug": "garbodor",
+    "aliases": [
+      "garbodor"
+    ],
+    "sprite": "/sprites/garbodor.png"
+  },
+  {
+    "name": "Zoroark",
+    "form": null,
+    "slug": "zoroark",
+    "aliases": [
+      "zoroark"
+    ],
+    "sprite": "/sprites/zoroark.png"
+  },
+  {
+    "name": "Zoroark",
+    "form": "Hisuian Form",
+    "slug": "zoroark-hisuian-form",
+    "aliases": [
+      "hisuian zoroark",
+      "zoroark hisui",
+      "h zoroark",
+      "zoroark"
+    ],
+    "sprite": "/sprites/zoroark-hisuian-form.png"
+  },
+  {
+    "name": "Reuniclus",
+    "form": null,
+    "slug": "reuniclus",
+    "aliases": [
+      "reuniclus"
+    ],
+    "sprite": "/sprites/reuniclus.png"
+  },
+  {
+    "name": "Vanilluxe",
+    "form": null,
+    "slug": "vanilluxe",
+    "aliases": [
+      "vanilluxe"
+    ],
+    "sprite": "/sprites/vanilluxe.png"
+  },
+  {
+    "name": "Emolga",
+    "form": null,
+    "slug": "emolga",
+    "aliases": [
+      "emolga"
+    ],
+    "sprite": "/sprites/emolga.png"
+  },
+  {
+    "name": "Chandelure",
+    "form": null,
+    "slug": "chandelure",
+    "aliases": [
+      "chandelure"
+    ],
+    "sprite": "/sprites/chandelure.png"
+  },
+  {
+    "name": "Beartic",
+    "form": null,
+    "slug": "beartic",
+    "aliases": [
+      "beartic"
+    ],
+    "sprite": "/sprites/beartic.png"
+  },
+  {
+    "name": "Stunfisk",
+    "form": null,
+    "slug": "stunfisk",
+    "aliases": [
+      "stunfisk"
+    ],
+    "sprite": "/sprites/stunfisk.png"
+  },
+  {
+    "name": "Stunfisk",
+    "form": "Galarian Form",
+    "slug": "stunfisk-galarian-form",
+    "aliases": [
+      "galarian stunfisk",
+      "stunfisk galar",
+      "g stunfisk",
+      "stunfisk"
+    ],
+    "sprite": "/sprites/stunfisk-galarian-form.png"
+  },
+  {
+    "name": "Golurk",
+    "form": null,
+    "slug": "golurk",
+    "aliases": [
+      "golurk"
+    ],
+    "sprite": "/sprites/golurk.png"
+  },
+  {
+    "name": "Hydreigon",
+    "form": null,
+    "slug": "hydreigon",
+    "aliases": [
+      "hydreigon"
+    ],
+    "sprite": "/sprites/hydreigon.png"
+  },
+  {
+    "name": "Volcarona",
+    "form": null,
+    "slug": "volcarona",
+    "aliases": [
+      "volcarona"
+    ],
+    "sprite": "/sprites/volcarona.png"
+  },
+  {
+    "name": "Chesnaught",
+    "form": null,
+    "slug": "chesnaught",
+    "aliases": [
+      "chesnaught"
+    ],
+    "sprite": "/sprites/chesnaught.png"
+  },
+  {
+    "name": "Delphox",
+    "form": null,
+    "slug": "delphox",
+    "aliases": [
+      "delphox"
+    ],
+    "sprite": "/sprites/delphox.png"
+  },
+  {
+    "name": "Greninja",
+    "form": null,
+    "slug": "greninja",
+    "aliases": [
+      "greninja",
+      "ninja"
+    ],
+    "sprite": "/sprites/greninja.png"
+  },
+  {
+    "name": "Diggersby",
+    "form": null,
+    "slug": "diggersby",
+    "aliases": [
+      "diggersby"
+    ],
+    "sprite": "/sprites/diggersby.png"
+  },
+  {
+    "name": "Talonflame",
+    "form": null,
+    "slug": "talonflame",
+    "aliases": [
+      "talonflame",
+      "talon"
+    ],
+    "sprite": "/sprites/talonflame.png"
+  },
+  {
+    "name": "Vivillon",
+    "form": "High Plains Pattern",
+    "slug": "vivillon-high-plains-pattern",
+    "aliases": [
+      "vivillon high plains",
+      "high plains vivillon",
+      "vivillon"
+    ],
+    "sprite": "/sprites/vivillon-high-plains-pattern.png"
+  },
+  {
+    "name": "Florges",
+    "form": "Red Flower",
+    "slug": "florges-red-flower",
+    "aliases": [
+      "florges red",
+      "red florges",
+      "florges"
+    ],
+    "sprite": "/sprites/florges-red-flower.png"
+  },
+  {
+    "name": "Florges",
+    "form": "Yellow Flower",
+    "slug": "florges-yellow-flower",
+    "aliases": [
+      "florges yellow",
+      "yellow florges",
+      "florges"
+    ],
+    "sprite": "/sprites/florges-yellow-flower.png"
+  },
+  {
+    "name": "Florges",
+    "form": "Orange Flower",
+    "slug": "florges-orange-flower",
+    "aliases": [
+      "florges orange",
+      "orange florges",
+      "florges"
+    ],
+    "sprite": "/sprites/florges-orange-flower.png"
+  },
+  {
+    "name": "Florges",
+    "form": "Blue Flower",
+    "slug": "florges-blue-flower",
+    "aliases": [
+      "florges blue",
+      "blue florges",
+      "florges"
+    ],
+    "sprite": "/sprites/florges-blue-flower.png"
+  },
+  {
+    "name": "Florges",
+    "form": "White Flower",
+    "slug": "florges-white-flower",
+    "aliases": [
+      "florges white",
+      "white florges",
+      "florges"
+    ],
+    "sprite": "/sprites/florges-white-flower.png"
+  },
+  {
+    "name": "Pangoro",
+    "form": null,
+    "slug": "pangoro",
+    "aliases": [
+      "pangoro"
+    ],
+    "sprite": "/sprites/pangoro.png"
+  },
+  {
+    "name": "Furfrou",
+    "form": null,
+    "slug": "furfrou",
+    "aliases": [
+      "furfrou"
+    ],
+    "sprite": "/sprites/furfrou.png"
+  },
+  {
+    "name": "Furfrou",
+    "form": "Matron Trim",
+    "slug": "furfrou-matron-trim",
+    "aliases": [
+      "furfrou matron",
+      "matron trim",
+      "furfrou"
+    ],
+    "sprite": "/sprites/furfrou-matron-trim.png"
+  },
+  {
+    "name": "Furfrou",
+    "form": "Dandy Trim",
+    "slug": "furfrou-dandy-trim",
+    "aliases": [
+      "furfrou dandy",
+      "dandy trim",
+      "furfrou"
+    ],
+    "sprite": "/sprites/furfrou-dandy-trim.png"
+  },
+  {
+    "name": "Meowstic",
+    "form": "Male",
+    "slug": "meowstic-male",
+    "aliases": [
+      "meowstic male",
+      "male meowstic",
+      "meowstic"
+    ],
+    "sprite": "/sprites/meowstic-male.png"
+  },
+  {
+    "name": "Meowstic",
+    "form": "Female",
+    "slug": "meowstic-female",
+    "aliases": [
+      "meowstic female",
+      "female meowstic",
+      "meowstic"
+    ],
+    "sprite": "/sprites/meowstic-female.png"
+  },
+  {
+    "name": "Aegislash",
+    "form": null,
+    "slug": "aegislash",
+    "aliases": [
+      "aegislash"
+    ],
+    "sprite": "/sprites/aegislash.png"
+  },
+  {
+    "name": "Aromatisse",
+    "form": null,
+    "slug": "aromatisse",
+    "aliases": [
+      "aromatisse"
+    ],
+    "sprite": "/sprites/aromatisse.png"
+  },
+  {
+    "name": "Slurpuff",
+    "form": null,
+    "slug": "slurpuff",
+    "aliases": [
+      "slurpuff"
+    ],
+    "sprite": "/sprites/slurpuff.png"
+  },
+  {
+    "name": "Clawitzer",
+    "form": null,
+    "slug": "clawitzer",
+    "aliases": [
+      "clawitzer"
+    ],
+    "sprite": "/sprites/clawitzer.png"
+  },
+  {
+    "name": "Heliolisk",
+    "form": null,
+    "slug": "heliolisk",
+    "aliases": [
+      "heliolisk"
+    ],
+    "sprite": "/sprites/heliolisk.png"
+  },
+  {
+    "name": "Tyrantrum",
+    "form": null,
+    "slug": "tyrantrum",
+    "aliases": [
+      "tyrantrum"
+    ],
+    "sprite": "/sprites/tyrantrum.png"
+  },
+  {
+    "name": "Aurorus",
+    "form": null,
+    "slug": "aurorus",
+    "aliases": [
+      "aurorus"
+    ],
+    "sprite": "/sprites/aurorus.png"
+  },
+  {
+    "name": "Sylveon",
+    "form": null,
+    "slug": "sylveon",
+    "aliases": [
+      "sylveon"
+    ],
+    "sprite": "/sprites/sylveon.png"
+  },
+  {
+    "name": "Hawlucha",
+    "form": null,
+    "slug": "hawlucha",
+    "aliases": [
+      "hawlucha"
+    ],
+    "sprite": "/sprites/hawlucha.png"
+  },
+  {
+    "name": "Dedenne",
+    "form": null,
+    "slug": "dedenne",
+    "aliases": [
+      "dedenne"
+    ],
+    "sprite": "/sprites/dedenne.png"
+  },
+  {
+    "name": "Goodra",
+    "form": null,
+    "slug": "goodra",
+    "aliases": [
+      "goodra"
+    ],
+    "sprite": "/sprites/goodra.png"
+  },
+  {
+    "name": "Goodra",
+    "form": "Hisuian Form",
+    "slug": "goodra-hisuian-form",
+    "aliases": [
+      "hisuian goodra",
+      "goodra hisui",
+      "h goodra",
+      "goodra"
+    ],
+    "sprite": "/sprites/goodra-hisuian-form.png"
+  },
+  {
+    "name": "Klefki",
+    "form": null,
+    "slug": "klefki",
+    "aliases": [
+      "klefki"
+    ],
+    "sprite": "/sprites/klefki.png"
+  },
+  {
+    "name": "Trevenant",
+    "form": null,
+    "slug": "trevenant",
+    "aliases": [
+      "trevenant"
+    ],
+    "sprite": "/sprites/trevenant.png"
+  },
+  {
+    "name": "Gourgeist",
+    "form": "Medium Variety",
+    "slug": "gourgeist-medium-variety",
+    "aliases": [
+      "gourgeist medium",
+      "medium gourgeist",
+      "gourgeist"
+    ],
+    "sprite": "/sprites/gourgeist-medium-variety.png"
+  },
+  {
+    "name": "Gourgeist",
+    "form": "Small Variety",
+    "slug": "gourgeist-small-variety",
+    "aliases": [
+      "gourgeist small",
+      "small gourgeist",
+      "gourgeist"
+    ],
+    "sprite": "/sprites/gourgeist-small-variety.png"
+  },
+  {
+    "name": "Gourgeist",
+    "form": "Large Variety",
+    "slug": "gourgeist-large-variety",
+    "aliases": [
+      "gourgeist large",
+      "large gourgeist",
+      "gourgeist"
+    ],
+    "sprite": "/sprites/gourgeist-large-variety.png"
+  },
+  {
+    "name": "Gourgeist",
+    "form": "Jumbo Variety",
+    "slug": "gourgeist-jumbo-variety",
+    "aliases": [
+      "gourgeist jumbo",
+      "jumbo gourgeist",
+      "gourgeist"
+    ],
+    "sprite": "/sprites/gourgeist-jumbo-variety.png"
+  },
+  {
+    "name": "Avalugg",
+    "form": null,
+    "slug": "avalugg",
+    "aliases": [
+      "avalugg"
+    ],
+    "sprite": "/sprites/avalugg.png"
+  },
+  {
+    "name": "Avalugg",
+    "form": "Hisuian Form",
+    "slug": "avalugg-hisuian-form",
+    "aliases": [
+      "hisuian avalugg",
+      "avalugg hisui",
+      "h avalugg",
+      "avalugg"
+    ],
+    "sprite": "/sprites/avalugg-hisuian-form.png"
+  },
+  {
+    "name": "Noivern",
+    "form": null,
+    "slug": "noivern",
+    "aliases": [
+      "noivern"
+    ],
+    "sprite": "/sprites/noivern.png"
+  },
+  {
+    "name": "Decidueye",
+    "form": null,
+    "slug": "decidueye",
+    "aliases": [
+      "decidueye"
+    ],
+    "sprite": "/sprites/decidueye.png"
+  },
+  {
+    "name": "Decidueye",
+    "form": "Hisuian Form",
+    "slug": "decidueye-hisuian-form",
+    "aliases": [
+      "hisuian decidueye",
+      "decidueye hisui",
+      "h decidueye",
+      "decidueye"
+    ],
+    "sprite": "/sprites/decidueye-hisuian-form.png"
+  },
+  {
+    "name": "Incineroar",
+    "form": null,
+    "slug": "incineroar",
+    "aliases": [
+      "incineroar",
+      "incin"
+    ],
+    "sprite": "/sprites/incineroar.png"
+  },
+  {
+    "name": "Primarina",
+    "form": null,
+    "slug": "primarina",
+    "aliases": [
+      "primarina"
+    ],
+    "sprite": "/sprites/primarina.png"
+  },
+  {
+    "name": "Toucannon",
+    "form": null,
+    "slug": "toucannon",
+    "aliases": [
+      "toucannon"
+    ],
+    "sprite": "/sprites/toucannon.png"
+  },
+  {
+    "name": "Crabominable",
+    "form": null,
+    "slug": "crabominable",
+    "aliases": [
+      "crabominable"
+    ],
+    "sprite": "/sprites/crabominable.png"
+  },
+  {
+    "name": "Lycanroc",
+    "form": "Midday Form",
+    "slug": "lycanroc-midday-form",
+    "aliases": [
+      "lycanroc midday",
+      "midday lycanroc",
+      "lycanroc"
+    ],
+    "sprite": "/sprites/lycanroc-midday-form.png"
+  },
+  {
+    "name": "Lycanroc",
+    "form": "Midnight Form",
+    "slug": "lycanroc-midnight-form",
+    "aliases": [
+      "lycanroc midnight",
+      "midnight lycanroc",
+      "lycanroc"
+    ],
+    "sprite": "/sprites/lycanroc-midnight-form.png"
+  },
+  {
+    "name": "Lycanroc",
+    "form": "Dusk Form",
+    "slug": "lycanroc-dusk-form",
+    "aliases": [
+      "lycanroc dusk",
+      "dusk lycanroc",
+      "lycanroc"
+    ],
+    "sprite": "/sprites/lycanroc-dusk-form.png"
+  },
+  {
+    "name": "Toxapex",
+    "form": null,
+    "slug": "toxapex",
+    "aliases": [
+      "toxapex",
+      "pex"
+    ],
+    "sprite": "/sprites/toxapex.png"
+  },
+  {
+    "name": "Mudsdale",
+    "form": null,
+    "slug": "mudsdale",
+    "aliases": [
+      "mudsdale"
+    ],
+    "sprite": "/sprites/mudsdale.png"
+  },
+  {
+    "name": "Araquanid",
+    "form": null,
+    "slug": "araquanid",
+    "aliases": [
+      "araquanid"
+    ],
+    "sprite": "/sprites/araquanid.png"
+  },
+  {
+    "name": "Salazzle",
+    "form": null,
+    "slug": "salazzle",
+    "aliases": [
+      "salazzle"
+    ],
+    "sprite": "/sprites/salazzle.png"
+  },
+  {
+    "name": "Tsareena",
+    "form": null,
+    "slug": "tsareena",
+    "aliases": [
+      "tsareena"
+    ],
+    "sprite": "/sprites/tsareena.png"
+  },
+  {
+    "name": "Oranguru",
+    "form": null,
+    "slug": "oranguru",
+    "aliases": [
+      "oranguru"
+    ],
+    "sprite": "/sprites/oranguru.png"
+  },
+  {
+    "name": "Passimian",
+    "form": null,
+    "slug": "passimian",
+    "aliases": [
+      "passimian"
+    ],
+    "sprite": "/sprites/passimian.png"
+  },
+  {
+    "name": "Mimikyu",
+    "form": null,
+    "slug": "mimikyu",
+    "aliases": [
+      "mimikyu",
+      "mimi",
+      "mimik"
+    ],
+    "sprite": "/sprites/mimikyu.png"
+  },
+  {
+    "name": "Drampa",
+    "form": null,
+    "slug": "drampa",
+    "aliases": [
+      "drampa"
+    ],
+    "sprite": "/sprites/drampa.png"
+  },
+  {
+    "name": "Kommo-o",
+    "form": null,
+    "slug": "kommo-o",
+    "aliases": [
+      "kommo o",
+      "kommoo"
+    ],
+    "sprite": "/sprites/kommo-o.png"
+  },
+  {
+    "name": "Corviknight",
+    "form": null,
+    "slug": "corviknight",
+    "aliases": [
+      "corviknight",
+      "corvi",
+      "corknight"
+    ],
+    "sprite": "/sprites/corviknight.png"
+  },
+  {
+    "name": "Flapple",
+    "form": null,
+    "slug": "flapple",
+    "aliases": [
+      "flapple"
+    ],
+    "sprite": "/sprites/flapple.png"
+  },
+  {
+    "name": "Appletun",
+    "form": null,
+    "slug": "appletun",
+    "aliases": [
+      "appletun"
+    ],
+    "sprite": "/sprites/appletun.png"
+  },
+  {
+    "name": "Sandaconda",
+    "form": null,
+    "slug": "sandaconda",
+    "aliases": [
+      "sandaconda"
+    ],
+    "sprite": "/sprites/sandaconda.png"
+  },
+  {
+    "name": "Polteageist",
+    "form": "Phony Form",
+    "slug": "polteageist-phony-form",
+    "aliases": [
+      "polteageist phony",
+      "phony polteageist",
+      "polteageist"
+    ],
+    "sprite": "/sprites/polteageist-phony-form.png"
+  },
+  {
+    "name": "Polteageist",
+    "form": "Antique Form",
+    "slug": "polteageist-antique-form",
+    "aliases": [
+      "polteageist antique",
+      "antique polteageist",
+      "polteageist"
+    ],
+    "sprite": "/sprites/polteageist-antique-form.png"
+  },
+  {
+    "name": "Hatterene",
+    "form": null,
+    "slug": "hatterene",
+    "aliases": [
+      "hatterene"
+    ],
+    "sprite": "/sprites/hatterene.png"
+  },
+  {
+    "name": "Mr. Rime",
+    "form": null,
+    "slug": "mr-rime",
+    "aliases": [
+      "mr rime",
+      "mrrime"
+    ],
+    "sprite": "/sprites/mr-rime.png"
+  },
+  {
+    "name": "Runerigus",
+    "form": null,
+    "slug": "runerigus",
+    "aliases": [
+      "runerigus"
+    ],
+    "sprite": "/sprites/runerigus.png"
+  },
+  {
+    "name": "Alcremie",
+    "form": "Vanilla Cream",
+    "slug": "alcremie-vanilla-cream",
+    "aliases": [
+      "alcremie vanilla",
+      "vanilla cream",
+      "alcremie"
+    ],
+    "sprite": "/sprites/alcremie-vanilla-cream.png"
+  },
+  {
+    "name": "Alcremie",
+    "form": "Ruby Cream",
+    "slug": "alcremie-ruby-cream",
+    "aliases": [
+      "alcremie ruby cream",
+      "ruby cream",
+      "alcremie"
+    ],
+    "sprite": "/sprites/alcremie-ruby-cream.png"
+  },
+  {
+    "name": "Alcremie",
+    "form": "Matcha Cream",
+    "slug": "alcremie-matcha-cream",
+    "aliases": [
+      "alcremie matcha cream",
+      "matcha cream",
+      "alcremie"
+    ],
+    "sprite": "/sprites/alcremie-matcha-cream.png"
+  },
+  {
+    "name": "Alcremie",
+    "form": "Mint Cream",
+    "slug": "alcremie-mint-cream",
+    "aliases": [
+      "alcremie mint cream",
+      "mint cream",
+      "alcremie"
+    ],
+    "sprite": "/sprites/alcremie-mint-cream.png"
+  },
+  {
+    "name": "Alcremie",
+    "form": "Lemon Cream",
+    "slug": "alcremie-lemon-cream",
+    "aliases": [
+      "alcremie lemon cream",
+      "lemon cream",
+      "alcremie"
+    ],
+    "sprite": "/sprites/alcremie-lemon-cream.png"
+  },
+  {
+    "name": "Alcremie",
+    "form": "Salted Cream",
+    "slug": "alcremie-salted-cream",
+    "aliases": [
+      "alcremie salted cream",
+      "salted cream",
+      "alcremie"
+    ],
+    "sprite": "/sprites/alcremie-salted-cream.png"
+  },
+  {
+    "name": "Alcremie",
+    "form": "Ruby Swirl",
+    "slug": "alcremie-ruby-swirl",
+    "aliases": [
+      "alcremie ruby swirl",
+      "ruby swirl",
+      "alcremie"
+    ],
+    "sprite": "/sprites/alcremie-ruby-swirl.png"
+  },
+  {
+    "name": "Alcremie",
+    "form": "Caramel Swirl",
+    "slug": "alcremie-caramel-swirl",
+    "aliases": [
+      "alcremie caramel swirl",
+      "caramel swirl",
+      "alcremie"
+    ],
+    "sprite": "/sprites/alcremie-caramel-swirl.png"
+  },
+  {
+    "name": "Alcremie",
+    "form": "Rainbow Swirl",
+    "slug": "alcremie-rainbow-swirl",
+    "aliases": [
+      "alcremie rainbow swirl",
+      "rainbow swirl",
+      "alcremie"
+    ],
+    "sprite": "/sprites/alcremie-rainbow-swirl.png"
+  },
+  {
+    "name": "Morpeko",
+    "form": null,
+    "slug": "morpeko",
+    "aliases": [
+      "morpeko"
+    ],
+    "sprite": "/sprites/morpeko.png"
+  },
+  {
+    "name": "Dragapult",
+    "form": null,
+    "slug": "dragapult",
+    "aliases": [
+      "dragapult"
+    ],
+    "sprite": "/sprites/dragapult.png"
+  },
+  {
+    "name": "Wyrdeer",
+    "form": null,
+    "slug": "wyrdeer",
+    "aliases": [
+      "wyrdeer"
+    ],
+    "sprite": "/sprites/wyrdeer.png"
+  },
+  {
+    "name": "Kleavor",
+    "form": null,
+    "slug": "kleavor",
+    "aliases": [
+      "kleavor"
+    ],
+    "sprite": "/sprites/kleavor.png"
+  },
+  {
+    "name": "Basculegion",
+    "form": "Male",
+    "slug": "basculegion-male",
+    "aliases": [
+      "basculegion male",
+      "male basculegion",
+      "basculegion"
+    ],
+    "sprite": "/sprites/basculegion-male.png"
+  },
+  {
+    "name": "Basculegion",
+    "form": "Female",
+    "slug": "basculegion-female",
+    "aliases": [
+      "basculegion female",
+      "female basculegion",
+      "basculegion"
+    ],
+    "sprite": "/sprites/basculegion-female.png"
+  },
+  {
+    "name": "Sneasler",
+    "form": null,
+    "slug": "sneasler",
+    "aliases": [
+      "sneasler"
+    ],
+    "sprite": "/sprites/sneasler.png"
+  },
+  {
+    "name": "Meowscarada",
+    "form": null,
+    "slug": "meowscarada",
+    "aliases": [
+      "meowscarada"
+    ],
+    "sprite": "/sprites/meowscarada.png"
+  },
+  {
+    "name": "Skeledirge",
+    "form": null,
+    "slug": "skeledirge",
+    "aliases": [
+      "skeledirge",
+      "dirge",
+      "fire croc"
+    ],
+    "sprite": "/sprites/skeledirge.png"
+  },
+  {
+    "name": "Quaquaval",
+    "form": null,
+    "slug": "quaquaval",
+    "aliases": [
+      "quaquaval"
+    ],
+    "sprite": "/sprites/quaquaval.png"
+  },
+  {
+    "name": "Maushold",
+    "form": "Family of Three",
+    "slug": "maushold-family-of-three",
+    "aliases": [
+      "maushold family of three",
+      "maushold three",
+      "maushold"
+    ],
+    "sprite": "/sprites/maushold-family-of-three.png"
+  },
+  {
+    "name": "Maushold",
+    "form": "Family of Four",
+    "slug": "maushold-family-of-four",
+    "aliases": [
+      "maushold family of four",
+      "maushold four",
+      "maushold"
+    ],
+    "sprite": "/sprites/maushold-family-of-four.png"
+  },
+  {
+    "name": "Garganacl",
+    "form": null,
+    "slug": "garganacl",
+    "aliases": [
+      "garganacl"
+    ],
+    "sprite": "/sprites/garganacl.png"
+  },
+  {
+    "name": "Armarouge",
+    "form": null,
+    "slug": "armarouge",
+    "aliases": [
+      "armarouge"
+    ],
+    "sprite": "/sprites/armarouge.png"
+  },
+  {
+    "name": "Ceruledge",
+    "form": null,
+    "slug": "ceruledge",
+    "aliases": [
+      "ceruledge"
+    ],
+    "sprite": "/sprites/ceruledge.png"
+  },
+  {
+    "name": "Bellibolt",
+    "form": null,
+    "slug": "bellibolt",
+    "aliases": [
+      "bellibolt"
+    ],
+    "sprite": "/sprites/bellibolt.png"
+  },
+  {
+    "name": "Scovillain",
+    "form": null,
+    "slug": "scovillain",
+    "aliases": [
+      "scovillain"
+    ],
+    "sprite": "/sprites/scovillain.png"
+  },
+  {
+    "name": "Espathra",
+    "form": null,
+    "slug": "espathra",
+    "aliases": [
+      "espathra"
+    ],
+    "sprite": "/sprites/espathra.png"
+  },
+  {
+    "name": "Tinkaton",
+    "form": null,
+    "slug": "tinkaton",
+    "aliases": [
+      "tinkaton"
+    ],
+    "sprite": "/sprites/tinkaton.png"
+  },
+  {
+    "name": "Palafin",
+    "form": null,
+    "slug": "palafin",
+    "aliases": [
+      "palafin"
+    ],
+    "sprite": "/sprites/palafin.png"
+  },
+  {
+    "name": "Orthworm",
+    "form": null,
+    "slug": "orthworm",
+    "aliases": [
+      "orthworm"
+    ],
+    "sprite": "/sprites/orthworm.png"
+  },
+  {
+    "name": "Glimmora",
+    "form": null,
+    "slug": "glimmora",
+    "aliases": [
+      "glimmora"
+    ],
+    "sprite": "/sprites/glimmora.png"
+  },
+  {
+    "name": "Farigiraf",
+    "form": null,
+    "slug": "farigiraf",
+    "aliases": [
+      "farigiraf"
+    ],
+    "sprite": "/sprites/farigiraf.png"
+  },
+  {
+    "name": "Kingambit",
+    "form": null,
+    "slug": "kingambit",
+    "aliases": [
+      "kingambit",
+      "gambit"
+    ],
+    "sprite": "/sprites/kingambit.png"
+  },
+  {
+    "name": "Sinistcha",
+    "form": "Unremarkable Form",
+    "slug": "sinistcha-unremarkable-form",
+    "aliases": [
+      "sinistcha unremarkable",
+      "unremarkable sinistcha",
+      "sinistcha"
+    ],
+    "sprite": "/sprites/sinistcha-unremarkable-form.png"
+  },
+  {
+    "name": "Sinistcha",
+    "form": "Masterpiece Form",
+    "slug": "sinistcha-masterpiece-form",
+    "aliases": [
+      "sinistcha masterpiece",
+      "masterpiece sinistcha",
+      "sinistcha"
+    ],
+    "sprite": "/sprites/sinistcha-masterpiece-form.png"
+  },
+  {
+    "name": "Archaludon",
+    "form": null,
+    "slug": "archaludon",
+    "aliases": [
+      "archaludon",
+      "arch"
+    ],
+    "sprite": "/sprites/archaludon.png"
+  },
+  {
+    "name": "Hydrapple",
+    "form": null,
+    "slug": "hydrapple",
+    "aliases": [
+      "hydrapple"
+    ],
+    "sprite": "/sprites/hydrapple.png"
+  }
+]
