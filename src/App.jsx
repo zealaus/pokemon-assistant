@@ -4,6 +4,7 @@ import metaStrategies from "./data/meta_strategies.json";
 import myTeamData from "./data/my_team.json";
 import spriteData from "./data/champions_sprites.json";
 import PokemonSearchPicker from "./components/PokemonSearchPicker";
+import TeamBuilder from "./components/TeamBuilder";
 
 function normalizeText(value) {
   return value.toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -21,6 +22,23 @@ function findPokemon(name, roster) {
 
     return matchesName || matchesSlug || matchesAlias;
   });
+}
+
+
+function getSpriteForPokemon(pokemon) {
+  if (!pokemon) return "";
+
+  const pokemonName = normalizeText(pokemon.name);
+  const pokemonSlug = normalizeText(pokemon.slug || pokemon.name);
+
+  const match = spriteData.find((sprite) => {
+    return (
+      normalizeText(sprite.slug) === pokemonSlug ||
+      normalizeText(sprite.name) === pokemonName
+    );
+  });
+
+  return match?.sprite || "";
 }
 
 function hasType(pokemon, type) {
@@ -512,6 +530,15 @@ function buildWinConditions(chosenThree, opponentTeam, lead) {
   return [...new Set(winConditions)].slice(0, 3);
 }
 
+function orderBestThreeWithLead(bestThree, lead) {
+  if (!lead) return bestThree;
+
+  const leadPick = bestThree.find((pokemon) => pokemon.name === lead);
+  const others = bestThree.filter((pokemon) => pokemon.name !== lead);
+
+  return leadPick ? [leadPick, ...others].slice(0, 3) : bestThree;
+}
+
 const styles = {
   page: {
     padding: "20px 20px 28px",
@@ -582,37 +609,49 @@ const styles = {
     border: "1px solid #ccc",
     borderRadius: "10px",
     padding: "8px 10px",
-    minWidth: "118px",
+    minWidth: "150px",
     textAlign: "center",
     boxSizing: "border-box",
+    background: "#15151d",
   },
-  topDecisionRow: {
-    display: "flex",
-    gap: "14px",
-    alignItems: "flex-start",
-    justifyContent: "center",
-    flexWrap: "wrap",
+  cardSprite: {
+    width: "54px",
+    height: "54px",
+    objectFit: "contain",
+    imageRendering: "pixelated",
+    marginBottom: "4px",
   },
-  bestThreeBlock: {
-    flex: "0 1 auto",
-  },
-  leadBlock: {
-    flex: "0 1 auto",
-    minWidth: "180px",
-  },
-  bestThreeGrid: {
+  recommendationGrid: {
     display: "flex",
     gap: "8px",
     justifyContent: "center",
-    flexWrap: "nowrap",
+    flexWrap: "wrap",
   },
   bestCard: {
     border: "1px solid #ccc",
     borderRadius: "10px",
-    padding: "6px 8px",
-    minWidth: "104px",
+    padding: "8px 10px",
+    minWidth: "118px",
     textAlign: "center",
     boxSizing: "border-box",
+    position: "relative",
+    background: "#15151d",
+  },
+  leadBestCard: {
+    border: "1px solid #45c26b",
+    boxShadow: "0 0 0 1px rgba(69, 194, 107, 0.35)",
+  },
+  leadBadge: {
+    position: "absolute",
+    top: "6px",
+    right: "6px",
+    fontSize: "10px",
+    fontWeight: 700,
+    color: "#75e096",
+    border: "1px solid rgba(117, 224, 150, 0.7)",
+    borderRadius: "999px",
+    padding: "2px 6px",
+    background: "rgba(69, 194, 107, 0.1)",
   },
   bestName: {
     fontWeight: 700,
@@ -628,24 +667,6 @@ const styles = {
     fontSize: "11px",
     opacity: 0.72,
   },
-  leadCard: {
-    border: "1px solid #ccc",
-    borderRadius: "12px",
-    padding: "8px 10px",
-    textAlign: "center",
-    minWidth: "150px",
-    maxWidth: "150px",
-    margin: "0 auto",
-  },
-  leadName: {
-    fontSize: "16px",
-    fontWeight: 700,
-    marginBottom: "3px",
-  },
-  leadSub: {
-    fontSize: "11px",
-    opacity: 0.72,
-  },
   turnGrid: {
     display: "flex",
     flexWrap: "wrap",
@@ -658,6 +679,7 @@ const styles = {
     padding: "9px 11px",
     minWidth: "200px",
     textAlign: "center",
+    background: "#15151d",
   },
   turnVs: {
     fontWeight: 700,
@@ -699,6 +721,9 @@ export default function App() {
 
   const myTeam = buildMyTeam(myTeamData, rosterData.entries);
   const showFallbackTextarea = selectedOpponentPokemon.length < 6;
+  const orderedBestThree = orderBestThreeWithLead(bestThree, lead);
+  const shouldShowAnalyzedOpponentTeam =
+    selectedOpponentPokemon.length === 0 && opponentTeam.length > 0;
 
   const handleAnalyze = () => {
     const selectedFromPicker = selectedOpponentPokemon
@@ -746,9 +771,9 @@ export default function App() {
   return (
     <div style={styles.page}>
       <h1 style={styles.title}>Pokémon Champions Assistant</h1>
-      <p style={styles.subtitle}>
-        Search and click the opponent&apos;s Pokémon. Use the fallback text box only if needed.
-      </p>
+      <p style={styles.subtitle}>Search and click the opponent&apos;s Pokémon...</p>
+
+      <TeamBuilder />
 
       <PokemonSearchPicker
         spriteData={spriteData}
@@ -779,14 +804,20 @@ export default function App() {
         </button>
       </div>
 
-      <div style={styles.section}>
-        <h2 style={styles.sectionTitle}>Opponent Team</h2>
-        {opponentTeam.length === 0 ? (
-          <p style={styles.emptyText}>No team analyzed yet.</p>
-        ) : (
+      {shouldShowAnalyzedOpponentTeam && (
+        <div style={styles.section}>
+          <h2 style={styles.sectionTitle}>Opponent Team</h2>
           <div style={styles.cardGrid}>
             {opponentTeam.map((pokemon, index) => (
               <div key={index} style={styles.smallCard}>
+                {getSpriteForPokemon(pokemon) && (
+                  <img
+                    src={getSpriteForPokemon(pokemon)}
+                    alt={pokemon.name}
+                    style={styles.cardSprite}
+                  />
+                )}
+
                 <strong>{pokemon.name}</strong>
                 {pokemon.form ? ` (${pokemon.form})` : ""}
                 <br />
@@ -796,37 +827,46 @@ export default function App() {
               </div>
             ))}
           </div>
-        )}
-      </div>
+        </div>
+      )}
 
       <div style={styles.section}>
-        <div style={styles.topDecisionRow}>
-          <div style={styles.bestThreeBlock}>
-            <h2 style={styles.sectionTitle}>Best 3</h2>
-            {bestThree.length === 0 ? (
-              <p style={styles.emptyText}>No recommendations yet.</p>
-            ) : (
-              <div style={styles.bestThreeGrid}>
-                {bestThree.map((pokemon, index) => (
-                  <div key={index} style={styles.bestCard}>
-                    <div style={styles.bestName}>{pokemon.name}</div>
-                    <div style={styles.bestMeta}>{pokemon.types.join(", ")}</div>
-                    <div style={styles.bestMeta}>Score: {pokemon.score}</div>
-                    <div style={styles.bestRole}>{pokemon.role}</div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+        <h2 style={styles.sectionTitle}>Recommended 3</h2>
 
-          <div style={styles.leadBlock}>
-            <h2 style={styles.sectionTitle}>Lead</h2>
-            <div style={styles.leadCard}>
-              <div style={styles.leadName}>{lead || "No lead yet."}</div>
-              <div style={styles.leadSub}>Best opening option</div>
-            </div>
+        {orderedBestThree.length === 0 ? (
+          <p style={styles.emptyText}>No recommendations yet.</p>
+        ) : (
+          <div style={styles.recommendationGrid}>
+            {orderedBestThree.map((pokemon, index) => {
+              const isLead = pokemon.name === lead;
+
+              return (
+                <div
+                  key={index}
+                  style={{
+                    ...styles.bestCard,
+                    ...(isLead ? styles.leadBestCard : {}),
+                  }}
+                >
+                  {isLead && <div style={styles.leadBadge}>Lead</div>}
+
+                  {getSpriteForPokemon(pokemon) && (
+                    <img
+                      src={getSpriteForPokemon(pokemon)}
+                      alt={pokemon.name}
+                      style={styles.cardSprite}
+                    />
+                  )}
+
+                  <div style={styles.bestName}>{pokemon.name}</div>
+                  <div style={styles.bestMeta}>{pokemon.types.join(", ")}</div>
+                  <div style={styles.bestMeta}>Score: {pokemon.score}</div>
+                  <div style={styles.bestRole}>{pokemon.role}</div>
+                </div>
+              );
+            })}
           </div>
-        </div>
+        )}
       </div>
 
       <div style={styles.section}>

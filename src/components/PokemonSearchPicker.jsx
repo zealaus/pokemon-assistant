@@ -16,6 +16,7 @@ function buildPickerList(spriteData) {
     if (!grouped.has(pokemon.name)) {
       grouped.set(pokemon.name, []);
     }
+
     grouped.get(pokemon.name).push(pokemon);
   }
 
@@ -46,7 +47,9 @@ function buildPickerList(spriteData) {
 
   return finalList.sort((a, b) => {
     const nameCompare = a.displayName.localeCompare(b.displayName);
+
     if (nameCompare !== 0) return nameCompare;
+
     return a.slug.localeCompare(b.slug);
   });
 }
@@ -152,36 +155,32 @@ export default function PokemonSearchPicker({
     selectedGrid: {
       display: "flex",
       flexWrap: "wrap",
-      gap: "8px",
+      gap: "6px",
       justifyContent: "center",
     },
     selectedCard: {
       border: "1px solid #ccc",
       borderRadius: "10px",
       padding: "8px 10px",
-      minWidth: "118px",
+      minWidth: "150px",
       textAlign: "center",
       boxSizing: "border-box",
       cursor: "pointer",
+      background: "#15151d",
     },
     selectedEmpty: {
       border: "1px dashed #777",
       borderRadius: "10px",
       padding: "8px 10px",
-      minWidth: "118px",
+      minWidth: "150px",
       textAlign: "center",
       boxSizing: "border-box",
       opacity: 0.55,
     },
     selectedName: {
       fontWeight: 700,
-      fontSize: "13px",
+      fontSize: "15px",
       marginTop: "4px",
-    },
-    selectedHint: {
-      fontSize: "11px",
-      opacity: 0.7,
-      marginTop: "3px",
     },
     spriteGrid: {
       display: "grid",
@@ -200,12 +199,20 @@ export default function PokemonSearchPicker({
       textAlign: "center",
       cursor: "pointer",
       background: "#181821",
-      transition: "transform 0.15s ease, border-color 0.15s ease, background 0.15s ease",
+      transition:
+        "transform 0.15s ease, border-color 0.15s ease, background 0.15s ease",
     },
     spriteCardHover: {
       border: "1px solid #7a7a96",
       background: "#20202b",
       transform: "translateY(-1px)",
+    },
+    selectedSpriteImage: {
+      width: "54px",
+      height: "54px",
+      objectFit: "contain",
+      imageRendering: "pixelated",
+      marginBottom: "4px",
     },
     spriteImage: {
       width: "56px",
@@ -245,6 +252,12 @@ export default function PokemonSearchPicker({
       border: "1px solid #3d3d4d",
       borderRadius: "12px",
     },
+    typeLine: {
+      fontSize: "13px",
+      opacity: 0.9,
+      lineHeight: 1.35,
+      marginTop: "4px",
+    },
   };
 
   return (
@@ -255,16 +268,14 @@ export default function PokemonSearchPicker({
         ref={searchInputRef}
         type="text"
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={(event) => setQuery(event.target.value)}
         onKeyDown={handleSearchKeyDown}
         placeholder="Search Pokémon, nickname, or alias"
         style={pickerStyles.searchInput}
       />
 
       <div style={pickerStyles.selectedWrap}>
-        <div style={pickerStyles.helperText}>
-          Selected opponent team. Click a selected Pokémon to remove it.
-        </div>
+        <div style={pickerStyles.helperText}>Opponent Team</div>
 
         <div style={pickerStyles.selectedGrid}>
           {Array.from({ length: 6 }).map((_, index) => {
@@ -288,12 +299,12 @@ export default function PokemonSearchPicker({
                 <img
                   src={pokemon.sprite}
                   alt={pokemon.name}
-                  style={pickerStyles.spriteImage}
+                  style={pickerStyles.selectedSpriteImage}
                 />
+
                 <div style={pickerStyles.selectedName}>
                   {pokemon.displayName || pokemon.name}
                 </div>
-                <div style={pickerStyles.selectedHint}>Click to remove</div>
               </div>
             );
           })}
@@ -311,9 +322,7 @@ export default function PokemonSearchPicker({
           </div>
 
           {filteredPokemon.length === 0 ? (
-            <div style={pickerStyles.noResults}>
-              No matching Pokémon found.
-            </div>
+            <div style={pickerStyles.noResults}>No matching Pokémon found.</div>
           ) : (
             <div style={pickerStyles.spriteGrid}>
               {filteredPokemon.map((pokemon) => {
@@ -336,6 +345,7 @@ export default function PokemonSearchPicker({
                       alt={pokemon.name}
                       style={pickerStyles.spriteImage}
                     />
+
                     <div style={pickerStyles.spriteName}>
                       {pokemon.displayName || pokemon.name}
                     </div>
