@@ -9,10 +9,10 @@ const COLLAPSED_SPECIES = {
   Furfrou: "furfrou",
 };
 
-function buildPickerList(spriteData) {
+function buildPickerList(pokemonData) {
   const grouped = new Map();
 
-  for (const pokemon of spriteData) {
+  for (const pokemon of pokemonData) {
     if (!grouped.has(pokemon.name)) {
       grouped.set(pokemon.name, []);
     }
@@ -55,6 +55,7 @@ function buildPickerList(spriteData) {
 }
 
 export default function PokemonSearchPicker({
+  pokemonData,
   spriteData,
   selectedPokemon,
   setSelectedPokemon,
@@ -64,9 +65,11 @@ export default function PokemonSearchPicker({
   const [hoveredSlug, setHoveredSlug] = useState(null);
   const searchInputRef = useRef(null);
 
+  const pickerSource = pokemonData || spriteData || [];
+
   const pickerPokemon = useMemo(() => {
-    return buildPickerList(spriteData);
-  }, [spriteData]);
+    return buildPickerList(pickerSource);
+  }, [pickerSource]);
 
   const filteredPokemon = useMemo(() => {
     const q = normalizeText(query);
@@ -182,6 +185,12 @@ export default function PokemonSearchPicker({
       fontSize: "15px",
       marginTop: "4px",
     },
+    selectedTypes: {
+      fontSize: "13px",
+      opacity: 0.9,
+      lineHeight: 1.35,
+      marginTop: "4px",
+    },
     spriteGrid: {
       display: "grid",
       gridTemplateColumns: "repeat(auto-fill, minmax(100px, 1fr))",
@@ -252,12 +261,6 @@ export default function PokemonSearchPicker({
       border: "1px solid #3d3d4d",
       borderRadius: "12px",
     },
-    typeLine: {
-      fontSize: "13px",
-      opacity: 0.9,
-      lineHeight: 1.35,
-      marginTop: "4px",
-    },
   };
 
   return (
@@ -304,6 +307,10 @@ export default function PokemonSearchPicker({
 
                 <div style={pickerStyles.selectedName}>
                   {pokemon.displayName || pokemon.name}
+                </div>
+
+                <div style={pickerStyles.selectedTypes}>
+                  {(pokemon.types || []).join(", ")}
                 </div>
               </div>
             );

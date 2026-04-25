@@ -3,7 +3,7 @@ import myTeamData from "../data/my_team.json";
 import spriteData from "../data/champions_sprites.json";
 import rosterData from "../data/champions_roster_full.json";
 
-const emptyMember = (slot) => ({
+export const emptyMember = (slot) => ({
   slot,
   name: "",
   form: "",
@@ -20,6 +20,12 @@ const emptyMember = (slot) => ({
   },
   moves: ["", "", "", ""],
 });
+
+export const emptyTeam = {
+  teamName: "My Team",
+  format: "singles_3v3",
+  members: Array.from({ length: 6 }, (_, i) => emptyMember(i + 1)),
+};
 
 function normalizeText(value) {
   return String(value || "").toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -45,7 +51,7 @@ function isTeamComplete(team) {
   return team.members.every((member) => member.name);
 }
 
-function convertMyTeamToBuilderTeam() {
+export function convertMyTeamToBuilderTeam() {
   return {
     teamName: myTeamData.teamName || "James Current Team",
     format: myTeamData.format || "singles_3v3",
@@ -80,43 +86,37 @@ function convertMyTeamToBuilderTeam() {
   };
 }
 
-export default function TeamBuilder() {
-  const [team, setTeam] = useState({
-    teamName: "My Team",
-    format: "singles_3v3",
-    members: Array.from({ length: 6 }, (_, i) => emptyMember(i + 1)),
-  });
+export default function TeamBuilder({ team, setTeam }) {
+  const [localTeam, setLocalTeam] = useState(emptyTeam);
+  const activeTeam = team || localTeam;
+  const updateTeam = setTeam || setLocalTeam;
 
   const [isEditing, setIsEditing] = useState(true);
-  const complete = isTeamComplete(team);
+  const complete = isTeamComplete(activeTeam);
 
   function loadMyTeam() {
-    setTeam(convertMyTeamToBuilderTeam());
+    updateTeam(convertMyTeamToBuilderTeam());
     setIsEditing(false);
   }
 
   function clearTeam() {
-    setTeam({
-      teamName: "My Team",
-      format: "singles_3v3",
-      members: Array.from({ length: 6 }, (_, i) => emptyMember(i + 1)),
-    });
+    updateTeam(emptyTeam);
     setIsEditing(true);
   }
 
   function updateMember(index, field, value) {
-    const updated = [...team.members];
+    const updated = [...activeTeam.members];
 
     updated[index] = {
       ...updated[index],
       [field]: value,
     };
 
-    setTeam({ ...team, members: updated });
+    updateTeam({ ...activeTeam, members: updated });
   }
 
   function updateStat(index, stat, value) {
-    const updated = [...team.members];
+    const updated = [...activeTeam.members];
 
     updated[index] = {
       ...updated[index],
@@ -126,11 +126,11 @@ export default function TeamBuilder() {
       },
     };
 
-    setTeam({ ...team, members: updated });
+    updateTeam({ ...activeTeam, members: updated });
   }
 
   function updateMove(index, moveIndex, value) {
-    const updated = [...team.members];
+    const updated = [...activeTeam.members];
     const moves = [...updated[index].moves];
 
     moves[moveIndex] = value;
@@ -140,7 +140,7 @@ export default function TeamBuilder() {
       moves,
     };
 
-    setTeam({ ...team, members: updated });
+    updateTeam({ ...activeTeam, members: updated });
   }
 
   const styles = {
@@ -271,8 +271,10 @@ export default function TeamBuilder() {
 
       <div style={styles.topBar}>
         <input
-          value={team.teamName}
-          onChange={(e) => setTeam({ ...team, teamName: e.target.value })}
+          value={activeTeam.teamName}
+          onChange={(event) =>
+            updateTeam({ ...activeTeam, teamName: event.target.value })
+          }
           placeholder="Team Name"
           style={styles.teamName}
         />
@@ -300,7 +302,7 @@ export default function TeamBuilder() {
 
       {complete && !isEditing ? (
         <div style={styles.summaryGrid}>
-          {team.members.map((member) => (
+          {activeTeam.members.map((member) => (
             <div key={member.slot} style={styles.summaryCard}>
               {getSprite(member.name) && (
                 <img
@@ -311,14 +313,13 @@ export default function TeamBuilder() {
               )}
 
               <div style={styles.monName}>{member.name}</div>
-
               <div style={styles.typeLine}>{getTypes(member.name)}</div>
             </div>
           ))}
         </div>
       ) : (
         <div style={styles.grid}>
-          {team.members.map((member, index) => {
+          {activeTeam.members.map((member, index) => {
             const title = member.name || `Slot ${index + 1}`;
 
             return (
@@ -334,8 +335,8 @@ export default function TeamBuilder() {
                   <input
                     placeholder="Pokémon"
                     value={member.name}
-                    onChange={(e) =>
-                      updateMember(index, "name", e.target.value)
+                    onChange={(event) =>
+                      updateMember(index, "name", event.target.value)
                     }
                     style={styles.input}
                   />
@@ -343,8 +344,8 @@ export default function TeamBuilder() {
                   <input
                     placeholder="Ability"
                     value={member.ability}
-                    onChange={(e) =>
-                      updateMember(index, "ability", e.target.value)
+                    onChange={(event) =>
+                      updateMember(index, "ability", event.target.value)
                     }
                     style={styles.input}
                   />
@@ -352,8 +353,8 @@ export default function TeamBuilder() {
                   <input
                     placeholder="Item"
                     value={member.item}
-                    onChange={(e) =>
-                      updateMember(index, "item", e.target.value)
+                    onChange={(event) =>
+                      updateMember(index, "item", event.target.value)
                     }
                     style={styles.input}
                   />
@@ -361,8 +362,8 @@ export default function TeamBuilder() {
                   <input
                     placeholder="Nature"
                     value={member.nature}
-                    onChange={(e) =>
-                      updateMember(index, "nature", e.target.value)
+                    onChange={(event) =>
+                      updateMember(index, "nature", event.target.value)
                     }
                     style={styles.input}
                   />
@@ -374,7 +375,9 @@ export default function TeamBuilder() {
                       key={stat}
                       placeholder={stat}
                       value={member.stats[stat]}
-                      onChange={(e) => updateStat(index, stat, e.target.value)}
+                      onChange={(event) =>
+                        updateStat(index, stat, event.target.value)
+                      }
                       style={styles.statInput}
                     />
                   ))}
@@ -386,8 +389,8 @@ export default function TeamBuilder() {
                       key={moveIndex}
                       placeholder={`Move ${moveIndex + 1}`}
                       value={move}
-                      onChange={(e) =>
-                        updateMove(index, moveIndex, e.target.value)
+                      onChange={(event) =>
+                        updateMove(index, moveIndex, event.target.value)
                       }
                       style={styles.moveInput}
                     />

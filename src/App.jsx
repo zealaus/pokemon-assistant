@@ -1,13 +1,12 @@
 import { useState } from "react";
 import rosterData from "./data/champions_roster_full.json";
 import metaStrategies from "./data/meta_strategies.json";
-import myTeamData from "./data/my_team.json";
-import spriteData from "./data/champions_sprites.json";
 import PokemonSearchPicker from "./components/PokemonSearchPicker";
-import TeamBuilder from "./components/TeamBuilder";
+import TeamBuilder, { emptyTeam } from "./components/TeamBuilder";
+import pokemonData from "./data/champions_pokemon.json";
 
 function normalizeText(value) {
-  return value.toLowerCase().replace(/[^a-z0-9]/g, "");
+  return String(value || "").toLowerCase().replace(/[^a-z0-9]/g, "");
 }
 
 function findPokemon(name, roster) {
@@ -24,19 +23,12 @@ function findPokemon(name, roster) {
   });
 }
 
-
 function getSpriteForPokemon(pokemon) {
   if (!pokemon) return "";
 
-  const pokemonName = normalizeText(pokemon.name);
-  const pokemonSlug = normalizeText(pokemon.slug || pokemon.name);
-
-  const match = spriteData.find((sprite) => {
-    return (
-      normalizeText(sprite.slug) === pokemonSlug ||
-      normalizeText(sprite.name) === pokemonName
-    );
-  });
+  const match = pokemonData.find(
+    (entry) => normalizeText(entry.name) === normalizeText(pokemon.name)
+  );
 
   return match?.sprite || "";
 }
@@ -72,18 +64,45 @@ function hasItem(pokemon, itemName) {
   );
 }
 
-function buildMyTeam(teamData, roster) {
-  return teamData.team
+function toStatNumber(value) {
+  if (value === "" || value === null || value === undefined) return 0;
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+
+function buildMyTeamFromBuilder(builderTeam, roster) {
+  return (builderTeam.members || [])
+    .filter((teamMember) => teamMember.name)
     .map((teamMember) => {
-      const rosterEntry = roster.find(
-        (pokemon) => pokemon.name === teamMember.name
-      );
+      const rosterEntry = findPokemon(teamMember.name, roster);
 
       if (!rosterEntry) return null;
 
       return {
         ...rosterEntry,
-        ...teamMember,
+        slot: teamMember.slot,
+        form: teamMember.form || rosterEntry.form || null,
+        item: teamMember.item || null,
+        megaItem: null,
+        ability: {
+          base: teamMember.ability || "",
+          mega: null,
+          confidence: teamMember.ability ? "user_provided" : "unknown",
+        },
+        statAlignment: {
+          name: teamMember.nature || "",
+          source: teamMember.nature ? "user_provided" : "unknown",
+          confidence: teamMember.nature ? "user_provided" : "unknown",
+        },
+        statPoints: {
+          hp: toStatNumber(teamMember.stats?.hp),
+          attack: toStatNumber(teamMember.stats?.attack),
+          defense: toStatNumber(teamMember.stats?.defense),
+          spAttack: toStatNumber(teamMember.stats?.spAttack),
+          spDefense: toStatNumber(teamMember.stats?.spDefense),
+          speed: toStatNumber(teamMember.stats?.speed),
+        },
+        moves: (teamMember.moves || []).filter(Boolean),
       };
     })
     .filter(Boolean);
@@ -111,9 +130,7 @@ function getRoleLabel(pokemon) {
   }
 
   if (pokemon.name === "Garchomp") {
-    return hasMove(pokemon, "Swords Dance")
-      ? "Breaker"
-      : "Cleaner";
+    return hasMove(pokemon, "Swords Dance") ? "Breaker" : "Cleaner";
   }
 
   if (pokemon.name === "Charizard") {
@@ -709,6 +726,7 @@ const styles = {
 };
 
 export default function App() {
+  const [builderTeam, setBuilderTeam] = useState(emptyTeam);
   const [input, setInput] = useState("");
   const [selectedOpponentPokemon, setSelectedOpponentPokemon] = useState([]);
   const [opponentTeam, setOpponentTeam] = useState([]);
@@ -719,7 +737,7 @@ export default function App() {
   const [turnPlan, setTurnPlan] = useState([]);
   const [winConditions, setWinConditions] = useState([]);
 
-  const myTeam = buildMyTeam(myTeamData, rosterData.entries);
+  const myTeam = buildMyTeamFromBuilder(builderTeam, rosterData.entries);
   const showFallbackTextarea = selectedOpponentPokemon.length < 6;
   const orderedBestThree = orderBestThreeWithLead(bestThree, lead);
   const shouldShowAnalyzedOpponentTeam =
@@ -773,10 +791,10 @@ export default function App() {
       <h1 style={styles.title}>Pokémon Champions Assistant</h1>
       <p style={styles.subtitle}>Search and click the opponent&apos;s Pokémon...</p>
 
-      <TeamBuilder />
+      <TeamBuilder team={builderTeam} setTeam={setBuilderTeam} />
 
       <PokemonSearchPicker
-        spriteData={spriteData}
+        pokemonData={pokemonData}
         selectedPokemon={selectedOpponentPokemon}
         setSelectedPokemon={setSelectedOpponentPokemon}
         normalizeText={normalizeText}
@@ -807,6 +825,7 @@ export default function App() {
       {shouldShowAnalyzedOpponentTeam && (
         <div style={styles.section}>
           <h2 style={styles.sectionTitle}>Opponent Team</h2>
+
           <div style={styles.cardGrid}>
             {opponentTeam.map((pokemon, index) => (
               <div key={index} style={styles.smallCard}>
@@ -821,6 +840,7 @@ export default function App() {
                 <strong>{pokemon.name}</strong>
                 {pokemon.form ? ` (${pokemon.form})` : ""}
                 <br />
+
                 <span style={{ fontSize: "13px", opacity: 0.9 }}>
                   {pokemon.types.join(", ")}
                 </span>
