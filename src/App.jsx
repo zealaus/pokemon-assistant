@@ -3,6 +3,7 @@ import metaStrategies from "./data/meta_strategies.json";
 import PokemonSearchPicker from "./components/PokemonSearchPicker";
 import TeamBuilder, { emptyTeam } from "./components/TeamBuilder";
 import pokemonData from "./data/champions_pokemon.json";
+import typeChart from "./data/type_chart.json";
 
 function normalizeText(value) {
   return String(value || "").toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -34,6 +35,35 @@ function getSpriteForPokemon(pokemon) {
 
 function hasType(pokemon, type) {
   return (pokemon.types || []).includes(type);
+}
+function getTypeEffectiveness(attackingType, defendingTypes = []) {
+  return defendingTypes.reduce((multiplier, defendingType) => {
+    const value = typeChart[attackingType]?.[defendingType] ?? 1;
+    return multiplier * value;
+  }, 1);
+}
+
+function getBestTypePressure(attackerTypes = [], defenderTypes = []) {
+  if (!attackerTypes.length || !defenderTypes.length) return 1;
+
+  return Math.max(
+    ...attackerTypes.map((attackingType) =>
+      getTypeEffectiveness(attackingType, defenderTypes)
+    )
+  );
+}
+
+function scoreTypePressure(myPokemon, opponentPokemon) {
+  const pressure = getBestTypePressure(myPokemon.types, opponentPokemon.types);
+
+  if (pressure >= 4) return 5;
+  if (pressure === 2) return 3;
+  if (pressure === 1) return 0;
+  if (pressure === 0.5) return -1;
+  if (pressure <= 0.25 && pressure > 0) return -2;
+  if (pressure === 0) return -4;
+
+  return 0;
 }
 
 function getMeta(pokemonName) {
@@ -148,6 +178,7 @@ function scoreMatchup(myPokemon, opponentTeam) {
     if (!opp) continue;
 
     const oppMeta = getMeta(opp.name);
+    score += scoreTypePressure(myPokemon, opp);
 
     if (myPokemon.name === "Scizor") {
       if (hasType(opp, "Fairy")) score += 3;
@@ -559,7 +590,7 @@ const styles = {
   page: {
     padding: "20px 20px 28px",
     fontFamily: "Arial, sans-serif",
-    maxWidth: "980px",
+    maxWidth: "1280px",
     margin: "0 auto",
   },
   title: {
