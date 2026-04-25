@@ -22,23 +22,42 @@ async function main() {
   const merged = roster
     .filter((pokemon) => !pokemon.isMega)
     .map((pokemon) => {
-      const spriteMatch = sprites.find((sprite) => {
-        return (
-          normalizeText(sprite.slug) === normalizeText(pokemon.slug) ||
-          normalizeText(sprite.name) === normalizeText(pokemon.name)
-        );
-      });
+      const pokemonSlug = normalizeText(pokemon.slug);
+      const pokemonName = normalizeText(pokemon.name);
+
+      const exactSlugMatch = sprites.find(
+        (sprite) => normalizeText(sprite.slug) === pokemonSlug
+      );
+
+      const exactNameMatch = sprites.find(
+        (sprite) =>
+          normalizeText(sprite.name) === pokemonName &&
+          normalizeText(sprite.form || "") === normalizeText(pokemon.form || "")
+      );
+
+      const fallbackNameMatch = sprites.find(
+        (sprite) => normalizeText(sprite.name) === pokemonName
+      );
+
+      const spriteMatch = exactSlugMatch || exactNameMatch || fallbackNameMatch;
 
       return {
         ...pokemon,
         sprite: spriteMatch?.sprite || "",
-        aliases: [...new Set([...(pokemon.aliases || []), ...(spriteMatch?.aliases || [])])],
+        aliases: [
+          ...new Set([
+            ...(pokemon.aliases || []),
+            ...(spriteMatch?.aliases || []),
+          ]),
+        ],
       };
     });
 
   await fs.writeFile(outputPath, JSON.stringify(merged, null, 2), "utf8");
 
-  console.log(`Saved ${merged.length} merged Pokémon entries to src/data/champions_pokemon.json`);
+  console.log(
+    `Saved ${merged.length} merged Pokémon entries to src/data/champions_pokemon.json`
+  );
 }
 
 main().catch((error) => {

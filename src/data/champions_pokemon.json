@@ -155,12 +155,13 @@
       "alolan raichu",
       "raichu alola",
       "a-raichu",
+      "a raichu",
       "raichu"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/raichu.png"
+    "sprite": "/sprites/raichu-alolan-form.png"
   },
   {
     "dex": 36,
@@ -210,12 +211,13 @@
       "alolan ninetales",
       "ninetales alola",
       "a-tales",
+      "a tales",
       "ninetales"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/ninetales.png"
+    "sprite": "/sprites/ninetales-alolan-form.png"
   },
   {
     "dex": 59,
@@ -248,12 +250,13 @@
       "hisuian arcanine",
       "arcanine hisui",
       "h-arcanine",
+      "h arcanine",
       "arcanine"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/arcanine.png"
+    "sprite": "/sprites/arcanine-hisuian-form.png"
   },
   {
     "dex": 65,
@@ -340,12 +343,13 @@
       "galarian slowbro",
       "slowbro galar",
       "g-slowbro",
+      "g slowbro",
       "slowbro"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/slowbro.png"
+    "sprite": "/sprites/slowbro-galarian-form.png"
   },
   {
     "dex": 94,
@@ -454,7 +458,7 @@
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/tauros.png"
+    "sprite": "/sprites/tauros-paldean-form-combat-breed.png"
   },
   {
     "dex": 128,
@@ -475,7 +479,7 @@
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/tauros.png"
+    "sprite": "/sprites/tauros-paldean-form-blaze-breed.png"
   },
   {
     "dex": 128,
@@ -496,7 +500,7 @@
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/tauros.png"
+    "sprite": "/sprites/tauros-paldean-form-aqua-breed.png"
   },
   {
     "dex": 130,
@@ -687,12 +691,13 @@
       "hisuian typhlosion",
       "typhlosion hisui",
       "h-typhlosion",
+      "h typhlosion",
       "typhlosion"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/typhlosion.png"
+    "sprite": "/sprites/typhlosion-hisuian-form.png"
   },
   {
     "dex": 160,
@@ -848,12 +853,13 @@
       "galarian slowking",
       "slowking galar",
       "g-slowking",
+      "g slowking",
       "slowking"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/slowking.png"
+    "sprite": "/sprites/slowking-galarian-form.png"
   },
   {
     "dex": 205,
@@ -1691,12 +1697,13 @@
       "heat rotom",
       "rotom-h",
       "rotomh",
+      "rotom h",
       "rotom"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/rotom.png"
+    "sprite": "/sprites/rotom-heat-rotom.png"
   },
   {
     "dex": 479,
@@ -1712,12 +1719,13 @@
       "wash rotom",
       "rotom-w",
       "rotomw",
+      "rotom w",
       "rotom"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/rotom.png"
+    "sprite": "/sprites/rotom-wash-rotom.png"
   },
   {
     "dex": 479,
@@ -1733,12 +1741,13 @@
       "frost rotom",
       "rotom-f",
       "rotomf",
+      "rotom f",
       "rotom"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/rotom.png"
+    "sprite": "/sprites/rotom-frost-rotom.png"
   },
   {
     "dex": 479,
@@ -1754,12 +1763,13 @@
       "fan rotom",
       "rotom-s",
       "rotoms",
+      "rotom s",
       "rotom"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/rotom.png"
+    "sprite": "/sprites/rotom-fan-rotom.png"
   },
   {
     "dex": 479,
@@ -1775,12 +1785,13 @@
       "mow rotom",
       "rotom-c",
       "rotomc",
+      "rotom c",
       "rotom"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/rotom.png"
+    "sprite": "/sprites/rotom-mow-rotom.png"
   },
   {
     "dex": 497,
@@ -1848,12 +1859,13 @@
       "hisuian samurott",
       "samurott hisui",
       "h-samurott",
+      "h samurott",
       "samurott"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/samurott.png"
+    "sprite": "/sprites/samurott-hisuian-form.png"
   },
   {
     "dex": 505,
@@ -2095,12 +2107,13 @@
       "hisuian zoroark",
       "zoroark hisui",
       "h-zoroark",
+      "h zoroark",
       "zoroark"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/zoroark.png"
+    "sprite": "/sprites/zoroark-hisuian-form.png"
   },
   {
     "dex": 579,
@@ -2221,12 +2234,13 @@
       "galarian stunfisk",
       "stunfisk galar",
       "g-stunfisk",
+      "g stunfisk",
       "stunfisk"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/stunfisk.png"
+    "sprite": "/sprites/stunfisk-galarian-form.png"
   },
   {
     "dex": 623,
@@ -2425,14 +2439,12 @@
     "aliases": [
       "florges yellow",
       "yellow florges",
-      "florges red",
-      "red florges",
       "florges"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/florges-red-flower.png"
+    "sprite": "/sprites/florges-yellow-flower.png"
   },
   {
     "dex": 671,
@@ -2446,14 +2458,12 @@
     "aliases": [
       "florges orange",
       "orange florges",
-      "florges red",
-      "red florges",
       "florges"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/florges-red-flower.png"
+    "sprite": "/sprites/florges-orange-flower.png"
   },
   {
     "dex": 671,
@@ -2467,14 +2477,12 @@
     "aliases": [
       "florges blue",
       "blue florges",
-      "florges red",
-      "red florges",
       "florges"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/florges-red-flower.png"
+    "sprite": "/sprites/florges-blue-flower.png"
   },
   {
     "dex": 671,
@@ -2488,14 +2496,12 @@
     "aliases": [
       "florges white",
       "white florges",
-      "florges red",
-      "red florges",
       "florges"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/florges-red-flower.png"
+    "sprite": "/sprites/florges-white-flower.png"
   },
   {
     "dex": 675,
@@ -2549,7 +2555,7 @@
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/furfrou.png"
+    "sprite": "/sprites/furfrou-matron-trim.png"
   },
   {
     "dex": 676,
@@ -2568,7 +2574,7 @@
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/furfrou.png"
+    "sprite": "/sprites/furfrou-dandy-trim.png"
   },
   {
     "dex": 678,
@@ -2601,14 +2607,12 @@
     "aliases": [
       "meowstic female",
       "female meowstic",
-      "meowstic male",
-      "male meowstic",
       "meowstic"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/meowstic-male.png"
+    "sprite": "/sprites/meowstic-female.png"
   },
   {
     "dex": 681,
@@ -2817,12 +2821,13 @@
       "hisuian goodra",
       "goodra hisui",
       "h-goodra",
+      "h goodra",
       "goodra"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/goodra.png"
+    "sprite": "/sprites/goodra-hisuian-form.png"
   },
   {
     "dex": 707,
@@ -2893,14 +2898,12 @@
     "aliases": [
       "gourgeist small",
       "small gourgeist",
-      "gourgeist medium",
-      "medium gourgeist",
       "gourgeist"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/gourgeist-medium-variety.png"
+    "sprite": "/sprites/gourgeist-small-variety.png"
   },
   {
     "dex": 711,
@@ -2915,14 +2918,12 @@
     "aliases": [
       "gourgeist large",
       "large gourgeist",
-      "gourgeist medium",
-      "medium gourgeist",
       "gourgeist"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/gourgeist-medium-variety.png"
+    "sprite": "/sprites/gourgeist-large-variety.png"
   },
   {
     "dex": 711,
@@ -2937,14 +2938,12 @@
     "aliases": [
       "gourgeist jumbo",
       "jumbo gourgeist",
-      "gourgeist medium",
-      "medium gourgeist",
       "gourgeist"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/gourgeist-medium-variety.png"
+    "sprite": "/sprites/gourgeist-jumbo-variety.png"
   },
   {
     "dex": 713,
@@ -2977,12 +2976,13 @@
       "hisuian avalugg",
       "avalugg hisui",
       "h-avalugg",
+      "h avalugg",
       "avalugg"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/avalugg.png"
+    "sprite": "/sprites/avalugg-hisuian-form.png"
   },
   {
     "dex": 715,
@@ -3034,12 +3034,13 @@
       "hisuian decidueye",
       "decidueye hisui",
       "h-decidueye",
+      "h decidueye",
       "decidueye"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/decidueye.png"
+    "sprite": "/sprites/decidueye-hisuian-form.png"
   },
   {
     "dex": 727,
@@ -3145,14 +3146,12 @@
     "aliases": [
       "lycanroc midnight",
       "midnight lycanroc",
-      "lycanroc midday",
-      "midday lycanroc",
       "lycanroc"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/lycanroc-midday-form.png"
+    "sprite": "/sprites/lycanroc-midnight-form.png"
   },
   {
     "dex": 745,
@@ -3166,14 +3165,12 @@
     "aliases": [
       "lycanroc dusk",
       "dusk lycanroc",
-      "lycanroc midday",
-      "midday lycanroc",
       "lycanroc"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/lycanroc-midday-form.png"
+    "sprite": "/sprites/lycanroc-dusk-form.png"
   },
   {
     "dex": 748,
@@ -3461,14 +3458,12 @@
     "aliases": [
       "polteageist antique",
       "antique polteageist",
-      "polteageist phony",
-      "phony polteageist",
       "polteageist"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/polteageist-phony-form.png"
+    "sprite": "/sprites/polteageist-antique-form.png"
   },
   {
     "dex": 858,
@@ -3556,14 +3551,12 @@
     "aliases": [
       "alcremie ruby cream",
       "ruby cream",
-      "alcremie vanilla",
-      "vanilla cream",
       "alcremie"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/alcremie-vanilla-cream.png"
+    "sprite": "/sprites/alcremie-ruby-cream.png"
   },
   {
     "dex": 869,
@@ -3577,14 +3570,12 @@
     "aliases": [
       "alcremie matcha cream",
       "matcha cream",
-      "alcremie vanilla",
-      "vanilla cream",
       "alcremie"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/alcremie-vanilla-cream.png"
+    "sprite": "/sprites/alcremie-matcha-cream.png"
   },
   {
     "dex": 869,
@@ -3598,14 +3589,12 @@
     "aliases": [
       "alcremie mint cream",
       "mint cream",
-      "alcremie vanilla",
-      "vanilla cream",
       "alcremie"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/alcremie-vanilla-cream.png"
+    "sprite": "/sprites/alcremie-mint-cream.png"
   },
   {
     "dex": 869,
@@ -3619,14 +3608,12 @@
     "aliases": [
       "alcremie lemon cream",
       "lemon cream",
-      "alcremie vanilla",
-      "vanilla cream",
       "alcremie"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/alcremie-vanilla-cream.png"
+    "sprite": "/sprites/alcremie-lemon-cream.png"
   },
   {
     "dex": 869,
@@ -3640,14 +3627,12 @@
     "aliases": [
       "alcremie salted cream",
       "salted cream",
-      "alcremie vanilla",
-      "vanilla cream",
       "alcremie"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/alcremie-vanilla-cream.png"
+    "sprite": "/sprites/alcremie-salted-cream.png"
   },
   {
     "dex": 869,
@@ -3661,14 +3646,12 @@
     "aliases": [
       "alcremie ruby swirl",
       "ruby swirl",
-      "alcremie vanilla",
-      "vanilla cream",
       "alcremie"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/alcremie-vanilla-cream.png"
+    "sprite": "/sprites/alcremie-ruby-swirl.png"
   },
   {
     "dex": 869,
@@ -3682,14 +3665,12 @@
     "aliases": [
       "alcremie caramel swirl",
       "caramel swirl",
-      "alcremie vanilla",
-      "vanilla cream",
       "alcremie"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/alcremie-vanilla-cream.png"
+    "sprite": "/sprites/alcremie-caramel-swirl.png"
   },
   {
     "dex": 869,
@@ -3703,14 +3684,12 @@
     "aliases": [
       "alcremie rainbow swirl",
       "rainbow swirl",
-      "alcremie vanilla",
-      "vanilla cream",
       "alcremie"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/alcremie-vanilla-cream.png"
+    "sprite": "/sprites/alcremie-rainbow-swirl.png"
   },
   {
     "dex": 877,
@@ -3817,14 +3796,12 @@
     "aliases": [
       "basculegion female",
       "female basculegion",
-      "basculegion male",
-      "male basculegion",
       "basculegion"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/basculegion-male.png"
+    "sprite": "/sprites/basculegion-female.png"
   },
   {
     "dex": 903,
@@ -3932,14 +3909,12 @@
     "aliases": [
       "maushold family of four",
       "maushold four",
-      "maushold family of three",
-      "maushold three",
       "maushold"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/maushold-family-of-three.png"
+    "sprite": "/sprites/maushold-family-of-four.png"
   },
   {
     "dex": 934,
@@ -4186,14 +4161,12 @@
     "aliases": [
       "sinistcha masterpiece",
       "masterpiece sinistcha",
-      "sinistcha unremarkable",
-      "unremarkable sinistcha",
       "sinistcha"
     ],
     "normallyAvailable": true,
     "versionAdded": "1.0.2",
     "roster": "Regular Roster M-A",
-    "sprite": "/sprites/sinistcha-unremarkable-form.png"
+    "sprite": "/sprites/sinistcha-masterpiece-form.png"
   },
   {
     "dex": 1018,

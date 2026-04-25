@@ -1,5 +1,4 @@
 import { useState } from "react";
-import rosterData from "./data/champions_roster_full.json";
 import metaStrategies from "./data/meta_strategies.json";
 import PokemonSearchPicker from "./components/PokemonSearchPicker";
 import TeamBuilder, { emptyTeam } from "./components/TeamBuilder";
@@ -9,32 +8,32 @@ function normalizeText(value) {
   return String(value || "").toLowerCase().replace(/[^a-z0-9]/g, "");
 }
 
-function findPokemon(name, roster) {
+function findPokemon(name) {
   const key = normalizeText(name);
 
-  return roster.find((pokemon) => {
+  return pokemonData.find((pokemon) => {
     const matchesName = normalizeText(pokemon.name) === key;
     const matchesSlug = normalizeText(pokemon.slug) === key;
+    const matchesDisplayName = normalizeText(pokemon.displayName || "") === key;
     const matchesAlias = (pokemon.aliases || []).some(
       (alias) => normalizeText(alias) === key
     );
 
-    return matchesName || matchesSlug || matchesAlias;
+    return matchesName || matchesSlug || matchesDisplayName || matchesAlias;
   });
 }
 
 function getSpriteForPokemon(pokemon) {
   if (!pokemon) return "";
+  if (pokemon.sprite) return pokemon.sprite;
 
-  const match = pokemonData.find(
-    (entry) => normalizeText(entry.name) === normalizeText(pokemon.name)
-  );
+  const match = findPokemon(pokemon.name || pokemon.slug);
 
   return match?.sprite || "";
 }
 
 function hasType(pokemon, type) {
-  return pokemon.types.includes(type);
+  return (pokemon.types || []).includes(type);
 }
 
 function getMeta(pokemonName) {
@@ -70,18 +69,18 @@ function toStatNumber(value) {
   return Number.isFinite(parsed) ? parsed : 0;
 }
 
-function buildMyTeamFromBuilder(builderTeam, roster) {
+function buildMyTeamFromBuilder(builderTeam) {
   return (builderTeam.members || [])
     .filter((teamMember) => teamMember.name)
     .map((teamMember) => {
-      const rosterEntry = findPokemon(teamMember.name, roster);
+      const pokemonEntry = findPokemon(teamMember.name);
 
-      if (!rosterEntry) return null;
+      if (!pokemonEntry) return null;
 
       return {
-        ...rosterEntry,
+        ...pokemonEntry,
         slot: teamMember.slot,
-        form: teamMember.form || rosterEntry.form || null,
+        form: teamMember.form || pokemonEntry.form || null,
         item: teamMember.item || null,
         megaItem: null,
         ability: {
@@ -737,7 +736,7 @@ export default function App() {
   const [turnPlan, setTurnPlan] = useState([]);
   const [winConditions, setWinConditions] = useState([]);
 
-  const myTeam = buildMyTeamFromBuilder(builderTeam, rosterData.entries);
+  const myTeam = buildMyTeamFromBuilder(builderTeam);
   const showFallbackTextarea = selectedOpponentPokemon.length < 6;
   const orderedBestThree = orderBestThreeWithLead(bestThree, lead);
   const shouldShowAnalyzedOpponentTeam =
@@ -745,7 +744,7 @@ export default function App() {
 
   const handleAnalyze = () => {
     const selectedFromPicker = selectedOpponentPokemon
-      .map((pokemon) => findPokemon(pokemon.name, rosterData.entries))
+      .map((pokemon) => findPokemon(pokemon.name))
       .filter(Boolean)
       .slice(0, 6);
 
@@ -754,7 +753,7 @@ export default function App() {
       .map((name) => name.trim())
       .filter(Boolean)
       .slice(0, 6)
-      .map((name) => findPokemon(name, rosterData.entries))
+      .map((name) => findPokemon(name))
       .filter(Boolean);
 
     const foundTeam =
