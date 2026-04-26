@@ -4,6 +4,7 @@ import PokemonSearchPicker from "./components/PokemonSearchPicker";
 import TeamBuilder, { emptyTeam } from "./components/TeamBuilder";
 import pokemonData from "./data/champions_pokemon.json";
 import typeChart from "./data/type_chart.json";
+import moveTypes from "./data/move_types.json";
 
 function normalizeText(value) {
   return String(value || "").toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -42,7 +43,41 @@ function getTypeEffectiveness(attackingType, defendingTypes = []) {
     return multiplier * value;
   }, 1);
 }
+function getMoveType(moveName) {
+  return moveTypes[moveName] || null;
+}
 
+function getBestMovePressure(myPokemon, defenderTypes = []) {
+  let best = 1;
+
+  for (const move of myPokemon.moves || []) {
+    const moveType = getMoveType(move);
+    if (!moveType || moveType === "Status") continue;
+
+    let effectiveness = getTypeEffectiveness(moveType, defenderTypes);
+
+    if ((myPokemon.types || []).includes(moveType)) {
+      effectiveness *= 1.5;
+    }
+
+    if (effectiveness > best) best = effectiveness;
+  }
+
+  return best;
+}
+
+function scoreMovePressure(myPokemon, opponentPokemon) {
+  const pressure = getBestMovePressure(myPokemon, opponentPokemon.types);
+
+  if (pressure >= 4) return 6;
+  if (pressure === 2) return 4;
+  if (pressure === 1) return 0;
+  if (pressure === 0.5) return -2;
+  if (pressure <= 0.25 && pressure > 0) return -3;
+  if (pressure === 0) return -5;
+
+  return 0;
+}
 function getBestTypePressure(attackerTypes = [], defenderTypes = []) {
   if (!attackerTypes.length || !defenderTypes.length) return 1;
 
@@ -51,6 +86,48 @@ function getBestTypePressure(attackerTypes = [], defenderTypes = []) {
       getTypeEffectiveness(attackingType, defenderTypes)
     )
   );
+}
+
+function scoreDefensiveRisk(myPokemon, opponentPokemon) {
+  const pressure = getBestTypePressure(
+    opponentPokemon.types || [],
+    myPokemon.types || []
+  );
+
+  if (pressure >= 4) return -6;
+  if (pressure === 2) return -4;
+  if (pressure === 1) return -1;
+  if (pressure === 0.5) return 1;
+  if (pressure <= 0.25 && pressure > 0) return 2;
+  if (pressure === 0) return 3;
+
+  return 0;
+}
+
+function getWorstMatchup(myPokemon, opponentTeam) {
+  let worst = 0;
+
+  for (const opp of opponentTeam) {
+    if (!opp) continue;
+
+    const pressure = getBestTypePressure(
+      opp.types || [],
+      myPokemon.types || []
+    );
+
+    if (pressure > worst) worst = pressure;
+  }
+
+  return worst;
+}
+
+function applyWorstMatchupPenalty(score, myPokemon, opponentTeam) {
+  const worstThreat = getWorstMatchup(myPokemon, opponentTeam);
+
+  if (worstThreat >= 4) return score - 8;
+  if (worstThreat === 2) return score - 4;
+
+  return score;
 }
 
 function scoreTypePressure(myPokemon, opponentPokemon) {
@@ -178,7 +255,8 @@ function scoreMatchup(myPokemon, opponentTeam) {
     if (!opp) continue;
 
     const oppMeta = getMeta(opp.name);
-    score += scoreTypePressure(myPokemon, opp);
+    score += scoreMovePressure(myPokemon, opp);
+    score += scoreDefensiveRisk(myPokemon, opp);
 
     if (myPokemon.name === "Scizor") {
       if (hasType(opp, "Fairy")) score += 3;
@@ -318,6 +396,8 @@ function scoreMatchup(myPokemon, opponentTeam) {
       fieldRisks.push(...oppMeta.fieldRisks);
     }
   }
+
+  score = applyWorstMatchupPenalty(score, myPokemon, opponentTeam);
 
   return {
     ...myPokemon,

@@ -1,0 +1,26 @@
+{
+  "Hydro Pump": "Water",
+  "Ice Beam": "Ice",
+  "Dark Pulse": "Dark",
+  "U-turn": "Bug",
+
+  "Fire Blast": "Fire",
+  "Focus Blast": "Fighting",
+  "Air Slash": "Flying",
+  "Roost": "Status",
+
+  "Earthquake": "Ground",
+  "Dragon Claw": "Dragon",
+  "Swords Dance": "Status",
+  "Stone Edge": "Rock",
+
+  "Bullet Punch": "Steel",
+  "Close Combat": "Fighting",
+
+  "Dragon Dance": "Status",
+  "Outrage": "Dragon",
+  "Extreme Speed": "Normal",
+
+  "Shadow Ball": "Ghost",
+  "Sludge Bomb": "Poison"
+}
