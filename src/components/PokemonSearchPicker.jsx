@@ -106,22 +106,26 @@ export default function PokemonSearchPicker({
   }, [pokemonData]);
 
   const filteredPokemon = useMemo(() => {
-    const query = normalizeText(search);
+  const query = normalizeText(search);
 
-    if (!query) return playablePokemon;
+  const sortedPokemon = [...playablePokemon].sort((a, b) =>
+    displayPokemonName(a).localeCompare(displayPokemonName(b))
+  );
 
-    return playablePokemon.filter((pokemon) => {
-      const searchValues = [
-        pokemon.name,
-        pokemon.displayName,
-        pokemon.slug,
-        pokemon.form,
-        ...(pokemon.aliases || []),
-      ];
+  if (!query) return sortedPokemon;
 
-      return searchValues.some((value) => normalizeText(value).includes(query));
-    });
-  }, [playablePokemon, search, normalizeText]);
+  return sortedPokemon.filter((pokemon) => {
+    const searchValues = [
+      pokemon.name,
+      pokemon.displayName,
+      pokemon.slug,
+      pokemon.form,
+      ...(pokemon.aliases || []),
+    ];
+
+    return searchValues.some((value) => normalizeText(value).includes(query));
+  });
+}, [playablePokemon, search, normalizeText]);
 
   const isTeamFull = selectedPokemon.length >= 6;
   const shouldShowGrid = !hasAnalyzed && !isTeamFull;

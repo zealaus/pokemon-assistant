@@ -1,0 +1,380 @@
+{
+  "Charizard": {
+    "possibleMegas": [
+      {
+        "name": "Mega Charizard X",
+        "shortLabel": "Mega X risk",
+        "types": [
+          "Fire",
+          "Dragon"
+        ],
+        "ability": "Tough Claws",
+        "riskNotes": [
+          "typing can flip into Fire / Dragon and physical pressure becomes more dangerous",
+          "Dragon Dance sets can become much harder to revenge if it gets a free turn"
+        ],
+        "enabledMoves": [
+          "Dragon Claw",
+          "Flare Blitz"
+        ],
+        "metaTier": "B",
+        "metaWeight": 0.3
+      },
+      {
+        "name": "Mega Charizard Y",
+        "shortLabel": "Mega Y risk",
+        "types": [
+          "Fire",
+          "Flying"
+        ],
+        "ability": "Drought",
+        "riskNotes": [
+          "Solar Beam becomes immediate under sun",
+          "Fire moves become much stronger under sun"
+        ],
+        "enabledMoves": [
+          "Solar Beam",
+          "Heat Wave",
+          "Flamethrower",
+          "Fire Blast"
+        ],
+        "metaTier": "S",
+        "metaWeight": 1.0
+      }
+    ]
+  },
+  "Blastoise": {
+    "possibleMegas": [
+      {
+        "name": "Mega Blastoise",
+        "shortLabel": "Mega risk",
+        "types": [
+          "Water"
+        ],
+        "ability": "Mega Launcher",
+        "riskNotes": [
+          "pulse and aura moves become much stronger"
+        ],
+        "enabledMoves": [
+          "Water Pulse",
+          "Dark Pulse",
+          "Aura Sphere",
+          "Dragon Pulse"
+        ],
+        "metaTier": "B",
+        "metaWeight": 0.55
+      }
+    ]
+  },
+  "Venusaur": {
+    "possibleMegas": [
+      {
+        "name": "Mega Venusaur",
+        "shortLabel": "Mega risk",
+        "types": [
+          "Grass",
+          "Poison"
+        ],
+        "ability": "Thick Fat",
+        "riskNotes": [
+          "Fire and Ice pressure become less reliable because of Thick Fat"
+        ],
+        "enabledMoves": [],
+        "metaTier": "B",
+        "metaWeight": 0.55
+      }
+    ]
+  },
+  "Alakazam": {
+    "possibleMegas": [
+      {
+        "name": "Mega Alakazam",
+        "shortLabel": "Mega risk",
+        "types": [
+          "Psychic"
+        ],
+        "ability": "Trace",
+        "riskNotes": [
+          "speed and special pressure become much harder to manage"
+        ],
+        "enabledMoves": [
+          "Psychic",
+          "Psyshock",
+          "Focus Blast",
+          "Shadow Ball"
+        ],
+        "metaTier": "A",
+        "metaWeight": 0.75
+      }
+    ]
+  },
+  "Gengar": {
+    "possibleMegas": [
+      {
+        "name": "Mega Gengar",
+        "shortLabel": "Mega risk",
+        "types": [
+          "Ghost",
+          "Poison"
+        ],
+        "ability": "Shadow Tag",
+        "riskNotes": [
+          "can trap bad positions and punish passive turns"
+        ],
+        "enabledMoves": [
+          "Shadow Ball",
+          "Sludge Wave",
+          "Focus Blast"
+        ],
+        "metaTier": "A",
+        "metaWeight": 0.85
+      }
+    ]
+  },
+  "Garchomp": {
+    "possibleMegas": [
+      {
+        "name": "Mega Garchomp",
+        "shortLabel": "Mega risk",
+        "types": [
+          "Dragon",
+          "Ground"
+        ],
+        "ability": "Sand Force",
+        "riskNotes": [
+          "Ground pressure becomes even more punishing, especially if sand is active"
+        ],
+        "enabledMoves": [
+          "Earthquake",
+          "Dragon Claw",
+          "Stone Edge"
+        ],
+        "metaTier": "B",
+        "metaWeight": 0.45
+      }
+    ]
+  },
+  "Scizor": {
+    "possibleMegas": [
+      {
+        "name": "Mega Scizor",
+        "shortLabel": "Mega risk",
+        "types": [
+          "Bug",
+          "Steel"
+        ],
+        "ability": "Technician",
+        "riskNotes": [
+          "priority cleanup becomes much more reliable with boosted Bullet Punch"
+        ],
+        "enabledMoves": [
+          "Bullet Punch"
+        ],
+        "metaTier": "A",
+        "metaWeight": 0.8
+      }
+    ]
+  },
+  "Tyranitar": {
+    "possibleMegas": [
+      {
+        "name": "Mega Tyranitar",
+        "shortLabel": "Mega risk",
+        "types": [
+          "Rock",
+          "Dark"
+        ],
+        "ability": "Sand Stream",
+        "riskNotes": [
+          "can become a bulky setup threat and boost special bulk with sand"
+        ],
+        "enabledMoves": [
+          "Stone Edge",
+          "Crunch",
+          "Dragon Dance"
+        ],
+        "metaTier": "A",
+        "metaWeight": 0.75
+      }
+    ]
+  },
+  "Gardevoir": {
+    "possibleMegas": [
+      {
+        "name": "Mega Gardevoir",
+        "shortLabel": "Mega risk",
+        "types": [
+          "Psychic",
+          "Fairy"
+        ],
+        "ability": "Pixilate",
+        "riskNotes": [
+          "Fairy damage becomes much harder to switch into"
+        ],
+        "enabledMoves": [
+          "Hyper Voice",
+          "Moonblast",
+          "Psychic"
+        ],
+        "metaTier": "A",
+        "metaWeight": 0.75
+      }
+    ]
+  },
+  "Gallade": {
+    "possibleMegas": [
+      {
+        "name": "Mega Gallade",
+        "shortLabel": "Mega risk",
+        "types": [
+          "Psychic",
+          "Fighting"
+        ],
+        "ability": "Inner Focus",
+        "riskNotes": [
+          "physical pressure and setup turns become harder to punish"
+        ],
+        "enabledMoves": [
+          "Close Combat",
+          "Psycho Cut",
+          "Swords Dance"
+        ],
+        "metaTier": "B",
+        "metaWeight": 0.5
+      }
+    ]
+  },
+  "Ampharos": {
+    "possibleMegas": [
+      {
+        "name": "Mega Ampharos",
+        "shortLabel": "Mega risk",
+        "types": [
+          "Electric",
+          "Dragon"
+        ],
+        "ability": "Mold Breaker",
+        "riskNotes": [
+          "typing changes into Electric / Dragon and Electric pressure remains strong"
+        ],
+        "enabledMoves": [
+          "Thunderbolt",
+          "Dragon Pulse"
+        ],
+        "metaTier": "B",
+        "metaWeight": 0.5
+      }
+    ]
+  },
+  "Aggron": {
+    "possibleMegas": [
+      {
+        "name": "Mega Aggron",
+        "shortLabel": "Mega risk",
+        "types": [
+          "Steel"
+        ],
+        "ability": "Filter",
+        "riskNotes": [
+          "super effective damage is softened by Filter, making it harder to remove"
+        ],
+        "enabledMoves": [
+          "Heavy Slam",
+          "Iron Head",
+          "Earthquake"
+        ],
+        "metaTier": "B",
+        "metaWeight": 0.45
+      }
+    ]
+  },
+  "Lucario": {
+    "possibleMegas": [
+      {
+        "name": "Mega Lucario",
+        "shortLabel": "Mega risk",
+        "types": [
+          "Fighting",
+          "Steel"
+        ],
+        "ability": "Adaptability",
+        "riskNotes": [
+          "STAB Fighting and Steel damage becomes much harder to switch into"
+        ],
+        "enabledMoves": [
+          "Close Combat",
+          "Aura Sphere",
+          "Flash Cannon",
+          "Bullet Punch"
+        ],
+        "metaTier": "A",
+        "metaWeight": 0.8
+      }
+    ]
+  },
+  "Lopunny": {
+    "possibleMegas": [
+      {
+        "name": "Mega Lopunny",
+        "shortLabel": "Mega risk",
+        "types": [
+          "Normal",
+          "Fighting"
+        ],
+        "ability": "Scrappy",
+        "riskNotes": [
+          "Ghost switch ins are no longer safe because of Scrappy"
+        ],
+        "enabledMoves": [
+          "Fake Out",
+          "Close Combat",
+          "Return"
+        ],
+        "metaTier": "B",
+        "metaWeight": 0.55
+      }
+    ]
+  },
+  "Sableye": {
+    "possibleMegas": [
+      {
+        "name": "Mega Sableye",
+        "shortLabel": "Mega risk",
+        "types": [
+          "Dark",
+          "Ghost"
+        ],
+        "ability": "Magic Bounce",
+        "riskNotes": [
+          "status and hazard plans can be punished by Magic Bounce"
+        ],
+        "enabledMoves": [],
+        "metaTier": "B",
+        "metaWeight": 0.5
+      }
+    ]
+  },
+  "Altaria": {
+    "possibleMegas": [
+      {
+        "name": "Mega Altaria",
+        "shortLabel": "Mega risk",
+        "types": [
+          "Dragon",
+          "Fairy"
+        ],
+        "ability": "Pixilate",
+        "riskNotes": [
+          "typing changes into Dragon / Fairy and Fairy pressure becomes more dangerous"
+        ],
+        "enabledMoves": [
+          "Hyper Voice",
+          "Return",
+          "Dragon Dance"
+        ],
+        "metaTier": "B",
+        "metaWeight": 0.5
+      }
+    ]
+  }
+}

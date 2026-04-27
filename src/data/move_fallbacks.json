@@ -1,0 +1,13 @@
+{
+  "Earthquake": { "power": 100, "accuracy": 100, "category": "Physical" },
+  "Ice Beam": { "power": 90, "accuracy": 100, "category": "Special" },
+  "Dark Pulse": { "power": 80, "accuracy": 100, "category": "Special" },
+  "Hydro Pump": { "power": 110, "accuracy": 80, "category": "Special" },
+  "Flamethrower": { "power": 90, "accuracy": 100, "category": "Special" },
+  "Thunderbolt": { "power": 90, "accuracy": 100, "category": "Special" },
+  "Close Combat": { "power": 120, "accuracy": 100, "category": "Physical" },
+  "U Turn": { "power": 70, "accuracy": 100, "category": "Physical" },
+  "Volt Switch": { "power": 70, "accuracy": 100, "category": "Special" },
+  "Swords Dance": { "power": 0, "accuracy": null, "category": "Status" },
+  "Dragon Dance": { "power": 0, "accuracy": null, "category": "Status" }
+}

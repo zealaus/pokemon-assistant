@@ -6,6 +6,8 @@ import typeChart from "./data/type_chart.json";
 import championsMoves from "./data/champions_moves.json";
 import pokemonMovesets from "./data/champions_pokemon_likely_moves.json";
 import strategyRules from "./data/strategy_rules.json";
+import moveFallbacks from "./data/move_fallbacks.json";
+import megaRules from "./data/mega_rules.json";
 
 function normalizeText(value) {
   return String(value || "").toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -61,9 +63,36 @@ function getMovesetForPokemon(pokemon) {
 function getMoveData(moveName) {
   const key = normalizeText(moveName);
 
-  return championsMoves.find((move) => {
-    return normalizeText(move.name) === key || normalizeText(move.slug) === key;
+  const move = championsMoves.find((m) => {
+    return normalizeText(m.name) === key || normalizeText(m.slug) === key;
   });
+
+  const fallback = Object.entries(moveFallbacks).find(
+    ([name]) => normalizeText(name) === key
+  )?.[1];
+
+  let power = move?.power ?? fallback?.power ?? null;
+  let accuracy = move?.accuracy ?? fallback?.accuracy ?? null;
+
+  // ✅ Intelligent fallback for missing damaging moves
+  if (power === null && move?.category !== "Status") {
+    power = 70; // safe mid-tier estimate
+  }
+
+  if (accuracy === null && move?.category !== "Status") {
+    accuracy = 100;
+  }
+
+  return {
+    name: move?.name || moveName,
+    type: move?.type ?? fallback?.type ?? "Normal",
+    power,
+    accuracy,
+    category:
+      move?.category ??
+      fallback?.category ??
+      (power === null ? "Status" : "Physical"),
+  };
 }
 
 function getMoveNamesFromRules(groupName) {
@@ -467,16 +496,28 @@ function groupWarnings(warnings = []) {
     entry.texts.push(warning.text);
   }
 
-  return [...grouped.values()].map((entry) => {
-    const moveText = [...entry.moves].slice(0, 2).join(" / ");
+  return [...grouped.values()]
+    .map((entry) => {
+      const megaOnlyMoves = ["Solar Beam"];
+      const conditionalMoves = ["Weather Ball", "Growth"];
 
-    return {
-      source: entry.source,
-      text: moveText
-        ? `${entry.source} threatens with ${moveText}`
-        : entry.texts[0],
-    };
-  });
+      const moves = [...entry.moves]
+        .filter((move) => !megaOnlyMoves.includes(move))
+        .slice(0, 2);
+
+      const moveText = moves.join(" / ");
+      const isConditional = moves.some((move) => conditionalMoves.includes(move));
+
+      return {
+        source: entry.source,
+        text: moveText
+          ? isConditional
+            ? `${entry.source} can threaten with ${moveText} under specific conditions`
+            : `${entry.source} threatens with ${moveText}`
+          : entry.texts[0],
+      };
+    })
+    .filter((entry) => entry.text && !entry.text.includes("Solar Beam"));
 }
 
 function scoreMatchup(myPokemon, opponentTeam) {
@@ -752,6 +793,90 @@ function buildWinConditions(chosenThree, opponentTeam, lead) {
   return [...new Set(lines)].slice(0, 3);
 }
 
+function findMegaRuleForPokemon(pokemon) {
+  if (!pokemon) return null;
+
+  const displayKey = displayPokemonName(pokemon);
+  const nameKey = pokemon.name;
+
+  return megaRules[displayKey] || megaRules[nameKey] || null;
+}
+
+function getMegaPriority(mega) {
+  const weight = Number(mega.metaWeight ?? 0.5);
+
+  if (weight >= 0.9) return "High priority";
+  if (weight >= 0.65) return "Medium priority";
+  return "Low priority";
+}
+
+function getConditionalMegaRisks(opponentTeam, chosenThree) {
+  const META_THRESHOLD = 0.5;
+  const risks = [];
+
+  for (const opponent of opponentTeam) {
+    const rule = findMegaRuleForPokemon(opponent);
+    if (!rule?.possibleMegas?.length) continue;
+
+    const weightedMegas = rule.possibleMegas
+      .map((mega) => ({
+        ...mega,
+        metaWeight: Number(mega.metaWeight ?? 0.5),
+        metaTier: mega.metaTier || "Unknown",
+      }))
+      .filter((mega) => mega.metaWeight >= META_THRESHOLD)
+      .sort((a, b) => b.metaWeight - a.metaWeight);
+
+    for (const mega of weightedMegas) {
+      const impactedTeamMembers = [];
+
+      for (const ally of chosenThree) {
+        const enabledMoves = mega.enabledMoves || [];
+
+        const dangerousEnabledMoves = enabledMoves
+          .map((moveName) => {
+            const move = getMoveData(moveName);
+            if (!move?.type) return null;
+
+            const effectiveness = getTypeEffectiveness(move.type, ally.types || []);
+            return effectiveness >= 2 ? move.name : null;
+          })
+          .filter(Boolean);
+
+        if (dangerousEnabledMoves.length > 0) {
+          impactedTeamMembers.push(
+            `${ally.name} via ${dangerousEnabledMoves.slice(0, 2).join(" / ")}`
+          );
+        }
+      }
+
+      const primaryNote =
+        mega.riskNotes?.[0] ||
+        `${mega.name} can change this matchup if revealed`;
+
+      const priorityLabel = getMegaPriority(mega);
+      const tierLabel = mega.metaTier && mega.metaTier !== "Unknown"
+        ? `${mega.metaTier} tier`
+        : "meta relevant";
+
+      risks.push({
+        pokemon: displayPokemonName(opponent),
+        mega: mega.name,
+        weight: mega.metaWeight,
+        tier: mega.metaTier,
+        text:
+          impactedTeamMembers.length > 0
+            ? `${priorityLabel}, ${tierLabel}: ${primaryNote}. Threatens ${impactedTeamMembers.slice(0, 2).join(", ")} if revealed.`
+            : `${priorityLabel}, ${tierLabel}: ${primaryNote}.`,
+      });
+    }
+  }
+
+  return risks
+    .sort((a, b) => b.weight - a.weight)
+    .slice(0, 6);
+}
+
 function buildGroupedRisks(chosenThree) {
   return chosenThree
     .map((pokemon) => ({
@@ -928,6 +1053,7 @@ export default function App() {
   const [lead, setLead] = useState("");
   const [risksByPokemon, setRisksByPokemon] = useState([]);
   const [fieldRisks, setFieldRisks] = useState([]);
+  const [conditionalMegaRisks, setConditionalMegaRisks] = useState([]);
   const [turnPlan, setTurnPlan] = useState([]);
   const [winConditions, setWinConditions] = useState([]);
   const [hasAnalyzed, setHasAnalyzed] = useState(false);
@@ -947,6 +1073,7 @@ export default function App() {
       setLead("");
       setRisksByPokemon([]);
       setFieldRisks([]);
+      setConditionalMegaRisks([]);
       setTurnPlan([]);
       setWinConditions([]);
     }
@@ -968,6 +1095,7 @@ export default function App() {
 
     const groupedRisks = buildGroupedRisks(chosenThree);
     const globalFieldRisks = buildFieldRisks(chosenThree);
+    const megaRisks = getConditionalMegaRisks(foundTeam, chosenThree);
     const plans = getTurnOnePlan(leadPokemon, foundTeam);
     const wins = buildWinConditions(chosenThree, foundTeam, chosenLead);
 
@@ -976,6 +1104,7 @@ export default function App() {
     setLead(chosenLead);
     setRisksByPokemon(groupedRisks);
     setFieldRisks(globalFieldRisks);
+    setConditionalMegaRisks(megaRisks);
     setTurnPlan(plans);
     setWinConditions(wins);
     setHasAnalyzed(true);
@@ -1117,6 +1246,22 @@ export default function App() {
               <div key={index} style={styles.turnCard}>
                 <div style={styles.turnVs}>{entry.pokemon}</div>
                 <div style={styles.turnAction}>{summarizeRisk(entry)}</div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div style={styles.section}>
+        <h2 style={styles.sectionTitle}>Potential Mega Threats</h2>
+        {conditionalMegaRisks.length === 0 ? (
+          <p style={styles.emptyText}>No major Mega threats flagged.</p>
+        ) : (
+          <div style={styles.turnGrid}>
+            {conditionalMegaRisks.map((risk, index) => (
+              <div key={index} style={styles.turnCard}>
+                <div style={styles.turnVs}>{risk.pokemon} ({risk.mega})</div>
+                <div style={styles.turnAction}>{risk.text}</div>
               </div>
             ))}
           </div>
