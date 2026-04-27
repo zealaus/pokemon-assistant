@@ -1,367 +1,251 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 
-const COLLAPSED_SPECIES = {
-  Alcremie: "alcremie-vanilla-cream",
-  Florges: "florges-red-flower",
-  Maushold: "maushold-family-of-four",
-  Polteageist: "polteageist-phony-form",
-  Sinistcha: "sinistcha-unremarkable-form",
-  Furfrou: "furfrou",
-};
-
-function buildPickerList(pokemonData) {
-  const grouped = new Map();
-
-  for (const pokemon of pokemonData) {
-    if (!grouped.has(pokemon.name)) {
-      grouped.set(pokemon.name, []);
-    }
-
-    grouped.get(pokemon.name).push(pokemon);
-  }
-
-  const finalList = [];
-
-  for (const [name, entries] of grouped.entries()) {
-    const preferredSlug = COLLAPSED_SPECIES[name];
-
-    if (preferredSlug) {
-      const preferred =
-        entries.find((entry) => entry.slug === preferredSlug) || entries[0];
-
-      finalList.push({
-        ...preferred,
-        displayName: name,
-      });
-
-      continue;
-    }
-
-    for (const entry of entries) {
-      finalList.push({
-        ...entry,
-        displayName: entry.form ? `${entry.name} (${entry.form})` : entry.name,
-      });
-    }
-  }
-
-  return finalList.sort((a, b) => {
-    const nameCompare = a.displayName.localeCompare(b.displayName);
-
-    if (nameCompare !== 0) return nameCompare;
-
-    return a.slug.localeCompare(b.slug);
-  });
+function displayPokemonName(pokemon) {
+  if (!pokemon) return "";
+  return pokemon.displayName || (pokemon.form ? `${pokemon.name} (${pokemon.form})` : pokemon.name);
 }
+
+function getSpriteForPokemon(pokemon) {
+  return pokemon?.sprite || "";
+}
+
+const styles = {
+  wrapper: { marginBottom: "24px" },
+  title: { fontSize: "15px", fontWeight: 700, textAlign: "center", marginBottom: "10px" },
+  search: {
+    width: "100%",
+    padding: "13px 14px",
+    borderRadius: "10px",
+    border: "1px solid #555",
+    background: "#1a1a24",
+    color: "#fff",
+    fontSize: "15px",
+    boxSizing: "border-box",
+    marginBottom: "14px",
+  },
+  selectedLabel: { textAlign: "center", opacity: 0.72, fontSize: "12px", marginBottom: "10px" },
+  selectedGrid: { display: "flex", flexWrap: "wrap", gap: "8px", justifyContent: "center", marginBottom: "12px" },
+  selectedCard: {
+    border: "1px solid #ccc",
+    borderRadius: "10px",
+    padding: "8px 10px",
+    minWidth: "150px",
+    minHeight: "102px",
+    textAlign: "center",
+    boxSizing: "border-box",
+    cursor: "pointer",
+    background: "#15151d",
+  },
+  selectedEmpty: {
+    border: "1px dashed #555",
+    borderRadius: "10px",
+    padding: "8px 10px",
+    minWidth: "150px",
+    minHeight: "42px",
+    textAlign: "center",
+    boxSizing: "border-box",
+    opacity: 0.55,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  sprite: { width: "54px", height: "54px", objectFit: "contain", imageRendering: "pixelated", marginBottom: "4px" },
+  name: { fontWeight: 700, marginBottom: "4px" },
+  type: { fontSize: "13px", opacity: 0.85 },
+  hint: { textAlign: "center", opacity: 0.72, fontSize: "12px", margin: "8px 0 12px" },
+  count: { textAlign: "center", opacity: 0.72, fontSize: "12px", marginBottom: "10px" },
+  gridWrap: {
+    maxHeight: "430px",
+    overflowY: "auto",
+    padding: "4px 6px",
+    borderTop: "1px solid rgba(255,255,255,0.07)",
+    borderBottom: "1px solid rgba(255,255,255,0.07)",
+  },
+  grid: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(118px, 1fr))", gap: "8px" },
+  optionCard: {
+    border: "1px solid #44475a",
+    borderRadius: "10px",
+    padding: "8px",
+    minHeight: "96px",
+    textAlign: "center",
+    boxSizing: "border-box",
+    cursor: "pointer",
+    background: "#15151d",
+  },
+  optionCardSelected: { borderColor: "#45c26b", boxShadow: "0 0 0 1px rgba(69, 194, 107, 0.35)" },
+  optionName: { fontSize: "12px", opacity: 0.9 },
+  collapsed: { textAlign: "center", opacity: 0.72, fontSize: "12px", marginTop: "8px" },
+  smallActions: { textAlign: "center", marginTop: "10px" },
+  clearButton: {
+    padding: "7px 12px",
+    borderRadius: "9px",
+    border: "1px solid #666",
+    background: "#20202b",
+    color: "#fff",
+    cursor: "pointer",
+    fontWeight: 600,
+    fontSize: "12px",
+  },
+};
 
 export default function PokemonSearchPicker({
   pokemonData,
-  spriteData,
   selectedPokemon,
   setSelectedPokemon,
   normalizeText,
+  hasAnalyzed = false,
 }) {
-  const [query, setQuery] = useState("");
-  const [hoveredSlug, setHoveredSlug] = useState(null);
-  const searchInputRef = useRef(null);
+  const [search, setSearch] = useState("");
 
-  const pickerSource = pokemonData || spriteData || [];
+  const selectedKeys = useMemo(() => {
+    return new Set(selectedPokemon.map((pokemon) => normalizeText(pokemon.displayName || pokemon.slug || pokemon.name)));
+  }, [selectedPokemon, normalizeText]);
 
-  const pickerPokemon = useMemo(() => {
-    return buildPickerList(pickerSource);
-  }, [pickerSource]);
+  const playablePokemon = useMemo(() => {
+    return pokemonData.filter((pokemon) => pokemon.normallyAvailable !== false);
+  }, [pokemonData]);
 
   const filteredPokemon = useMemo(() => {
-    const q = normalizeText(query);
+    const query = normalizeText(search);
 
-    return pickerPokemon.filter((pokemon) => {
-      const isSelected = selectedPokemon.some(
-        (entry) => entry.slug === pokemon.slug
-      );
+    if (!query) return playablePokemon;
 
-      if (isSelected) return false;
+    return playablePokemon.filter((pokemon) => {
+      const searchValues = [
+        pokemon.name,
+        pokemon.displayName,
+        pokemon.slug,
+        pokemon.form,
+        ...(pokemon.aliases || []),
+      ];
 
-      if (!q) return true;
-
-      return (
-        normalizeText(pokemon.name).includes(q) ||
-        normalizeText(pokemon.displayName).includes(q) ||
-        normalizeText(pokemon.slug).includes(q) ||
-        (pokemon.aliases || []).some((alias) =>
-          normalizeText(alias).includes(q)
-        )
-      );
+      return searchValues.some((value) => normalizeText(value).includes(query));
     });
-  }, [query, pickerPokemon, selectedPokemon, normalizeText]);
+  }, [playablePokemon, search, normalizeText]);
 
-  useEffect(() => {
-    if (selectedPokemon.length < 6) {
-      searchInputRef.current?.focus();
-    }
-  }, [selectedPokemon]);
+  const isTeamFull = selectedPokemon.length >= 6;
+  const shouldShowGrid = !hasAnalyzed && !isTeamFull;
 
-  function handleAddPokemon(pokemon) {
-    if (selectedPokemon.length >= 6) return;
+  function addPokemon(pokemon) {
+    if (isTeamFull) return;
 
-    const alreadySelected = selectedPokemon.some(
-      (entry) => entry.slug === pokemon.slug
-    );
+    const key = normalizeText(pokemon.displayName || pokemon.slug || pokemon.name);
+    if (selectedKeys.has(key)) return;
 
-    if (alreadySelected) return;
-
-    setSelectedPokemon([...selectedPokemon, pokemon]);
-    setQuery("");
-    setHoveredSlug(null);
+    setSelectedPokemon([...selectedPokemon, pokemon].slice(0, 6));
+    setSearch("");
   }
 
-  function handleRemovePokemon(slug) {
-    setSelectedPokemon(
-      selectedPokemon.filter((pokemon) => pokemon.slug !== slug)
-    );
+  function removePokemon(indexToRemove) {
+    setSelectedPokemon(selectedPokemon.filter((_, index) => index !== indexToRemove));
+  }
+
+  function clearTeam() {
+    setSelectedPokemon([]);
+    setSearch("");
   }
 
   function handleSearchKeyDown(event) {
-    if (event.key === "Enter") {
-      event.preventDefault();
+    if (event.key !== "Enter") return;
 
-      if (selectedPokemon.length >= 6) return;
-      if (filteredPokemon.length === 0) return;
+    const firstMatch = filteredPokemon.find((pokemon) => {
+      const key = normalizeText(pokemon.displayName || pokemon.slug || pokemon.name);
+      return !selectedKeys.has(key);
+    });
 
-      handleAddPokemon(filteredPokemon[0]);
-    }
+    if (firstMatch) addPokemon(firstMatch);
   }
 
-  const pickerStyles = {
-    wrapper: {
-      marginBottom: "22px",
-    },
-    sectionTitle: {
-      fontSize: "15px",
-      fontWeight: 700,
-      textAlign: "center",
-      marginBottom: "10px",
-    },
-    searchInput: {
-      width: "100%",
-      marginBottom: "12px",
-      padding: "12px 14px",
-      borderRadius: "10px",
-      border: "1px solid #555",
-      background: "#1a1a24",
-      color: "#fff",
-      fontSize: "15px",
-      boxSizing: "border-box",
-    },
-    selectedWrap: {
-      marginBottom: "12px",
-    },
-    selectedGrid: {
-  display: "grid",
-  gridTemplateColumns: "repeat(6, 150px)",
-  gap: "6px",
-  justifyContent: "center",
-    },
-  selectedCard: {
-  border: "1px solid #ccc",
-  borderRadius: "10px",
-  padding: "8px 10px",
-  width: "150px",
-  textAlign: "center",
-  boxSizing: "border-box",
-  cursor: "pointer",
-  background: "#15151d",
-    },
-selectedEmpty: {
-  border: "1px dashed #777",
-  borderRadius: "10px",
-  padding: "8px 10px",
-  width: "150px",
-  textAlign: "center",
-  boxSizing: "border-box",
-  opacity: 0.55,
-    },
-    selectedName: {
-      fontWeight: 700,
-      fontSize: "15px",
-      marginTop: "4px",
-    },
-    selectedTypes: {
-      fontSize: "13px",
-      opacity: 0.9,
-      lineHeight: 1.35,
-      marginTop: "4px",
-    },
-    spriteGrid: {
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fill, minmax(100px, 1fr))",
-      gap: "8px",
-      maxHeight: "420px",
-      overflowY: "auto",
-      padding: "6px",
-      border: "1px solid #3d3d4d",
-      borderRadius: "12px",
-    },
-    spriteCard: {
-      border: "1px solid #4d4d5f",
-      borderRadius: "10px",
-      padding: "10px 8px",
-      textAlign: "center",
-      cursor: "pointer",
-      background: "#181821",
-      transition:
-        "transform 0.15s ease, border-color 0.15s ease, background 0.15s ease",
-    },
-    spriteCardHover: {
-      border: "1px solid #7a7a96",
-      background: "#20202b",
-      transform: "translateY(-1px)",
-    },
-    selectedSpriteImage: {
-      width: "54px",
-      height: "54px",
-      objectFit: "contain",
-      imageRendering: "pixelated",
-      marginBottom: "4px",
-    },
-    spriteImage: {
-      width: "56px",
-      height: "56px",
-      objectFit: "contain",
-      imageRendering: "pixelated",
-    },
-    spriteName: {
-      fontSize: "11px",
-      marginTop: "6px",
-      lineHeight: 1.2,
-    },
-    helperText: {
-      textAlign: "center",
-      opacity: 0.7,
-      fontSize: "12px",
-      marginBottom: "10px",
-    },
-    fullTeamMessage: {
-      textAlign: "center",
-      opacity: 0.8,
-      fontSize: "12px",
-      marginTop: "6px",
-      marginBottom: "6px",
-    },
-    resultCount: {
-      textAlign: "center",
-      opacity: 0.72,
-      fontSize: "12px",
-      marginBottom: "8px",
-    },
-    noResults: {
-      textAlign: "center",
-      opacity: 0.72,
-      fontSize: "12px",
-      padding: "14px 8px",
-      border: "1px solid #3d3d4d",
-      borderRadius: "12px",
-    },
-  };
-
   return (
-    <div style={pickerStyles.wrapper}>
-      <h2 style={pickerStyles.sectionTitle}>Opponent Search</h2>
+    <div style={styles.wrapper}>
+      <div style={styles.title}>Opponent Search</div>
 
       <input
-        ref={searchInputRef}
-        type="text"
-        value={query}
-        onChange={(event) => setQuery(event.target.value)}
+        value={search}
+        onChange={(event) => setSearch(event.target.value)}
         onKeyDown={handleSearchKeyDown}
         placeholder="Search Pokémon, nickname, or alias"
-        style={pickerStyles.searchInput}
+        style={styles.search}
+        disabled={isTeamFull && !hasAnalyzed}
       />
 
-      <div style={pickerStyles.selectedWrap}>
-        <div style={pickerStyles.helperText}>Opponent Team</div>
+      <div style={styles.selectedLabel}>Opponent Team</div>
 
-        <div style={pickerStyles.selectedGrid}>
-          {Array.from({ length: 6 }).map((_, index) => {
-            const pokemon = selectedPokemon[index];
+      <div style={styles.selectedGrid}>
+        {Array.from({ length: 6 }).map((_, index) => {
+          const pokemon = selectedPokemon[index];
 
-            if (!pokemon) {
-              return (
-                <div key={index} style={pickerStyles.selectedEmpty}>
-                  Empty slot
-                </div>
-              );
-            }
+          if (!pokemon) {
+            return <div key={index} style={styles.selectedEmpty}>Empty slot</div>;
+          }
 
-            return (
-              <div
-                key={pokemon.slug}
-                style={pickerStyles.selectedCard}
-                onClick={() => handleRemovePokemon(pokemon.slug)}
-                title="Click to remove"
-              >
-                <img
-                  src={pokemon.sprite}
-                  alt={pokemon.name}
-                  style={pickerStyles.selectedSpriteImage}
-                />
+          return (
+            <div
+              key={`${pokemon.slug || pokemon.name}-${index}`}
+              style={styles.selectedCard}
+              onClick={() => removePokemon(index)}
+              title="Click to remove"
+            >
+              {getSpriteForPokemon(pokemon) && (
+                <img src={getSpriteForPokemon(pokemon)} alt={displayPokemonName(pokemon)} style={styles.sprite} />
+              )}
 
-                <div style={pickerStyles.selectedName}>
-                  {pokemon.displayName || pokemon.name}
-                </div>
-
-                <div style={pickerStyles.selectedTypes}>
-                  {(pokemon.types || []).join(", ")}
-                </div>
-              </div>
-            );
-          })}
-        </div>
+              <div style={styles.name}>{displayPokemonName(pokemon)}</div>
+              <div style={styles.type}>{(pokemon.types || []).join(", ")}</div>
+            </div>
+          );
+        })}
       </div>
 
-      {selectedPokemon.length >= 6 ? (
-        <div style={pickerStyles.fullTeamMessage}>
-          Opponent team full. Click a selected Pokémon to remove one.
-        </div>
-      ) : (
-        <>
-          <div style={pickerStyles.resultCount}>
-            Showing {filteredPokemon.length} playable Pokémon
-          </div>
+      {selectedPokemon.length > 0 && <div style={styles.hint}>Click a selected Pokémon to remove it.</div>}
 
-          {filteredPokemon.length === 0 ? (
-            <div style={pickerStyles.noResults}>No matching Pokémon found.</div>
-          ) : (
-            <div style={pickerStyles.spriteGrid}>
+      {shouldShowGrid ? (
+        <>
+          <div style={styles.count}>Showing {filteredPokemon.length} playable Pokémon</div>
+
+          <div style={styles.gridWrap}>
+            <div style={styles.grid}>
               {filteredPokemon.map((pokemon) => {
-                const isHovered = hoveredSlug === pokemon.slug;
+                const key = normalizeText(pokemon.displayName || pokemon.slug || pokemon.name);
+                const selected = selectedKeys.has(key);
 
                 return (
-                  <div
-                    key={pokemon.slug}
+                  <button
+                    key={pokemon.slug || pokemon.displayName || pokemon.name}
+                    type="button"
                     style={{
-                      ...pickerStyles.spriteCard,
-                      ...(isHovered ? pickerStyles.spriteCardHover : {}),
+                      ...styles.optionCard,
+                      ...(selected ? styles.optionCardSelected : {}),
+                      opacity: selected ? 0.55 : 1,
+                      cursor: selected ? "not-allowed" : "pointer",
                     }}
-                    onClick={() => handleAddPokemon(pokemon)}
-                    onMouseEnter={() => setHoveredSlug(pokemon.slug)}
-                    onMouseLeave={() => setHoveredSlug(null)}
-                    title={`Add ${pokemon.displayName || pokemon.name}`}
+                    onClick={() => addPokemon(pokemon)}
+                    disabled={selected}
                   >
-                    <img
-                      src={pokemon.sprite}
-                      alt={pokemon.name}
-                      style={pickerStyles.spriteImage}
-                    />
-
-                    <div style={pickerStyles.spriteName}>
-                      {pokemon.displayName || pokemon.name}
-                    </div>
-                  </div>
+                    {getSpriteForPokemon(pokemon) && (
+                      <img src={getSpriteForPokemon(pokemon)} alt={displayPokemonName(pokemon)} style={styles.sprite} />
+                    )}
+                    <div style={styles.optionName}>{displayPokemonName(pokemon)}</div>
+                  </button>
                 );
               })}
             </div>
-          )}
+          </div>
         </>
+      ) : (
+        <div style={styles.collapsed}>
+          {hasAnalyzed
+            ? "Opponent team locked for this analysis. Click a selected Pokémon to edit."
+            : "Opponent team full. Click a selected Pokémon to remove one."}
+        </div>
+      )}
+
+      {selectedPokemon.length > 0 && (
+        <div style={styles.smallActions}>
+          <button type="button" style={styles.clearButton} onClick={clearTeam}>
+            Clear Opponent Team
+          </button>
+        </div>
       )}
     </div>
   );

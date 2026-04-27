@@ -1,13 +1,19 @@
 import { useState } from "react";
-import metaStrategies from "./data/meta_strategies.json";
 import PokemonSearchPicker from "./components/PokemonSearchPicker";
 import TeamBuilder, { emptyTeam } from "./components/TeamBuilder";
 import pokemonData from "./data/champions_pokemon.json";
 import typeChart from "./data/type_chart.json";
-import moveTypes from "./data/move_types.json";
+import championsMoves from "./data/champions_moves.json";
+import pokemonMovesets from "./data/champions_pokemon_likely_moves.json";
+import strategyRules from "./data/strategy_rules.json";
 
 function normalizeText(value) {
   return String(value || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+}
+
+function displayPokemonName(pokemon) {
+  if (!pokemon) return "";
+  return pokemon.displayName || (pokemon.form ? `${pokemon.name} (${pokemon.form})` : pokemon.name);
 }
 
 function findPokemon(name) {
@@ -30,148 +36,212 @@ function getSpriteForPokemon(pokemon) {
   if (pokemon.sprite) return pokemon.sprite;
 
   const match = findPokemon(pokemon.name || pokemon.slug);
-
   return match?.sprite || "";
 }
 
-function hasType(pokemon, type) {
-  return (pokemon.types || []).includes(type);
+function getMovesetKey(pokemon) {
+  if (!pokemon) return "";
+  return pokemon.form ? `${pokemon.name} (${pokemon.form})` : pokemon.name;
 }
+
+function getMovesetForPokemon(pokemon) {
+  if (!pokemon) return null;
+
+  const displayKey = getMovesetKey(pokemon);
+  const nameKey = pokemon.name;
+
+  return (
+    pokemonMovesets[displayKey] ||
+    pokemonMovesets[nameKey] ||
+    pokemonMovesets[pokemon.displayName] ||
+    null
+  );
+}
+
+function getMoveData(moveName) {
+  const key = normalizeText(moveName);
+
+  return championsMoves.find((move) => {
+    return normalizeText(move.name) === key || normalizeText(move.slug) === key;
+  });
+}
+
+function getMoveNamesFromRules(groupName) {
+  return strategyRules.moves?.[groupName] || [];
+}
+
+function moveNameMatches(moveName, candidates = []) {
+  const key = normalizeText(moveName);
+  return candidates.some((candidate) => normalizeText(candidate) === key);
+}
+
 function getTypeEffectiveness(attackingType, defendingTypes = []) {
   return defendingTypes.reduce((multiplier, defendingType) => {
     const value = typeChart[attackingType]?.[defendingType] ?? 1;
     return multiplier * value;
   }, 1);
 }
-function getMoveType(moveName) {
-  return moveTypes[moveName] || null;
+
+function isDamagingMove(moveName) {
+  const move = getMoveData(moveName);
+  return Boolean(move?.type && move?.power);
 }
 
-function getBestMovePressure(myPokemon, defenderTypes = []) {
-  let best = 1;
-
-  for (const move of myPokemon.moves || []) {
-    const moveType = getMoveType(move);
-    if (!moveType || moveType === "Status") continue;
-
-    let effectiveness = getTypeEffectiveness(moveType, defenderTypes);
-
-    if ((myPokemon.types || []).includes(moveType)) {
-      effectiveness *= 1.5;
-    }
-
-    if (effectiveness > best) best = effectiveness;
-  }
-
-  return best;
-}
-
-function scoreMovePressure(myPokemon, opponentPokemon) {
-  const pressure = getBestMovePressure(myPokemon, opponentPokemon.types);
-
-  if (pressure >= 4) return 6;
-  if (pressure === 2) return 4;
-  if (pressure === 1) return 0;
-  if (pressure === 0.5) return -2;
-  if (pressure <= 0.25 && pressure > 0) return -3;
-  if (pressure === 0) return -5;
-
-  return 0;
-}
-function getBestTypePressure(attackerTypes = [], defenderTypes = []) {
-  if (!attackerTypes.length || !defenderTypes.length) return 1;
-
-  return Math.max(
-    ...attackerTypes.map((attackingType) =>
-      getTypeEffectiveness(attackingType, defenderTypes)
-    )
-  );
-}
-
-function scoreDefensiveRisk(myPokemon, opponentPokemon) {
-  const pressure = getBestTypePressure(
-    opponentPokemon.types || [],
-    myPokemon.types || []
-  );
-
-  if (pressure >= 4) return -6;
-  if (pressure === 2) return -4;
-  if (pressure === 1) return -1;
-  if (pressure === 0.5) return 1;
-  if (pressure <= 0.25 && pressure > 0) return 2;
-  if (pressure === 0) return 3;
-
-  return 0;
-}
-
-function getWorstMatchup(myPokemon, opponentTeam) {
-  let worst = 0;
-
-  for (const opp of opponentTeam) {
-    if (!opp) continue;
-
-    const pressure = getBestTypePressure(
-      opp.types || [],
-      myPokemon.types || []
-    );
-
-    if (pressure > worst) worst = pressure;
-  }
-
-  return worst;
-}
-
-function applyWorstMatchupPenalty(score, myPokemon, opponentTeam) {
-  const worstThreat = getWorstMatchup(myPokemon, opponentTeam);
-
-  if (worstThreat >= 4) return score - 8;
-  if (worstThreat === 2) return score - 4;
-
-  return score;
-}
-
-function scoreTypePressure(myPokemon, opponentPokemon) {
-  const pressure = getBestTypePressure(myPokemon.types, opponentPokemon.types);
-
-  if (pressure >= 4) return 5;
-  if (pressure === 2) return 3;
-  if (pressure === 1) return 0;
-  if (pressure === 0.5) return -1;
-  if (pressure <= 0.25 && pressure > 0) return -2;
-  if (pressure === 0) return -4;
-
-  return 0;
-}
-
-function getMeta(pokemonName) {
-  return metaStrategies[pokemonName] || null;
-}
-
-function hasMove(pokemon, moveName) {
-  return (pokemon.moves || []).some(
-    (move) => normalizeText(move) === normalizeText(moveName)
-  );
-}
-
-function hasAbility(pokemon, abilityName) {
-  const baseAbility = pokemon.ability?.base || "";
-  const megaAbility = pokemon.ability?.mega || "";
+function isPriorityMove(moveName) {
+  const move = getMoveData(moveName);
+  const priorityMoves = getMoveNamesFromRules("priority");
+  const description = normalizeText(move?.description || "");
 
   return (
-    normalizeText(baseAbility) === normalizeText(abilityName) ||
-    normalizeText(megaAbility) === normalizeText(abilityName)
+    moveNameMatches(moveName, priorityMoves) ||
+    description.includes("alwaysgoesfirst") ||
+    description.includes("attackfirst")
   );
 }
 
-function hasItem(pokemon, itemName) {
+function isSetupMove(moveName) {
+  const move = getMoveData(moveName);
+  const setupMoves = getMoveNamesFromRules("setup");
+  const description = normalizeText(move?.description || "");
+
   return (
-    normalizeText(pokemon.item || "") === normalizeText(itemName) ||
-    normalizeText(pokemon.megaItem || "") === normalizeText(itemName)
+    moveNameMatches(moveName, setupMoves) ||
+    description.includes("boosts") ||
+    description.includes("maximizes") ||
+    description.includes("sharplyboosts")
   );
+}
+
+function isPivotMove(moveName) {
+  const move = getMoveData(moveName);
+  const pivotMoves = getMoveNamesFromRules("pivot");
+  const description = normalizeText(move?.description || "");
+
+  return (
+    moveNameMatches(moveName, pivotMoves) ||
+    description.includes("switchplaces") ||
+    description.includes("rushesback")
+  );
+}
+
+function isRecoveryMove(moveName) {
+  const move = getMoveData(moveName);
+  const recoveryMoves = getMoveNamesFromRules("recovery");
+  const description = normalizeText(move?.description || "");
+
+  return (
+    moveNameMatches(moveName, recoveryMoves) ||
+    description.includes("restores") ||
+    description.includes("regenerates")
+  );
+}
+
+function hasPriorityMove(pokemon) {
+  return (pokemon.moves || []).some(isPriorityMove);
+}
+
+function hasSetupMove(pokemon) {
+  return (pokemon.moves || []).some(isSetupMove);
+}
+
+function hasPivotMove(pokemon) {
+  return (pokemon.moves || []).some(isPivotMove);
+}
+
+function hasRecoveryMove(pokemon) {
+  return (pokemon.moves || []).some(isRecoveryMove);
+}
+
+function getFirstMoveByRule(pokemon, ruleName) {
+  const moves = pokemon.moves || [];
+
+  if (ruleName === "priority") return moves.find(isPriorityMove) || "";
+  if (ruleName === "setup") return moves.find(isSetupMove) || "";
+  if (ruleName === "pivot") return moves.find(isPivotMove) || "";
+  if (ruleName === "recovery") return moves.find(isRecoveryMove) || "";
+
+  return "";
+}
+
+function getMoveSourceRank(pokemon, moveName) {
+  const key = normalizeText(moveName);
+  const moveset = getMovesetForPokemon(pokemon);
+  const likelyMoves = moveset?.likelyMoves || [];
+  const allMoves = moveset?.allMoves || [];
+
+  const likelyIndex = likelyMoves.findIndex((move) => normalizeText(move) === key);
+  if (likelyIndex !== -1) {
+    return {
+      source: "likely",
+      rank: likelyIndex,
+      confidence: Math.max(0.65, 1 - likelyIndex * 0.07),
+    };
+  }
+
+  const allIndex = allMoves.findIndex((move) => normalizeText(move) === key);
+  if (allIndex !== -1) {
+    return {
+      source: "available",
+      rank: allIndex,
+      confidence: 0.3,
+    };
+  }
+
+  return {
+    source: "manual",
+    rank: 0,
+    confidence: 1,
+  };
+}
+
+function getLikelyMovesForPokemon(pokemon) {
+  const moveset = getMovesetForPokemon(pokemon);
+  return moveset?.likelyMoves || [];
+}
+
+function getUsableMovesForPokemon(pokemon, manualMoves = []) {
+  const cleanedManualMoves = (manualMoves || []).filter(Boolean);
+
+  if (cleanedManualMoves.length > 0) {
+    return cleanedManualMoves;
+  }
+
+  const moveset = getMovesetForPokemon(pokemon);
+  const likelyMoves = moveset?.likelyMoves || [];
+  const allMoves = moveset?.allMoves || [];
+
+  if (likelyMoves.length > 0) {
+    return likelyMoves.slice(0, 4);
+  }
+
+  return allMoves
+    .filter((moveName) => isDamagingMove(moveName) || isSetupMove(moveName) || isPriorityMove(moveName) || isPivotMove(moveName))
+    .slice(0, 6);
+}
+
+function hydratePokemon(pokemon, manualMoves = []) {
+  if (!pokemon) return null;
+
+  const fullPokemon = pokemon.types ? pokemon : findPokemon(pokemon.name || pokemon.slug);
+
+  if (!fullPokemon) return null;
+
+  const moves = getUsableMovesForPokemon(fullPokemon, manualMoves);
+
+  return {
+    ...fullPokemon,
+    ...pokemon,
+    displayName: pokemon.displayName || fullPokemon.displayName || displayPokemonName(fullPokemon),
+    types: pokemon.types || fullPokemon.types || [],
+    sprite: pokemon.sprite || fullPokemon.sprite || "",
+    moves,
+    moveEntrySource: manualMoves.filter(Boolean).length > 0 ? "manual" : "database",
+  };
 }
 
 function toStatNumber(value) {
   if (value === "" || value === null || value === undefined) return 0;
+
   const parsed = Number(value);
   return Number.isFinite(parsed) ? parsed : 0;
 }
@@ -184,8 +254,11 @@ function buildMyTeamFromBuilder(builderTeam) {
 
       if (!pokemonEntry) return null;
 
+      const manualMoves = (teamMember.moves || []).filter(Boolean);
+      const hydrated = hydratePokemon(pokemonEntry, manualMoves);
+
       return {
-        ...pokemonEntry,
+        ...hydrated,
         slot: teamMember.slot,
         form: teamMember.form || pokemonEntry.form || null,
         item: teamMember.item || null,
@@ -208,293 +281,482 @@ function buildMyTeamFromBuilder(builderTeam) {
           spDefense: toStatNumber(teamMember.stats?.spDefense),
           speed: toStatNumber(teamMember.stats?.speed),
         },
-        moves: (teamMember.moves || []).filter(Boolean),
+        moves: getUsableMovesForPokemon(pokemonEntry, manualMoves),
       };
     })
     .filter(Boolean);
 }
 
-function getRoleLabel(pokemon) {
-  if (pokemon.name === "Greninja") {
-    return hasMove(pokemon, "U-turn") ? "Lead / pivot" : "Lead / pressure";
+function getMovePressureScore(myPokemon, moveName, opponentPokemon, options = {}) {
+  const move = getMoveData(moveName);
+
+  if (!move?.type || !move?.power) {
+    return 0;
   }
 
-  if (pokemon.name === "Scizor") {
-    return "Priority cleanup";
+  const effectiveness = getTypeEffectiveness(move.type, opponentPokemon.types || []);
+  const stab = (myPokemon.types || []).includes(move.type) ? 1.5 : 1;
+  const reliability = move.accuracy ? move.accuracy / 100 : 1;
+  const powerFactor = move.power / 80;
+  const priorityBonus = isPriorityMove(moveName) ? 0.35 : 0;
+  const sourceInfo = getMoveSourceRank(myPokemon, moveName);
+
+  let usageBias = sourceInfo.confidence;
+
+  if (myPokemon.moveEntrySource === "manual") {
+    usageBias = 1;
   }
 
-  if (pokemon.name === "Dragonite") {
-    return hasMove(pokemon, "Dragon Dance")
-      ? "Win condition"
-      : "Late game pressure";
+  if (sourceInfo.source === "available") {
+    usageBias = options.allowAvailableMoves ? 0.28 : 0;
   }
 
-  if (pokemon.name === "Gengar") {
-    return hasMove(pokemon, "Nasty Plot")
-      ? "Breaker / setup"
-      : "Special pressure";
+  const superEffectiveBoost = effectiveness >= 4 ? 2.15 : effectiveness >= 2 ? 1.65 : 1;
+  const neutralLowImpactPenalty = effectiveness === 1 && move.power < 90 ? 0.82 : 1;
+  const nonStabCoveragePenalty = stab === 1 && effectiveness < 2 ? 0.82 : 1;
+  const lowPowerPenalty = move.power <= 50 && !isPriorityMove(moveName) ? 0.8 : 1;
+
+  return (
+    effectiveness *
+      stab *
+      reliability *
+      powerFactor *
+      usageBias *
+      superEffectiveBoost *
+      neutralLowImpactPenalty *
+      nonStabCoveragePenalty *
+      lowPowerPenalty +
+    priorityBonus
+  );
+}
+
+function getBestMoveInto(myPokemon, opponentPokemon, options = {}) {
+  const moves = myPokemon.moves || [];
+  let best = null;
+
+  for (const moveName of moves) {
+    const move = getMoveData(moveName);
+    const sourceInfo = getMoveSourceRank(myPokemon, moveName);
+
+    if (!move?.type || !move?.power) continue;
+
+    if (!options.allowAvailableMoves && sourceInfo.source === "available") {
+      continue;
+    }
+
+    const score = getMovePressureScore(myPokemon, moveName, opponentPokemon, options);
+    const effectiveness = getTypeEffectiveness(move.type, opponentPokemon.types || []);
+
+    if (!best || score > best.score) {
+      best = {
+        name: move.name,
+        type: move.type,
+        power: move.power,
+        accuracy: move.accuracy,
+        effectiveness,
+        score,
+        source: sourceInfo.source,
+      };
+    }
   }
 
-  if (pokemon.name === "Garchomp") {
-    return hasMove(pokemon, "Swords Dance") ? "Breaker" : "Cleaner";
+  if (!best && !options.allowAvailableMoves) {
+    return getBestMoveInto(myPokemon, opponentPokemon, { ...options, allowAvailableMoves: true });
   }
 
-  if (pokemon.name === "Charizard") {
-    return "Wallbreaker";
+  return best;
+}
+
+function getBestThreatMoveInto(attackerPokemon, defenderPokemon) {
+  const likelyMoves = getLikelyMovesForPokemon(attackerPokemon);
+
+  if (attackerPokemon.moveEntrySource !== "manual" && likelyMoves.length === 0) {
+    return null;
   }
 
-  return "Flexible";
+  return getBestMoveInto(attackerPokemon, defenderPokemon, {
+    allowAvailableMoves: false,
+  });
+}
+
+function getOffensiveScore(myPokemon, opponentPokemon) {
+  const bestMove = getBestMoveInto(myPokemon, opponentPokemon);
+
+  if (!bestMove) return 0;
+
+  let score = bestMove.score;
+
+  if (bestMove.effectiveness >= 4) score += 2.2;
+  else if (bestMove.effectiveness >= 2) score += 1.4;
+  else if (bestMove.effectiveness === 0) score -= 2.2;
+
+  return score;
+}
+
+function getDefensiveScore(myPokemon, opponentPokemon) {
+  const opponentBestMove = getBestThreatMoveInto(opponentPokemon, myPokemon);
+
+  if (!opponentBestMove) {
+    return 0;
+  }
+
+  let score = 0;
+
+  if (opponentBestMove.effectiveness >= 4) score -= 4.2;
+  else if (opponentBestMove.effectiveness >= 2) score -= 2.5;
+  else if (opponentBestMove.effectiveness <= 0.5 && opponentBestMove.effectiveness > 0) score += 0.55;
+  else if (opponentBestMove.effectiveness === 0) score += 1.2;
+
+  if (isPriorityMove(opponentBestMove.name)) {
+    score -= 0.9;
+  }
+
+  return score;
+}
+
+function getBaseRoleLabel(pokemon) {
+  const roles = [];
+  const damagingMoves = (pokemon.moves || [])
+    .map(getMoveData)
+    .filter((move) => move?.power);
+
+  const strongCoverageCount = damagingMoves.filter((move) => move.power >= 80).length;
+
+  if (hasSetupMove(pokemon) && hasPriorityMove(pokemon)) {
+    roles.push("Cleaner");
+    roles.push("Setup");
+  } else if (hasSetupMove(pokemon)) {
+    roles.push("Setup Threat");
+  }
+
+  if (hasPivotMove(pokemon)) roles.push("Pivot");
+  if (hasPriorityMove(pokemon) && !roles.includes("Cleaner")) roles.push("Cleaner");
+
+  if (strongCoverageCount >= 2 && !roles.includes("Setup Threat") && !roles.includes("Cleaner")) {
+    roles.push("Breaker");
+  }
+
+  if (hasRecoveryMove(pokemon) && roles.length < 2 && pokemon.moveEntrySource === "manual") {
+    roles.push("Sustain");
+  }
+
+  if (roles.length === 0 && damagingMoves.length > 0) {
+    roles.push("Attacker");
+  }
+
+  return roles.slice(0, 2).join(" / ") || "Flexible";
+}
+
+function groupWarnings(warnings = []) {
+  const grouped = new Map();
+
+  for (const warning of warnings) {
+    const key = warning.source;
+
+    if (!grouped.has(key)) {
+      grouped.set(key, {
+        source: warning.source,
+        moves: new Set(),
+        texts: [],
+      });
+    }
+
+    const entry = grouped.get(key);
+
+    if (warning.move) entry.moves.add(warning.move);
+    entry.texts.push(warning.text);
+  }
+
+  return [...grouped.values()].map((entry) => {
+    const moveText = [...entry.moves].slice(0, 2).join(" / ");
+
+    return {
+      source: entry.source,
+      text: moveText
+        ? `${entry.source} threatens with ${moveText}`
+        : entry.texts[0],
+    };
+  });
 }
 
 function scoreMatchup(myPokemon, opponentTeam) {
-  let score = 0;
+  if (!opponentTeam.length) {
+    return {
+      ...myPokemon,
+      score: 0,
+      warnings: [],
+      fieldRisks: [],
+      role: getBaseRoleLabel(myPokemon),
+    };
+  }
+
+  let totalScore = 0;
   const warnings = [];
   const fieldRisks = [];
 
-  for (const opp of opponentTeam) {
-    if (!opp) continue;
+  for (const opponent of opponentTeam) {
+    if (!opponent) continue;
 
-    const oppMeta = getMeta(opp.name);
-    score += scoreMovePressure(myPokemon, opp);
-    score += scoreDefensiveRisk(myPokemon, opp);
+    const offensiveScore = getOffensiveScore(myPokemon, opponent);
+    const defensiveScore = getDefensiveScore(myPokemon, opponent);
+    const bestMove = getBestMoveInto(myPokemon, opponent);
+    const opponentBestMove = getBestThreatMoveInto(opponent, myPokemon);
 
-    if (myPokemon.name === "Scizor") {
-      if (hasType(opp, "Fairy")) score += 3;
-      if (hasType(opp, "Ghost")) score += 1;
-      if (hasType(opp, "Steel")) score += 1;
-      if (hasMove(myPokemon, "Bullet Punch")) score += 1;
-      if (hasMove(myPokemon, "U-turn")) score += 1;
+    totalScore += offensiveScore + defensiveScore;
 
-      if (hasType(opp, "Fire")) {
-        score -= 5;
-        warnings.push(`${opp.name} threatens Scizor with Fire`);
-      }
-
-      if (hasType(opp, "Electric")) {
-        warnings.push(`${opp.name} can chip and pressure Scizor over time`);
-      }
-
-      if (opp.name === "Dragonite" || opp.name === "Garchomp") {
-        warnings.push(`${opp.name} can pressure Scizor if you lose momentum`);
-      }
+    if (bestMove?.effectiveness >= 2) {
+      totalScore += 0.55;
     }
 
-    if (myPokemon.name === "Greninja") {
-      if (hasType(opp, "Fire")) score += 2;
-      if (hasType(opp, "Ghost")) score += 2;
-      if (hasType(opp, "Dragon")) score += 1;
-      if (hasType(opp, "Water")) score += 1;
-      if (hasType(opp, "Fairy")) score -= 1;
-
-      if (hasMove(myPokemon, "Ice Beam") && hasType(opp, "Dragon")) score += 2;
-      if (hasMove(myPokemon, "Dark Pulse") && hasType(opp, "Ghost")) score += 2;
-      if (hasMove(myPokemon, "Hydro Pump") && hasType(opp, "Fire")) score += 1;
-      if (hasMove(myPokemon, "U-turn")) score += 1;
-      if (hasAbility(myPokemon, "Protean")) score += 1;
-
-      if (hasType(opp, "Water")) {
-        if (opp.name === "Greninja") {
-          warnings.push(`Opposing Greninja may force a neutral trade`);
-        } else {
-          warnings.push(`${opp.name} may force Greninja into a neutral trade`);
-        }
-      }
-
-      if (hasType(opp, "Grass") && hasMove(myPokemon, "Ice Beam")) {
-        warnings.push(`${opp.name} can be pressured by Greninja with Ice coverage`);
-      }
+    if (opponentBestMove?.effectiveness >= 2) {
+      warnings.push({
+        source: displayPokemonName(opponent),
+        text: `Threatens with ${opponentBestMove.name}`,
+        move: opponentBestMove.name,
+      });
     }
 
-    if (myPokemon.name === "Garchomp") {
-      if (hasType(opp, "Steel")) score += 2;
-      if (hasType(opp, "Fire")) score += 1;
-      if (hasType(opp, "Fairy")) score -= 2;
-      if (hasMove(myPokemon, "Swords Dance")) score += 1;
-      if (hasItem(myPokemon, "Yache Berry")) score += 1;
-
-      if (hasType(opp, "Flying")) {
-        score -= 2;
-        warnings.push(`${opp.name} can be awkward for Garchomp`);
-      }
-
-      if (hasType(opp, "Ice")) {
-        score -= 4;
-        warnings.push(`${opp.name} threatens Garchomp with Ice`);
-      }
-
-      if (opp.name === "Dragonite" || opp.name === "Garchomp") {
-        warnings.push(`${opp.name} can pressure Garchomp early`);
-      }
+    if (hasSetupMove(opponent)) {
+      const setupMove = getFirstMoveByRule(opponent, "setup");
+      fieldRisks.push(
+        `${displayPokemonName(opponent)} can snowball with ${setupMove || "setup"} if given a free turn`
+      );
+      totalScore -= 0.45;
     }
 
-    if (myPokemon.name === "Charizard") {
-      if (hasType(opp, "Steel")) score += 2;
-      if (hasType(opp, "Grass")) score += 2;
-      if (hasAbility(myPokemon, "Drought")) score += 1;
-      if (hasMove(myPokemon, "Roost")) score += 1;
-
-      if (hasType(opp, "Water")) {
-        score -= 3;
-        warnings.push(`${opp.name} pressures Charizard with Water`);
-      }
-
-      if (hasType(opp, "Rock")) {
-        score -= 3;
-        warnings.push(`${opp.name} pressures Charizard with Rock`);
-      }
-
-      if (hasType(opp, "Dragon")) {
-        warnings.push(`${opp.name} can force awkward turns for Charizard`);
-      }
-    }
-
-    if (myPokemon.name === "Dragonite") {
-      if (hasType(opp, "Ground")) score += 1;
-      if (hasType(opp, "Grass")) score += 1;
-      if (hasMove(myPokemon, "Dragon Dance")) score += 1;
-      if (hasMove(myPokemon, "Extreme Speed")) score += 1;
-      if (hasAbility(myPokemon, "Multiscale")) score += 1;
-
-      if (hasType(opp, "Ice")) {
-        score -= 4;
-        warnings.push(`${opp.name} threatens Dragonite with Ice`);
-      }
-
-      if (hasType(opp, "Fairy")) {
-        score -= 3;
-        warnings.push(`${opp.name} threatens Dragonite with Fairy`);
-      }
-
-      if (opp.name === "Dragonite") {
-        warnings.push(`Opposing Dragonite can become a setup threat`);
-      }
-
-      if (opp.name === "Garchomp") {
-        warnings.push(`Garchomp can become a setup threat if unchecked`);
-      }
-    }
-
-    if (myPokemon.name === "Gengar") {
-      if (hasType(opp, "Fairy")) score += 2;
-      if (hasType(opp, "Ghost")) score += 1;
-      if (hasMove(myPokemon, "Nasty Plot")) score += 1;
-
-      if (hasType(opp, "Dark")) {
-        if (opp.name === "Greninja") {
-          warnings.push(`Opposing Greninja can pressure Gengar with Dark`);
-        } else {
-          warnings.push(`${opp.name} can pressure Gengar with Dark`);
-        }
-      }
-
-      if (opp.name === "Dragonite" || opp.name === "Garchomp") {
-        warnings.push(`${opp.name} can pressure Gengar if you misposition`);
-      }
-    }
-
-    if (oppMeta?.fieldRisks) {
-      fieldRisks.push(...oppMeta.fieldRisks);
+    if (hasPriorityMove(opponent)) {
+      const priorityMove = getFirstMoveByRule(opponent, "priority");
+      warnings.push({
+        source: displayPokemonName(opponent),
+        text: `Can clean weakened targets with ${priorityMove || "priority"}`,
+        move: priorityMove || "priority",
+      });
+      totalScore -= 0.25;
     }
   }
 
-  score = applyWorstMatchupPenalty(score, myPokemon, opponentTeam);
+  if (hasPriorityMove(myPokemon)) totalScore += 0.75;
+  if (hasPivotMove(myPokemon)) totalScore += 1.15;
+  if (hasSetupMove(myPokemon)) totalScore += 0.35;
+  if (hasRecoveryMove(myPokemon) && myPokemon.moveEntrySource === "manual") totalScore += 0.15;
+
+  const normalizedScore = totalScore / opponentTeam.length;
+  const widenedScore = normalizedScore * 1.55;
 
   return {
     ...myPokemon,
-    score,
-    warnings: [...new Set(warnings)],
-    fieldRisks: [...new Set(fieldRisks)],
+    score: Math.round(widenedScore * 10) / 10,
+    warnings: groupWarnings(warnings).slice(0, 4),
+    fieldRisks: [...new Set(fieldRisks)].slice(0, 4),
+    role: getBaseRoleLabel(myPokemon),
   };
 }
 
-function chooseLead(bestThree, opponentTeam) {
-  const hasFairy = opponentTeam.some((p) => hasType(p, "Fairy"));
-  const hasFire = opponentTeam.some((p) => hasType(p, "Fire"));
-  const hasGhost = opponentTeam.some((p) => hasType(p, "Ghost"));
-  const hasDragon = opponentTeam.some((p) => hasType(p, "Dragon"));
+function finalizeChosenThree(chosenThree) {
+  const firstSetupIndex = chosenThree.findIndex(hasSetupMove);
 
-  const scizor = bestThree.find((p) => p.name === "Scizor");
-  const greninja = bestThree.find((p) => p.name === "Greninja");
-  const garchomp = bestThree.find((p) => p.name === "Garchomp");
-  const dragonite = bestThree.find((p) => p.name === "Dragonite");
+  return chosenThree.map((pokemon, index) => {
+    if (!hasSetupMove(pokemon)) {
+      return pokemon;
+    }
 
-  if (greninja && hasDragon && hasMove(greninja, "Ice Beam")) return "Greninja";
-  if (scizor && hasFairy && !hasFire) return "Scizor";
-  if (greninja && hasGhost && hasMove(greninja, "Dark Pulse")) return "Greninja";
-  if (garchomp) return "Garchomp";
-  if (dragonite && hasMove(dragonite, "Dragon Dance")) return "Dragonite";
-  if (greninja) return "Greninja";
+    if (index === firstSetupIndex) {
+      return {
+        ...pokemon,
+        role: hasPriorityMove(pokemon) ? "Primary Cleaner" : "Primary Win Condition",
+      };
+    }
 
-  return bestThree[0]?.name || "Greninja";
+    return {
+      ...pokemon,
+      role: hasPriorityMove(pokemon) ? "Cleaner / Setup" : "Secondary Setup",
+    };
+  });
 }
 
-function getTurnOnePlan(lead, opponentTeam) {
-  const plans = [];
+function getLeadScore(pokemon, opponentTeam) {
+  let leadScore = pokemon.score;
 
-  if (!lead) return plans;
+  if (hasPivotMove(pokemon)) leadScore += 2.2;
+  if (hasPriorityMove(pokemon)) leadScore += 0.25;
+  if (hasSetupMove(pokemon)) leadScore -= 0.9;
+  if (hasRecoveryMove(pokemon)) leadScore -= 0.2;
 
-  for (const opp of opponentTeam) {
-    if (!opp) continue;
+  const scaryLeadThreats = opponentTeam.filter((opponent) => {
+    const threatMove = getBestThreatMoveInto(opponent, pokemon);
+    return threatMove?.effectiveness >= 2;
+  });
 
-    const oppMeta = getMeta(opp.name);
-    let action = "Scout safely and avoid a bad early trade";
+  leadScore -= scaryLeadThreats.length * 0.8;
 
-    if (oppMeta?.turnOne?.[lead.name]) {
-      action = oppMeta.turnOne[lead.name];
-    } else {
-      if (oppMeta?.tags?.includes("setup_sweeper")) {
-        action = "Deny setup early and avoid giving a free turn";
-      } else if (oppMeta?.tags?.includes("fast_special")) {
-        action = "Respect speed and scout before committing";
-      } else if (oppMeta?.tags?.includes("bulky_water")) {
-        action = "Avoid neutral trades and pivot if needed";
-      } else if (hasType(opp, "Flying")) {
-        action = "Chip safely or pivot before overcommitting";
-      } else if (hasType(opp, "Steel")) {
-        action = "Pressure carefully and avoid wasting momentum";
-      }
-    }
+  return leadScore;
+}
 
-    if (lead.name === "Greninja" && hasMove(lead, "Ice Beam") && hasType(opp, "Dragon")) {
-      action = "Ice Beam immediately and deny setup";
-    }
+function chooseLead(bestThree, opponentTeam) {
+  if (!bestThree.length) return "";
 
-    if (lead.name === "Greninja" && hasMove(lead, "Dark Pulse") && hasType(opp, "Ghost")) {
-      action = "Stay in and click Dark Pulse";
-    }
+  const sorted = [...bestThree].sort(
+    (a, b) => getLeadScore(b, opponentTeam) - getLeadScore(a, opponentTeam)
+  );
 
-    if (lead.name === "Greninja" && hasMove(lead, "Hydro Pump") && hasType(opp, "Fire")) {
-      action = "Pressure immediately with Hydro Pump";
-    }
+  return sorted[0]?.name || "";
+}
 
-    if (lead.name === "Scizor" && hasMove(lead, "Bullet Punch") && opp.name === "Mimikyu") {
-      action = "Break Disguise safely with Bullet Punch";
-    }
+function orderBestThreeWithLead(bestThree, lead) {
+  if (!lead) return bestThree;
 
-    if (lead.name === "Scizor" && hasMove(lead, "U-turn") && hasType(opp, "Fire")) {
-      action = "Pivot out immediately and avoid losing Scizor early";
-    }
+  const leadPick = bestThree.find((pokemon) => pokemon.name === lead);
+  const others = bestThree.filter((pokemon) => pokemon.name !== lead);
 
-    if (lead.name === "Dragonite" && hasMove(lead, "Dragon Dance")) {
-      if (!hasType(opp, "Fairy") && !hasType(opp, "Ice")) {
-        action = "Consider preserving Dragonite for a later setup window";
-      }
-    }
+  return leadPick ? [leadPick, ...others].slice(0, 3) : bestThree;
+}
 
-    plans.push({
-      opponent: opp.name,
-      action,
-    });
+function getStablePhrase(options, seed) {
+  if (!options.length) return "";
+  const index = normalizeText(seed).length % options.length;
+  return options[index];
+}
+
+function getTurnOneAction(leadPokemon, opponentPokemon) {
+  if (!leadPokemon || !opponentPokemon) {
+    return "Scout safely and look to pivot";
   }
 
-  return plans;
+  const bestMove = getBestMoveInto(leadPokemon, opponentPokemon);
+  const opponentThreatMove = getBestThreatMoveInto(opponentPokemon, leadPokemon);
+  const pivotMove = getFirstMoveByRule(leadPokemon, "pivot");
+  const opponentSetupMove = getFirstMoveByRule(opponentPokemon, "setup");
+  const opponentPriorityMove = getFirstMoveByRule(opponentPokemon, "priority");
+
+  if (opponentSetupMove && bestMove?.score > 1) {
+    return `Pressure with ${bestMove.name} and stop ${opponentSetupMove}`;
+  }
+
+  if (opponentThreatMove?.effectiveness >= 2 && pivotMove) {
+    return `Respect ${opponentThreatMove.name} and pivot with ${pivotMove}`;
+  }
+
+  if (opponentThreatMove?.effectiveness >= 2) {
+    return `Respect ${opponentThreatMove.name} and avoid a bad early trade`;
+  }
+
+  if (opponentPriorityMove && bestMove?.effectiveness < 2) {
+    return `Avoid unnecessary chip and respect ${opponentPriorityMove}`;
+  }
+
+  if (bestMove?.effectiveness >= 2) {
+    return getStablePhrase(
+      [
+        `Pressure with ${bestMove.name}`,
+        `Open with ${bestMove.name}`,
+        `Force damage early with ${bestMove.name}`,
+        `Lead aggression with ${bestMove.name}`,
+      ],
+      `${leadPokemon.name}${opponentPokemon.name}${bestMove.name}`
+    );
+  }
+
+  if (pivotMove) {
+    return `Create early pressure, then pivot with ${pivotMove}`;
+  }
+
+  if (bestMove) {
+    return `Neutral matchup, look for chip with ${bestMove.name}`;
+  }
+
+  return "Scout safely and look to pivot";
+}
+
+function getTurnOnePlan(leadPokemon, opponentTeam) {
+  if (!leadPokemon) return [];
+
+  return opponentTeam.map((opponent) => ({
+    opponent: displayPokemonName(opponent),
+    action: getTurnOneAction(leadPokemon, opponent),
+  }));
+}
+
+function getBestTargetsForPokemon(pokemon, opponentTeam) {
+  return opponentTeam
+    .map((opponent) => ({
+      opponent,
+      move: getBestMoveInto(pokemon, opponent),
+    }))
+    .filter((entry) => entry.move)
+    .sort((a, b) => b.move.score - a.move.score);
+}
+
+function buildWinConditions(chosenThree, opponentTeam, lead) {
+  const lines = [];
+  const setupMons = chosenThree.filter(hasSetupMove);
+  const primaryWinCondition = setupMons[0] || null;
+
+  for (const pokemon of chosenThree) {
+    const bestTargets = getBestTargetsForPokemon(pokemon, opponentTeam);
+    const bestStrongTarget = bestTargets.find((entry) => entry.move.effectiveness >= 2) || bestTargets[0];
+    const role = pokemon.role || getBaseRoleLabel(pokemon);
+    const setupMove = getFirstMoveByRule(pokemon, "setup");
+    const pivotMove = getFirstMoveByRule(pokemon, "pivot");
+    const priorityMove = getFirstMoveByRule(pokemon, "priority");
+
+    if (pokemon.name === lead && pivotMove) {
+      lines.push(
+        `${pokemon.name} should lead, create pressure, then pivot with ${pivotMove}`
+      );
+      continue;
+    }
+
+    if (setupMove && primaryWinCondition?.name === pokemon.name) {
+      lines.push(
+        `${pokemon.name} is your main win condition, find a safe ${setupMove} window before committing`
+      );
+      continue;
+    }
+
+    if (setupMove) {
+      lines.push(
+        `${pokemon.name} is a secondary setup threat, only use ${setupMove} once checks are weakened`
+      );
+      continue;
+    }
+
+    if (priorityMove && bestStrongTarget) {
+      lines.push(
+        `${pokemon.name} can clean weakened targets with ${priorityMove} after ${displayPokemonName(bestStrongTarget.opponent)} is chipped`
+      );
+      continue;
+    }
+
+    if (bestStrongTarget?.move?.effectiveness >= 2) {
+      lines.push(
+        `Use ${pokemon.name} to pressure ${displayPokemonName(bestStrongTarget.opponent)} with ${bestStrongTarget.move.name}`
+      );
+      continue;
+    }
+
+    if (bestStrongTarget) {
+      lines.push(
+        `Use ${pokemon.name} as a ${role.toLowerCase()} and take safe trades with ${bestStrongTarget.move.name}`
+      );
+    }
+  }
+
+  for (const opponent of opponentTeam) {
+    const setupMove = getFirstMoveByRule(opponent, "setup");
+
+    if (setupMove) {
+      lines.push(`Do not give ${displayPokemonName(opponent)} a free ${setupMove} turn`);
+    }
+  }
+
+  return [...new Set(lines)].slice(0, 3);
 }
 
 function buildGroupedRisks(chosenThree) {
   return chosenThree
     .map((pokemon) => ({
       pokemon: pokemon.name,
-      warnings: [...new Set(pokemon.warnings)],
+      warnings: pokemon.warnings || [],
     }))
     .filter((entry) => entry.warnings.length > 0);
 }
@@ -505,165 +767,8 @@ function buildFieldRisks(chosenThree) {
 }
 
 function summarizeRisk(entry) {
-  const text = entry.warnings.join(" ").toLowerCase();
-
-  if (entry.pokemon === "Greninja") {
-    if (text.includes("neutral trade")) {
-      return "Neutral trade risk vs bulky Water";
-    }
-    if (text.includes("grass")) {
-      return "Watch coverage and forced trades";
-    }
-  }
-
-  if (entry.pokemon === "Dragonite") {
-    const hasSetup = text.includes("setup threat");
-    const hasFairy = text.includes("fairy");
-
-    if (hasSetup && hasFairy) {
-      return "Setup mirrors and Fairy pressure";
-    }
-    if (hasSetup) {
-      return "Setup pressure if unchecked";
-    }
-  }
-
-  if (entry.pokemon === "Scizor") {
-    if (text.includes("fire")) {
-      return "Fire pressure punishes bad positioning";
-    }
-    if (text.includes("momentum")) {
-      return "Momentum loss can turn this awkward";
-    }
-  }
-
-  if (entry.pokemon === "Gengar") {
-    if (text.includes("dark")) {
-      return "Dark pressure can force bad trades";
-    }
-  }
-
-  if (entry.pokemon === "Garchomp") {
-    if (text.includes("ice")) {
-      return "Ice coverage is the main danger";
-    }
-  }
-
-  const firstWarning = entry.warnings[0] || "";
-  return firstWarning.length > 54
-    ? `${firstWarning.slice(0, 54)}...`
-    : firstWarning;
-}
-
-function buildWinConditions(chosenThree, opponentTeam, lead) {
-  const winConditions = [];
-  const greninja = chosenThree.find((p) => p.name === "Greninja");
-  const scizor = chosenThree.find((p) => p.name === "Scizor");
-  const dragonite = chosenThree.find((p) => p.name === "Dragonite");
-  const gengar = chosenThree.find((p) => p.name === "Gengar");
-  const charizard = chosenThree.find((p) => p.name === "Charizard");
-  const garchomp = chosenThree.find((p) => p.name === "Garchomp");
-
-  for (const opp of opponentTeam) {
-    const oppMeta = getMeta(opp.name);
-    if (oppMeta?.winNotes) {
-      winConditions.push(...oppMeta.winNotes);
-    }
-  }
-
-  if (greninja) {
-    const hasDragon = opponentTeam.some((p) => hasType(p, "Dragon"));
-    const hasGhost = opponentTeam.some((p) => hasType(p, "Ghost"));
-    const hasGrass = opponentTeam.some((p) => hasType(p, "Grass"));
-    const hasFire = opponentTeam.some((p) => hasType(p, "Fire"));
-
-    if (hasDragon && hasMove(greninja, "Ice Beam")) {
-      winConditions.push("Greninja is your primary Dragon answer through Ice Beam");
-    }
-
-    if (hasGhost && hasMove(greninja, "Dark Pulse")) {
-      winConditions.push("Greninja pressures Ghost matchups with Dark Pulse");
-    }
-
-    if (hasFire && hasMove(greninja, "Hydro Pump")) {
-      winConditions.push("Greninja can create early momentum by threatening Fire matchups");
-    }
-
-    if (hasGrass && hasMove(greninja, "Ice Beam")) {
-      winConditions.push("Greninja can pressure Grass matchups with Ice coverage");
-    }
-
-    if (hasMove(greninja, "U-turn")) {
-      winConditions.push("Greninja can preserve momentum with U-turn instead of forcing bad trades");
-    }
-  }
-
-  if (scizor) {
-    if (opponentTeam.some((pokemon) => pokemon.name === "Mimikyu") && hasMove(scizor, "Bullet Punch")) {
-      winConditions.push("Scizor is key for breaking Mimikyu cleanly with Bullet Punch");
-    }
-
-    if (hasMove(scizor, "Bullet Punch")) {
-      winConditions.push("Preserve Scizor if you need priority to clean late");
-    }
-
-    if (hasMove(scizor, "U-turn")) {
-      winConditions.push("Scizor can pivot to maintain momentum instead of overcommitting early");
-    }
-  }
-
-  if (gengar) {
-    if (opponentTeam.some((pokemon) => hasType(pokemon, "Ghost") || hasType(pokemon, "Fairy"))) {
-      winConditions.push("Gengar helps pressure awkward Ghost and Fairy matchups early");
-    }
-
-    if (hasMove(gengar, "Nasty Plot")) {
-      winConditions.push("Look for a safe Nasty Plot window if the opponent gives passive turns");
-    }
-  }
-
-  if (charizard) {
-    if (opponentTeam.some((pokemon) => hasType(pokemon, "Steel") || hasType(pokemon, "Grass"))) {
-      winConditions.push("Charizard can break through Steel or Grass targets to open the endgame");
-    }
-
-    if (hasAbility(charizard, "Drought")) {
-      winConditions.push("Mega Charizard can swing games quickly once Drought is active");
-    }
-  }
-
-  if (garchomp) {
-    if (hasMove(garchomp, "Swords Dance")) {
-      winConditions.push("Garchomp can become a late game breaker if given one setup turn");
-    } else {
-      winConditions.push("Garchomp can often clean late if faster threats are weakened first");
-    }
-  }
-
-  if (dragonite) {
-    if (hasMove(dragonite, "Dragon Dance")) {
-      winConditions.push("Dragonite becomes a win condition if Fairy and Ice pressure are removed");
-    }
-
-    if (hasMove(dragonite, "Extreme Speed")) {
-      winConditions.push("Dragonite can still provide priority value even before setting up");
-    }
-  }
-
-  if (lead) {
-    winConditions.push(`${lead} is your main piece for establishing early momentum`);
-  }
-
-  return [...new Set(winConditions)].slice(0, 3);
-}
-
-function orderBestThreeWithLead(bestThree, lead) {
-  if (!lead) return bestThree;
-
-  const leadPick = bestThree.find((pokemon) => pokemon.name === lead);
-  const others = bestThree.filter((pokemon) => pokemon.name !== lead);
-
-  return leadPick ? [leadPick, ...others].slice(0, 3) : bestThree;
+  if (!entry?.warnings?.length) return "";
+  return entry.warnings[0].text || "";
 }
 
 const styles = {
@@ -683,26 +788,6 @@ const styles = {
     textAlign: "center",
     opacity: 0.85,
     marginBottom: "18px",
-  },
-  textarea: {
-    width: "100%",
-    marginBottom: "12px",
-    padding: "14px",
-    borderRadius: "10px",
-    border: "1px solid #555",
-    background: "#1a1a24",
-    color: "#fff",
-    fontSize: "15px",
-    boxSizing: "border-box",
-  },
-  textareaWrap: {
-    marginBottom: "6px",
-  },
-  fallbackNote: {
-    textAlign: "center",
-    opacity: 0.7,
-    fontSize: "12px",
-    marginBottom: "10px",
   },
   buttonWrap: {
     textAlign: "center",
@@ -837,7 +922,6 @@ const styles = {
 
 export default function App() {
   const [builderTeam, setBuilderTeam] = useState(emptyTeam);
-  const [input, setInput] = useState("");
   const [selectedOpponentPokemon, setSelectedOpponentPokemon] = useState([]);
   const [opponentTeam, setOpponentTeam] = useState([]);
   const [bestThree, setBestThree] = useState([]);
@@ -846,39 +930,39 @@ export default function App() {
   const [fieldRisks, setFieldRisks] = useState([]);
   const [turnPlan, setTurnPlan] = useState([]);
   const [winConditions, setWinConditions] = useState([]);
+  const [hasAnalyzed, setHasAnalyzed] = useState(false);
 
   const myTeam = buildMyTeamFromBuilder(builderTeam);
-  const showFallbackTextarea = selectedOpponentPokemon.length < 6;
   const orderedBestThree = orderBestThreeWithLead(bestThree, lead);
   const shouldShowAnalyzedOpponentTeam =
     selectedOpponentPokemon.length === 0 && opponentTeam.length > 0;
 
+  const handleOpponentChange = (nextPokemon) => {
+    setSelectedOpponentPokemon(nextPokemon);
+
+    if (nextPokemon.length !== 6) {
+      setHasAnalyzed(false);
+      setOpponentTeam([]);
+      setBestThree([]);
+      setLead("");
+      setRisksByPokemon([]);
+      setFieldRisks([]);
+      setTurnPlan([]);
+      setWinConditions([]);
+    }
+  };
+
   const handleAnalyze = () => {
-    const selectedFromPicker = selectedOpponentPokemon
-      .map((pokemon) => findPokemon(pokemon.name))
+    const foundTeam = selectedOpponentPokemon
+      .map((pokemon) => hydratePokemon(pokemon))
       .filter(Boolean)
       .slice(0, 6);
-
-    const parsedFromText = input
-      .split(/[,\n]+/)
-      .map((name) => name.trim())
-      .filter(Boolean)
-      .slice(0, 6)
-      .map((name) => findPokemon(name))
-      .filter(Boolean);
-
-    const foundTeam =
-      selectedFromPicker.length > 0 ? selectedFromPicker : parsedFromText;
 
     const ranked = myTeam
       .map((pokemon) => scoreMatchup(pokemon, foundTeam))
       .sort((a, b) => b.score - a.score);
 
-    const chosenThree = ranked.slice(0, 3).map((pokemon) => ({
-      ...pokemon,
-      role: getRoleLabel(pokemon),
-    }));
-
+    const chosenThree = finalizeChosenThree(ranked.slice(0, 3));
     const chosenLead = chooseLead(chosenThree, foundTeam);
     const leadPokemon = chosenThree.find((pokemon) => pokemon.name === chosenLead);
 
@@ -894,6 +978,7 @@ export default function App() {
     setFieldRisks(globalFieldRisks);
     setTurnPlan(plans);
     setWinConditions(wins);
+    setHasAnalyzed(true);
   };
 
   return (
@@ -906,28 +991,21 @@ export default function App() {
       <PokemonSearchPicker
         pokemonData={pokemonData}
         selectedPokemon={selectedOpponentPokemon}
-        setSelectedPokemon={setSelectedOpponentPokemon}
+        setSelectedPokemon={handleOpponentChange}
         normalizeText={normalizeText}
+        hasAnalyzed={hasAnalyzed}
       />
 
-      {showFallbackTextarea && (
-        <div style={styles.textareaWrap}>
-          <div style={styles.fallbackNote}>
-            Optional fallback input if you want to paste names manually.
-          </div>
-
-          <textarea
-            rows="4"
-            style={styles.textarea}
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Optional fallback: Gengar, Mimikyu, Garchomp, Dragonite, Gyarados, Umbreon"
-          />
-        </div>
-      )}
-
       <div style={styles.buttonWrap}>
-        <button onClick={handleAnalyze} style={styles.button}>
+        <button
+          onClick={handleAnalyze}
+          style={{
+            ...styles.button,
+            opacity: selectedOpponentPokemon.length === 6 ? 1 : 0.55,
+            cursor: selectedOpponentPokemon.length === 6 ? "pointer" : "not-allowed",
+          }}
+          disabled={selectedOpponentPokemon.length !== 6}
+        >
           Analyze Match
         </button>
       </div>
@@ -947,12 +1025,11 @@ export default function App() {
                   />
                 )}
 
-                <strong>{pokemon.name}</strong>
-                {pokemon.form ? ` (${pokemon.form})` : ""}
+                <strong>{displayPokemonName(pokemon)}</strong>
                 <br />
 
                 <span style={{ fontSize: "13px", opacity: 0.9 }}>
-                  {pokemon.types.join(", ")}
+                  {(pokemon.types || []).join(", ")}
                 </span>
               </div>
             ))}
@@ -989,7 +1066,7 @@ export default function App() {
                   )}
 
                   <div style={styles.bestName}>{pokemon.name}</div>
-                  <div style={styles.bestMeta}>{pokemon.types.join(", ")}</div>
+                  <div style={styles.bestMeta}>{(pokemon.types || []).join(", ")}</div>
                   <div style={styles.bestMeta}>Score: {pokemon.score}</div>
                   <div style={styles.bestRole}>{pokemon.role}</div>
                 </div>

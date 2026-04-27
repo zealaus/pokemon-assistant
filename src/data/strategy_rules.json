@@ -1,0 +1,63 @@
+{
+  "moves": {
+    "setup": [
+      "Dragon Dance",
+      "Swords Dance",
+      "Nasty Plot",
+      "Calm Mind",
+      "Bulk Up",
+      "Shell Smash",
+      "Belly Drum"
+    ],
+    "priority": [
+      "Bullet Punch",
+      "Aqua Jet",
+      "Extreme Speed",
+      "Ice Shard",
+      "Mach Punch",
+      "Shadow Sneak"
+    ],
+    "pivot": [
+      "U Turn",
+      "U-turn",
+      "Flip Turn",
+      "Volt Switch"
+    ],
+    "recovery": [
+      "Recover",
+      "Roost",
+      "Slack Off",
+      "Synthesis",
+      "Soft-Boiled"
+    ]
+  },
+
+  "roles": {
+    "setup_sweeper": {
+      "conditions": ["hasSetup"],
+      "label": "Win Condition"
+    },
+    "pivot": {
+      "conditions": ["hasPivot"],
+      "label": "Pivot"
+    },
+    "priority_cleaner": {
+      "conditions": ["hasPriority"],
+      "label": "Cleaner"
+    },
+    "special_attacker": {
+      "conditions": ["highSpecialMoves"],
+      "label": "Special Attacker"
+    },
+    "physical_attacker": {
+      "conditions": ["highPhysicalMoves"],
+      "label": "Physical Attacker"
+    }
+  },
+
+  "riskTemplates": {
+    "setup": "Can snowball if given a free turn",
+    "priority": "Threatens with priority cleanup",
+    "bulky": "Can force repeated neutral trades"
+  }
+}
