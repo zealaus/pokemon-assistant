@@ -727,6 +727,34 @@ function getBestTargetsForPokemon(pokemon, opponentTeam) {
     .sort((a, b) => b.move.score - a.move.score);
 }
 
+function getWinConditionDependency(pokemon, opponentTeam) {
+  const checks = opponentTeam
+    .map((opponent) => {
+      const opponentBestMove = getBestThreatMoveInto(opponent, pokemon);
+      const myBestMove = getBestMoveInto(pokemon, opponent);
+
+      const threatensPokemon = opponentBestMove?.effectiveness >= 2;
+      const resistsPokemon = !myBestMove || myBestMove.effectiveness < 1;
+
+      if (threatensPokemon || resistsPokemon) {
+        return displayPokemonName(opponent);
+      }
+
+      return null;
+    })
+    .filter(Boolean);
+
+  const uniqueChecks = [...new Set(checks)];
+
+  if (uniqueChecks.length === 0) return "";
+
+  if (uniqueChecks.length === 1) {
+    return ` once ${uniqueChecks[0]} is chipped or removed`;
+  }
+
+  return ` once ${uniqueChecks.slice(0, 2).join(" and ")} are chipped or removed`;
+}
+
 function buildWinConditions(chosenThree, opponentTeam, lead) {
   const lines = [];
   const setupMons = chosenThree.filter(hasSetupMove);
@@ -749,21 +777,21 @@ function buildWinConditions(chosenThree, opponentTeam, lead) {
 
     if (setupMove && primaryWinCondition?.name === pokemon.name) {
       lines.push(
-        `${pokemon.name} is your main win condition, find a safe ${setupMove} window before committing`
+        `${pokemon.name} is your main win condition${getWinConditionDependency(pokemon, opponentTeam)}. Find a safe ${setupMove} window before committing`
       );
       continue;
     }
 
     if (setupMove) {
       lines.push(
-        `${pokemon.name} is a secondary setup threat, only use ${setupMove} once checks are weakened`
+        `${pokemon.name} is a secondary setup threat${getWinConditionDependency(pokemon, opponentTeam)}. Only use ${setupMove} once checks are weakened`
       );
       continue;
     }
 
     if (priorityMove && bestStrongTarget) {
       lines.push(
-        `${pokemon.name} can clean weakened targets with ${priorityMove} after ${displayPokemonName(bestStrongTarget.opponent)} is chipped`
+        `${pokemon.name} can clean weakened targets with ${priorityMove} after ${displayPokemonName(bestStrongTarget.opponent)} is chipped or removed`
       );
       continue;
     }
@@ -800,6 +828,15 @@ function findMegaRuleForPokemon(pokemon) {
   const nameKey = pokemon.name;
 
   return megaRules[displayKey] || megaRules[nameKey] || null;
+}
+
+function getCompactMegaName(megaName) {
+  const name = String(megaName || "");
+
+  if (name === "Mega Charizard Y") return "Mega Y";
+  if (name === "Mega Charizard X") return "Mega X";
+
+  return name.replace(/^Mega\s+/, "Mega ");
 }
 
 function getMegaPriority(mega) {
@@ -877,13 +914,95 @@ function getConditionalMegaRisks(opponentTeam, chosenThree) {
     .slice(0, 6);
 }
 
+function cleanRiskText(text, source) {
+  return String(text || "")
+    .replace(new RegExp(`^${source}\\s+`, "i"), "")
+    .replace(/^threatens\s+/i, "")
+    .replace(/^can threaten\s+/i, "")
+    .replace(/^with\s+/i, "")
+    .replace(/^threatens with\s+/i, "")
+    .replace(/^can threaten with\s+/i, "")
+    .trim();
+}
+
+function normaliseRiskText(text) {
+  return String(text || "")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function titleCaseMoveText(text) {
+  return String(text || "")
+    .split(" ")
+    .map((word) => (word ? `${word[0].toUpperCase()}${word.slice(1)}` : word))
+    .join(" ");
+}
+
+function splitRiskMoves(text) {
+  return String(text || "")
+    .split("/")
+    .map((move) => move.trim())
+    .filter(Boolean);
+}
+
 function buildGroupedRisks(chosenThree) {
-  return chosenThree
-    .map((pokemon) => ({
-      pokemon: pokemon.name,
-      warnings: pokemon.warnings || [],
+  const targetPriority = new Map(
+    chosenThree.map((pokemon, index) => [pokemon.name, index])
+  );
+
+  const rawRisks = [];
+
+  for (const pokemon of chosenThree) {
+    for (const warning of pokemon.warnings || []) {
+      rawRisks.push({
+        source: warning.source,
+        target: pokemon.name,
+        text: warning.text,
+      });
+    }
+  }
+
+  const grouped = new Map();
+
+  for (const risk of rawRisks) {
+    const key = risk.source;
+
+    if (!grouped.has(key)) {
+      grouped.set(key, {
+        source: risk.source,
+        targets: new Set(),
+        threatTexts: new Map(),
+      });
+    }
+
+    const entry = grouped.get(key);
+    entry.targets.add(risk.target);
+
+    const cleanedText = cleanRiskText(risk.text, risk.source);
+
+    for (const moveText of splitRiskMoves(cleanedText)) {
+      const normalisedText = normaliseRiskText(moveText);
+
+      if (normalisedText && !entry.threatTexts.has(normalisedText)) {
+        entry.threatTexts.set(normalisedText, moveText);
+      }
+    }
+  }
+
+  return [...grouped.values()]
+    .map((risk) => ({
+      source: risk.source,
+      targets: [...risk.targets].sort(
+        (a, b) => (targetPriority.get(a) ?? 99) - (targetPriority.get(b) ?? 99)
+      ),
+      threatTexts: [...risk.threatTexts.values()],
+      priority: Math.min(
+        ...[...risk.targets].map((target) => targetPriority.get(target) ?? 99)
+      ),
     }))
-    .filter((entry) => entry.warnings.length > 0);
+    .sort((a, b) => a.priority - b.priority || a.source.localeCompare(b.source))
+    .slice(0, 6);
 }
 
 function buildFieldRisks(chosenThree) {
@@ -892,8 +1011,15 @@ function buildFieldRisks(chosenThree) {
 }
 
 function summarizeRisk(entry) {
-  if (!entry?.warnings?.length) return "";
-  return entry.warnings[0].text || "";
+  if (!entry?.targets?.length) return "";
+
+  const targetText = entry.targets.slice(0, 2).join(" / ");
+  const threatText = [...new Set(entry.threatTexts || [])]
+    .slice(0, 2)
+    .map(titleCaseMoveText)
+    .join(" / ");
+
+  return threatText ? `${targetText}: ${threatText}` : targetText;
 }
 
 const styles = {
@@ -1244,7 +1370,7 @@ export default function App() {
           <div style={styles.turnGrid}>
             {risksByPokemon.map((entry, index) => (
               <div key={index} style={styles.turnCard}>
-                <div style={styles.turnVs}>{entry.pokemon}</div>
+                <div style={styles.turnVs}>{entry.source}</div>
                 <div style={styles.turnAction}>{summarizeRisk(entry)}</div>
               </div>
             ))}
@@ -1260,7 +1386,7 @@ export default function App() {
           <div style={styles.turnGrid}>
             {conditionalMegaRisks.map((risk, index) => (
               <div key={index} style={styles.turnCard}>
-                <div style={styles.turnVs}>{risk.pokemon} ({risk.mega})</div>
+                <div style={styles.turnVs}>{risk.pokemon} ({getCompactMegaName(risk.mega)})</div>
                 <div style={styles.turnAction}>{risk.text}</div>
               </div>
             ))}

@@ -5,6 +5,58 @@ function displayPokemonName(pokemon) {
   return pokemon.displayName || (pokemon.form ? `${pokemon.name} (${pokemon.form})` : pokemon.name);
 }
 
+const COSMETIC_FORM_SPECIES = new Set([
+  "Alcremie",
+  "Florges",
+  "Furfrou",
+  "Vivillon",
+  "Polteageist",
+  "Sinistcha",
+]);
+
+const COSMETIC_FORM_PATTERNS = [
+  /alcremie/i,
+  /florges/i,
+  /furfrou/i,
+  /vivillon/i,
+  /polteageist/i,
+  /sinistcha/i,
+];
+
+function isCosmeticFormSpecies(pokemon) {
+  const displayName = displayPokemonName(pokemon);
+  const form = pokemon?.form || "";
+  const name = pokemon?.name || "";
+
+  return (
+    COSMETIC_FORM_SPECIES.has(name) ||
+    COSMETIC_FORM_PATTERNS.some((pattern) => pattern.test(displayName) || pattern.test(form))
+  );
+}
+
+function normaliseCosmeticDisplay(pokemon) {
+  if (!isCosmeticFormSpecies(pokemon)) return pokemon;
+
+  return {
+    ...pokemon,
+    displayName: pokemon.name,
+    aliases: [
+      ...(pokemon.aliases || []),
+      pokemon.displayName,
+      pokemon.form,
+      pokemon.slug,
+    ].filter(Boolean),
+  };
+}
+
+function getPickerGroupKey(pokemon) {
+  if (isCosmeticFormSpecies(pokemon)) {
+    return `cosmetic:${pokemon.name}`;
+  }
+
+  return pokemon.displayName || pokemon.slug || pokemon.name;
+}
+
 function getSpriteForPokemon(pokemon) {
   return pokemon?.sprite || "";
 }
@@ -98,11 +150,27 @@ export default function PokemonSearchPicker({
   const [search, setSearch] = useState("");
 
   const selectedKeys = useMemo(() => {
-    return new Set(selectedPokemon.map((pokemon) => normalizeText(pokemon.displayName || pokemon.slug || pokemon.name)));
+    return new Set(
+      selectedPokemon.map((pokemon) =>
+        normalizeText(getPickerGroupKey(pokemon))
+      )
+    );
   }, [selectedPokemon, normalizeText]);
 
   const playablePokemon = useMemo(() => {
-    return pokemonData.filter((pokemon) => pokemon.normallyAvailable !== false);
+    const seenGroups = new Set();
+
+    return pokemonData
+      .filter((pokemon) => pokemon.normallyAvailable !== false)
+      .map(normaliseCosmeticDisplay)
+      .filter((pokemon) => {
+        const groupKey = getPickerGroupKey(pokemon);
+
+        if (seenGroups.has(groupKey)) return false;
+
+        seenGroups.add(groupKey);
+        return true;
+      });
   }, [pokemonData]);
 
   const filteredPokemon = useMemo(() => {
@@ -133,7 +201,7 @@ export default function PokemonSearchPicker({
   function addPokemon(pokemon) {
     if (isTeamFull) return;
 
-    const key = normalizeText(pokemon.displayName || pokemon.slug || pokemon.name);
+    const key = normalizeText(getPickerGroupKey(pokemon));
     if (selectedKeys.has(key)) return;
 
     setSelectedPokemon([...selectedPokemon, pokemon].slice(0, 6));
@@ -153,7 +221,7 @@ export default function PokemonSearchPicker({
     if (event.key !== "Enter") return;
 
     const firstMatch = filteredPokemon.find((pokemon) => {
-      const key = normalizeText(pokemon.displayName || pokemon.slug || pokemon.name);
+      const key = normalizeText(getPickerGroupKey(pokemon));
       return !selectedKeys.has(key);
     });
 
@@ -210,7 +278,7 @@ export default function PokemonSearchPicker({
           <div style={styles.gridWrap}>
             <div style={styles.grid}>
               {filteredPokemon.map((pokemon) => {
-                const key = normalizeText(pokemon.displayName || pokemon.slug || pokemon.name);
+                const key = normalizeText(getPickerGroupKey(pokemon));
                 const selected = selectedKeys.has(key);
 
                 return (
